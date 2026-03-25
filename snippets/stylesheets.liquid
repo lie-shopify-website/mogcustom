@@ -1,2 +1,31 @@
 {{ 'overflow-list.css' | asset_url | preload_tag: as: 'style' }}
 {{ 'base.css' | asset_url | stylesheet_tag: preload: true }}
+
+
+{% comment %}  layout-container页面安全区域 {% endcomment %}
+<style>
+    .layout-container {
+        --layout-container-horizontal-space: 24px;
+        padding-left: var(--layout-container-horizontal-space);
+        padding-right: var(--layout-container-horizontal-space);
+        max-width: 100%;
+    }
+    @media (min-width: 768px){
+        .layout-container {
+            --layout-container-horizontal-space: 32px;
+        }
+    }
+    @media (min-width: 1024px){
+        .layout-container {
+            --layout-container-horizontal-space: 48px;
+        }
+    }
+    @media (min-width: 1536px){
+        .layout-container {
+            --layout-container-horizontal-space: 0;
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1440px;
+        }
+    }
+</style>

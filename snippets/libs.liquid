@@ -1,0 +1,13 @@
+{% comment %} 图片组件 {% endcomment %}
+<script src="{{ 'mf-img.min.js' | asset_url }}" defer></script>
+
+{% comment %} lazysizes 组件 {% endcomment %}
+<script>
+    window.lazySizesConfig = window.lazySizesConfig || {};
+    window.lazySizesConfig.lazyClass = 'js-lazy';
+    window.lazySizesConfig.srcAttr = 'data-lzsrc';
+    window.lazySizesConfig.loadMode = 1;
+</script>
+<script src="{{ 'lazysizes-umd.min.js' | asset_url }}" async></script>
+
+{% comment %} 其他组件依次添加 {% endcomment %}

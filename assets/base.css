@@ -4944,3 +4944,12 @@ product-recommendations:has([data-has-recommendations='false']) {
     translate: 0px var(--atc-destination, 0px);
   }
 }
+
+
+
+
+
+/* header */
+header {
+  border-bottom: 1px solid #d3d3d3;
+}

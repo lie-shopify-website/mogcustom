@@ -1,0 +1,105 @@
+
+{% schema %}
+    {
+        "name": "多列列表",
+        "settings": [
+            { "type": "header","content":"配置"},
+            { "type": "select", "id": "section_width", "label": "版块宽度", "default": "full-width", "options": [
+                { "value": "full-width", "label": "全宽" },
+                { "value": "custom-width", "label": "自定义宽度" }
+            ]},
+            { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' }}" },
+
+            { "type": "range", "id": "column_count", "label": "列数 (电脑端)", "default": 6, "min": 1, "max": 6, "step": 1, "info": "电脑端一行显示的列数, 超过6列会自动换行. 手机端只显示一行不换行" },
+            { "type": "header","content":"颜色"},
+            { "type": "color", "id": "bg_color", "label": "背景颜色", "default": "transparent" },
+            { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#0B2A4A" },
+            { "type": "color", "id": "text_color_hover", "label": "文字颜色 (悬浮)", "default": "#F7921F" },
+            { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+            { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+        "blocks": [
+            {
+                "type": "column",
+                "name": "Column",
+                "settings": [
+                    { "type": "header","content":"图片"},
+                    { "type": "image_picker", "id": "column_image", "label": "图片" },
+                    { "type": "image_picker", "id": "column_image_mb", "label": "图片 (手机端)", "info": "选填. 可以为空, 默认使用电脑端图片" },
+                    { "type": "textarea", "id": "column_title", "label": "标题" },
+                    { "type": "textarea", "id": "column_info", "label": "内容" },
+                    { "type": "url", "id": "column_url", "label": "链接" },
+                ]
+            }
+        ],
+
+        "presets": [
+            {
+                "name": "多列列表",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+{{ 'cm-multicolumn-list.css' | asset_url | stylesheet_tag }}
+<style>
+[data-section-id="{{ section.id }}"] {
+    --bg-color:{{ section.settings.bg_color }};
+    --text-color:{{ section.settings.text_color }};
+    --text-color-hover:{{ section.settings.text_color_hover }};
+    --desktop-column-count:{{ section.settings.column_count }};
+
+    {% if section.settings.section_width == 'custom-width' %}
+        --section-width:{{ section.settings.section_width_custom }}px;
+    {% elsif section.settings.section_width == 'full-width' %}
+        --section-width:100%;
+    {% endif %}
+}
+</style>
+<div class="cm-multicolumn-list {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+    <div class="layout-container">
+        <div class="cm-multicolumn-list-inner">
+            <div class="cm-multicolumn-list-items">
+            {% for block in section.blocks %}
+                <div class="cm-multicolumn-list-item">
+
+                    {% comment %} 链接, visually-hidden 用于屏幕阅读器, 是无障碍辅助功能 {% endcomment %}
+                    {% if block.settings.column_url != blank %}
+                        <a href="{{ block.settings.column_url }}"><span class="visually-hidden">{{ block.settings.column_title }}</span></a>
+                    {% endif %}
+                    
+                    <div class="column-image">
+                        {% comment %} 图片 {% endcomment %}
+                        {% liquid
+                            assign pc_src = block.settings.column_image | image_url: width: block.settings.image.width
+                            assign pad_src = block.settings.column_image | image_url: width: block.settings.image.width
+                            assign m_src = block.settings.column_image_mb | image_url: width: 1536
+                        %}
+                        {% render 'resp-img'
+                            pc_src: pc_src,
+                            pad_src: pad_src,
+                            m_src: m_src,
+                            lazy: true,
+                            class_name: 'resp-img-class',
+                            alt: block.settings.column_title
+                        %}
+                    </div>
+                    
+                    <div class="column-content">
+                        {% if block.settings.column_title != blank %}
+                            <div class="column-title">{{ block.settings.column_title }}</div>
+                        {% endif %}
+                        {% if block.settings.column_info != blank %}
+                            <div class="column-info">{{ block.settings.column_info }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
