@@ -14,6 +14,32 @@
     "footer_m9NzUG": {
       "type": "footer",
       "blocks": {
+        "text_VU7npQ": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p><strong>Get in touch?</strong></p><p><br/><strong>Email 24/7</strong>: support@mogcustom.com<br/><br/><strong>Live chat</strong>: Online from 9.30 AM to 5 PM (PST), Mon-Sun<br/><br/><strong>US Warehouse</strong>: <strong>Address 1 (USA)</strong>:<br/>33 S WOOD AVE SUITE 600 ISELIN NJ 08830, United States<br/><br/><strong>Address 2 (USA)</strong>:<br/>700 WESTLAKE PKWY SW STE 760 ATLANTA, GA 30336, United States<br/><strong><br/>Canada</strong>: 422 Richards St, Vancouver, BC V6B 2Z4</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_H6VpwJ": {
           "type": "group",
           "settings": {
@@ -115,9 +141,9 @@
             "width": "fill",
             "custom_width": 100,
             "inherit_color_scheme": true,
+            "color_scheme": "",
             "heading": "",
             "heading_preset": "h3",
-            "color_scheme": "",
             "border_style": "all",
             "border_width": 1,
             "border_radius": 100,
@@ -136,6 +162,7 @@
         }
       },
       "block_order": [
+        "text_VU7npQ",
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
