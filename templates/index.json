@@ -91,6 +91,139 @@
         "padding-block-end": 72
       }
     },
+    "cm_multicolumn_list_UVhCDB": {
+      "type": "cm-multicolumn-list",
+      "blocks": {
+        "column_UBTzQW": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-001.png",
+            "column_title": "Graduation",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_aLh4D3": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-002.png",
+            "column_title": "America 250",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_8CDPAr": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-003.png",
+            "column_title": "For Him",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_hAN9zC": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-004.png",
+            "column_title": "For Her",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_YNtdaU": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-005.png",
+            "column_title": "Friends",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_mkFkcj": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/category-006.png",
+            "column_title": "Shirt",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "column_UBTzQW",
+        "column_aLh4D3",
+        "column_8CDPAr",
+        "column_hAN9zC",
+        "column_YNtdaU",
+        "column_mkFkcj"
+      ],
+      "name": "多列列表",
+      "settings": {
+        "section_width": "custom-width",
+        "section_width_custom": 1200,
+        "column_count": 6,
+        "bg_color": "rgba(0,0,0,0)",
+        "text_color": "#0b2a4a",
+        "text_color_hover": "#f7921f",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_image_with_text_MpDaWg": {
+      "type": "cm-image-with-text",
+      "blocks": {
+        "heading_j4xEMw": {
+          "type": "heading",
+          "settings": {
+            "heading": "Graduation Gifts",
+            "text_color": "#cc423f"
+          }
+        },
+        "text_YRxUtD": {
+          "type": "text",
+          "settings": {
+            "text": "Celebrate their hard work with a gift that feels just as special.",
+            "text_color": "#0b2a4a"
+          }
+        },
+        "button_pDTF6n": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP NOW",
+            "button_url": "",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#F7921F",
+            "button_text_color_hover": "#F7921F",
+            "button_bg_color_hover": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_j4xEMw",
+        "text_YRxUtD",
+        "button_pDTF6n"
+      ],
+      "name": "图文组合",
+      "settings": {
+        "section_width": "full-content-width",
+        "section_width_custom": 1440,
+        "layout_type_pc": "right",
+        "layout_type_mb": "top",
+        "bg_color": "#fff2e7",
+        "content_bg_color": "#fff2e7",
+        "image": "shopify://shop_images/Graduation_Homepage_Banner.png",
+        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner.png",
+        "image_url": "shopify://collections",
+        "content_alignment": "center",
+        "content_max_width": 400,
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": true,
+        "remove_right_padding": true,
+        "custom_class": ""
+      }
+    },
     "product_list_fa6P9H": {
       "type": "product-list",
       "blocks": {
@@ -264,7 +397,6 @@
           ]
         }
       },
-      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "collection": "all",
@@ -284,88 +416,13 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
-      }
-    },
-    "cm_multicolumn_list_UVhCDB": {
-      "type": "cm-multicolumn-list",
-      "blocks": {
-        "column_UBTzQW": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-001.png",
-            "column_title": "Graduation",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
-        "column_aLh4D3": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-002.png",
-            "column_title": "America 250",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
-        "column_8CDPAr": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-003.png",
-            "column_title": "For Him",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
-        "column_hAN9zC": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-004.png",
-            "column_title": "For Her",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
-        "column_YNtdaU": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-005.png",
-            "column_title": "Friends",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
-        "column_mkFkcj": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/category-006.png",
-            "column_title": "Shirt",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        }
-      },
-      "block_order": [
-        "column_UBTzQW",
-        "column_aLh4D3",
-        "column_8CDPAr",
-        "column_hAN9zC",
-        "column_YNtdaU",
-        "column_mkFkcj"
-      ],
-      "name": "多列列表",
-      "settings": {
-        "bg_color": "rgba(0,0,0,0)",
-        "text_color": "#141414",
-        "text_color_hover": "#f7921f",
-        "remove_top_padding": false,
-        "remove_bottom_padding": false,
-        "custom_class": ""
-      }
+      } 
     }
   },
   "order": [
     "hero_jVaWmY",
-    "product_list_fa6P9H",
-    "cm_multicolumn_list_UVhCDB"
+    "cm_multicolumn_list_UVhCDB",
+    "cm_image_with_text_MpDaWg",
+    "product_list_fa6P9H"
   ]
 }

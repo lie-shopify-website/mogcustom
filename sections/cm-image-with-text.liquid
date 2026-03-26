@@ -1,0 +1,181 @@
+
+{% schema %}
+    {
+        "name": "图文组合",
+        "class": "cm-image-with-text-section",
+        "settings": [
+            { "type": "header","content":"配置"},
+            { "type": "select", "id": "section_width", "label": "版块宽度", "default": "full-width", "options": [
+                { "value": "full-width", "label": "版块全宽" },
+                { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+                { "value": "global-width", "label": "版块跟随全局宽度" },
+                { "value": "custom-width", "label": "版块自定义宽度" }
+            ]},
+            { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' or section.settings.section_width == 'full-content-width' }}" },
+            { "type": "select", "id": "layout_type_pc", "label": "布局方式", "default": "left", "options": [
+                { "value": "left", "label": "左图右文" },
+                { "value": "right", "label": "右图左文" }
+            ]},
+            { "type": "select", "id": "layout_type_mb", "label": "布局方式 (手机端)", "default": "top", "options": [
+                { "value": "top", "label": "上图下文" },
+                { "value": "bottom", "label": "下图上文" }
+            ]},
+
+            { "type": "header","content":"颜色"},
+            { "type": "color", "id": "bg_color", "label": "版块背景颜色", "default": "transparent" },
+            { "type": "color", "id": "content_bg_color", "label": "内容区域背景颜色", "default": "transparent" },
+            
+            { "type": "header","content":"图片"},
+            { "type": "image_picker", "id": "image", "label": "图片" },
+            { "type": "image_picker", "id": "image_mb", "label": "图片 (手机端)", "info": "选填. 可以为空, 默认使用电脑端图片" },
+            { "type": "url", "id": "image_url", "label": "图片链接" },
+
+            { "type": "header","content":"其他"},
+            { "type": "select", "id": "content_alignment", "label": "内容对齐方式", "default": "center", "options": [
+                { "value": "center", "label": "居中" },
+                { "value": "left", "label": "靠左" },
+                { "value": "right", "label": "靠右" }
+            ]},
+            { "type": "number", "id": "content_max_width", "label": "内容区域最大宽度", "default": 500 },
+            { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+            { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+            { "type": "checkbox", "id": "remove_left_padding", "label": "移除左边距 (手机端)", "default": false },
+            { "type": "checkbox", "id": "remove_right_padding", "label": "移除右边距 (手机端)", "default": false },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+        "blocks": [
+            {
+                "type": "heading",
+                "name": "标题",
+                "settings": [
+                    { "type": "textarea", "id": "heading", "label": "标题" },
+                    { "type": "number", "id": "font_size", "label": "字号大小", "default": 46 },
+                    { "type": "number", "id": "font_size_mb", "label": "字号大小 (手机端)", "default": 36 },
+                    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+                ]
+            },
+            {
+                "type": "text",
+                "name": "文本",
+                "settings": [
+                    { "type": "textarea", "id": "text", "label": "文本" },
+                    { "type": "number", "id": "font_size", "label": "字号大小", "default": 20 },
+                    { "type": "number", "id": "font_size_mb", "label": "字号大小 (手机端)", "default": 16 },
+                    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+                ]
+            },
+            {
+                "type": "button",
+                "name": "按钮",
+                "settings": [
+                    { "type": "textarea", "id": "button_text", "label": "按钮文本" },
+                    { "type": "url", "id": "button_url", "label": "按钮链接" },
+                    { "type": "color", "id": "button_text_color", "label": "按钮文字颜色", "default": "#ffffff" },
+                    { "type": "color", "id": "button_bg_color", "label": "按钮背景颜色", "default": "#F7921F" },
+                    { "type": "color", "id": "button_text_color_hover", "label": "按钮文字颜色 (悬浮)", "default": "#F7921F" },
+                    { "type": "color", "id": "button_bg_color_hover", "label": "按钮背景颜色 (悬浮)", "default": "#ffffff" },
+                ]
+            }
+        ],
+
+        "presets": [
+            {
+                "name": "图文组合",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+{{ 'cm-image-with-text.css' | asset_url | stylesheet_tag }}
+<style>
+#shopify-section-{{ section.id }} {
+    --bg-color:{{ section.settings.bg_color }};
+    --content-bg-color:{{ section.settings.content_bg_color }};
+    --layout-type-pc:{{ section.settings.layout_type_pc }};
+    --layout-type-mb:{{ section.settings.layout_type_mb }};
+    --section-width:{{ section.settings.section_width_custom }}px;
+    --content-alignment:{{ section.settings.content_alignment }};
+    --content-max-width:{{ section.settings.content_max_width }}px;
+}
+</style>
+{% liquid
+  case section.settings.section_width
+    when 'full-width'
+      assign layout_container_class = 'full-width'
+    when 'custom-width'
+      assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+      assign layout_container_class = 'layout-container global-width'
+    else
+      assign layout_container_class = 'layout-container'
+  endcase
+%}
+<div class="cm-image-with-text {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+    <div class="cm-iwt-bg-layout">
+    <div class="{{ layout_container_class }} {% if section.settings.remove_left_padding %}remove-left-space{% endif %} {% if section.settings.remove_right_padding %}remove-right-space{% endif %}">
+        <div class="cm-iwt-inner">
+            <div class="cm-iwt-items" data-layout-type-pc="{{ section.settings.layout_type_pc }}" data-layout-type-mb="{{ section.settings.layout_type_mb }}">
+                {% if section.settings.image != blank %}
+                    <div class="cm-iwt-images">
+                        {% comment %} 链接, visually-hidden 用于屏幕阅读器, 是无障碍辅助功能 {% endcomment %}
+                        {% if section.settings.image_url != blank %}
+                            <a href="{{ section.settings.image_url }}"><span class="visually-hidden">{{ section.settings.image.alt }}</span></a>
+                        {% endif %}
+                        
+                        <div class="iwt-image">
+                            {% comment %} 图片 {% endcomment %}
+                            {% liquid
+                                assign pc_src = section.settings.image | image_url: width: section.settings.image.width
+                                assign pad_src = section.settings.image | image_url: width: section.settings.image.width
+                                assign m_src = section.settings.image_mb | image_url: width: 1536
+                            %}
+                            {% render 'resp-img'
+                                pc_src: pc_src,
+                                pad_src: pad_src,
+                                m_src: m_src,
+                                lazy: true,
+                                class_name: 'resp-img-class',
+                                alt: section.settings.image.alt
+                            %}
+                        </div>
+                    </div>
+                {% endif %}
+                
+
+                {% if section.blocks.size > 0 %}
+                    <div class="cm-iwt-content">
+                        <div class="cm-iwt-content-inner">
+                        {% for block in section.blocks %}
+                            <div class="cm-iwt-item">
+                                {% if block.type == 'heading' %}
+                                    <div class="cm-iwt-heading" style="color: {{ block.settings.text_color }};--font-size: {{ block.settings.font_size }}px;--font-size-mb: {{ block.settings.font_size_mb }}px;">{{ block.settings.heading }}</div>
+                                {% endif %}
+                                {% if block.type == 'text' %}
+                                    <div class="cm-iwt-text" style="color: {{ block.settings.text_color }};--font-size: {{ block.settings.font_size }}px;--font-size-mb: {{ block.settings.font_size_mb }}px;">{{ block.settings.text }}</div>
+                                {% endif %}
+                                {% if block.type == 'button' %}
+                                    <div class="cm-iwt-button" data-button-block-id="{{ block.id }}">
+                                        <a href="{{ block.settings.button_url | default: section.settings.image_url }}" class="cm-iwt-button-link">{{ block.settings.button_text }}</a>
+                                        <style>
+                                            [data-button-block-id="{{ block.id }}"] a {
+                                                --button-background-color: {{ block.settings.button_bg_color }} !important;
+                                                --button-color: {{ block.settings.button_text_color }} !important;
+                                                --button-hover-background-color: {{ block.settings.button_bg_color_hover }} !important;
+                                                --button-hover-color: {{ block.settings.button_text_color_hover }} !important;
+                                            }
+                                        </style>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% endfor %}
+                        </div>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    </div>
+</div>
