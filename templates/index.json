@@ -9,88 +9,6 @@
  */
  {
   "sections": {
-    "hero_jVaWmY": {
-      "type": "hero",
-      "blocks": {
-        "text_YLPk4p": {
-          "type": "text",
-          "name": "t:names.heading",
-          "settings": {
-            "text": "<p>Browse our latest products</p>",
-            "width": "fit-content",
-            "max_width": "normal",
-            "alignment": "left",
-            "type_preset": "h2",
-            "font": "var(--font-body--family)",
-            "font_size": "1rem",
-            "line_height": "normal",
-            "letter_spacing": "normal",
-            "case": "none",
-            "wrap": "pretty",
-            "color": "var(--color-foreground-heading)",
-            "background": false,
-            "background_color": "#00000026",
-            "corner_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {}
-        },
-        "button_H9gpTf": {
-          "type": "button",
-          "name": "t:names.button",
-          "settings": {
-            "label": "Shop all",
-            "link": "shopify://collections/all",
-            "open_in_new_tab": false,
-            "style_class": "button-secondary",
-            "width": "fit-content",
-            "custom_width": 100,
-            "width_mobile": "fit-content",
-            "custom_width_mobile": 100
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "text_YLPk4p",
-        "button_H9gpTf"
-      ],
-      "disabled": true,
-      "name": "t:names.hero",
-      "settings": {
-        "media_type_1": "image",
-        "media_type_2": "image",
-        "stack_media_on_mobile": false,
-        "custom_mobile_media": false,
-        "media_type_1_mobile": "image",
-        "media_type_2_mobile": "image",
-        "link": "",
-        "open_in_new_tab": false,
-        "content_direction": "column",
-        "vertical_on_mobile": true,
-        "horizontal_alignment": "space-between",
-        "vertical_alignment": "flex-end",
-        "align_baseline": true,
-        "horizontal_alignment_flex_direction_column": "center",
-        "vertical_alignment_flex_direction_column": "flex-end",
-        "gap": 24,
-        "section_width": "page-width",
-        "section_height": "medium",
-        "section_height_custom": 50,
-        "color_scheme": "scheme-6",
-        "toggle_overlay": true,
-        "overlay_color": "#12121266",
-        "overlay_style": "solid",
-        "gradient_direction": "to bottom",
-        "blurred_reflection": false,
-        "reflection_opacity": 75,
-        "padding-block-start": 100,
-        "padding-block-end": 72
-      }
-    },
     "cm_multicolumn_list_UVhCDB": {
       "type": "cm-multicolumn-list",
       "blocks": {
@@ -162,9 +80,25 @@
         "section_width": "custom-width",
         "section_width_custom": 1200,
         "column_count": 6,
+        "column_layout_type": "carousel",
+        "column_count_mb": "2",
         "bg_color": "rgba(0,0,0,0)",
+        "heading": "",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#141414",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "title_font_size": 16,
+        "title_font_size_mb": 14,
+        "info_font_size": 14,
+        "info_font_size_mb": 12,
         "text_color": "#0b2a4a",
         "text_color_hover": "#f7921f",
+        "info_color": "#141414",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
         "custom_class": ""
@@ -243,7 +177,7 @@
         "header_alignment": "center",
         "heading_font_size": 36,
         "heading_font_size_mb": 28,
-        "heading_color": "#F7921F",
+        "heading_color": "#f7921f",
         "subheading_font_size": 18,
         "subheading_font_size_mb": 16,
         "subheading_color": "#141414",
@@ -251,12 +185,12 @@
         "view_all_url": "",
         "view_all_label": "Show More",
         "button_text_color": "#ffffff",
-        "button_bg_color": "#F7921F",
-        "button_text_color_hover": "#F7921F",
+        "button_bg_color": "#f7921f",
+        "button_text_color_hover": "#f7921f",
         "button_bg_color_hover": "#ffffff",
-        "bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
         "product_title_color": "#141414",
-        "price_color": "#F7921F",
+        "price_color": "#f7921f",
         "item_text_alignment": "left",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
@@ -309,7 +243,7 @@
         "section_width_custom": 1440,
         "layout_type_pc": "left",
         "layout_type_mb": "top",
-        "bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
         "content_bg_color": "#fff9f4",
         "image": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
         "image_mb": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
@@ -369,14 +303,14 @@
         "header_max_width": 720,
         "tab_text_color": "#0b2a4a",
         "tab_bg_color": "#f1f1f1",
-        "tab_active_text_color": "#F7921F",
-        "tab_active_bg": "transparent",
-        "bg_color": "transparent",
+        "tab_active_text_color": "#f7921f",
+        "tab_active_bg": "rgba(0,0,0,0)",
+        "bg_color": "rgba(0,0,0,0)",
         "product_title_color": "#141414",
-        "price_color": "#F7921F",
+        "price_color": "#f7921f",
         "button_text_color": "#0b2a4a",
         "button_bg_color": "#f1f1f1",
-        "button_text_color_hover": "#F7921F",
+        "button_text_color_hover": "#f7921f",
         "button_bg_color_hover": "#ffffff",
         "item_text_alignment": "left",
         "remove_top_padding": false,
@@ -386,209 +320,409 @@
         "custom_class": ""
       }
     },
-    "product_list_fa6P9H": {
-      "type": "product-list",
+    "cm_image_with_text_JEMyyU": {
+      "type": "cm-image-with-text",
       "blocks": {
-        "static-header": {
-          "type": "_product-list-content",
-          "name": "t:names.header",
-          "static": true,
+        "heading_PJYKX8": {
+          "type": "heading",
           "settings": {
-            "content_direction": "row",
-            "vertical_on_mobile": false,
-            "horizontal_alignment": "space-between",
-            "vertical_alignment": "flex-end",
-            "align_baseline": true,
-            "horizontal_alignment_flex_direction_column": "flex-start",
-            "vertical_alignment_flex_direction_column": "center",
-            "gap": 12,
-            "width": "fill",
-            "custom_width": 100,
-            "width_mobile": "fill",
-            "custom_width_mobile": 100,
-            "height": "fit",
-            "custom_height": 100,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "background_media": "none",
-            "video_position": "cover",
-            "background_image_position": "cover",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_list_text_YFtzcL": {
-              "type": "_product-list-text",
-              "name": "t:names.collection_title",
-              "settings": {
-                "text": "<h3>{{ closest.collection.title }}</h3>",
-                "width": "fit-content",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "h4",
-                "font": "var(--font-body--family)",
-                "font_size": "",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_list_button_MWeP9V": {
-              "type": "_product-list-button",
-              "name": "t:names.product_list_button",
-              "settings": {
-                "label": "Show More",
-                "open_in_new_tab": false,
-                "style_class": "link",
-                "width": "fit-content",
-                "custom_width": 100,
-                "width_mobile": "fit-content",
-                "custom_width_mobile": 100
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_list_text_YFtzcL",
-            "product_list_button_MWeP9V"
-          ]
+            "heading": "For Your Grad",
+            "font_size": 46,
+            "font_size_mb": 36,
+            "text_color": "#cc423f"
+          }
         },
-        "static-product-card": {
-          "type": "_product-card",
-          "name": "t:names.product_card",
-          "static": true,
+        "text_xnQDqw": {
+          "type": "text",
           "settings": {
-            "product_card_gap": 4,
-            "inherit_color_scheme": true,
-            "color_scheme": "",
-            "border": "none",
-            "border_width": 1,
-            "border_opacity": 100,
-            "border_radius": 0,
-            "padding-block-start": 0,
-            "padding-block-end": 0,
-            "padding-inline-start": 0,
-            "padding-inline-end": 0
-          },
-          "blocks": {
-            "product_card_gallery_677WP3": {
-              "type": "_product-card-gallery",
-              "name": "t:names.product_card_media",
-              "settings": {
-                "image_ratio": "adapt",
-                "border": "none",
-                "border_width": 1,
-                "border_opacity": 100,
-                "border_radius": 0,
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "product_title_YXxMTj": {
-              "type": "product-title",
-              "name": "t:names.product_title",
-              "settings": {
-                "width": "100%",
-                "max_width": "normal",
-                "alignment": "left",
-                "type_preset": "rte",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "wrap": "pretty",
-                "color": "var(--color-foreground)",
-                "background": false,
-                "background_color": "#00000026",
-                "corner_radius": 0,
-                "padding-block-start": 4,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "price_JQzVV4": {
-              "type": "price",
-              "name": "t:names.product_price",
-              "settings": {
-                "show_sale_price_first": true,
-                "show_installments": false,
-                "show_tax_info": false,
-                "type_preset": "h6",
-                "width": "100%",
-                "alignment": "left",
-                "font": "var(--font-body--family)",
-                "font_size": "1rem",
-                "line_height": "normal",
-                "letter_spacing": "normal",
-                "case": "none",
-                "color": "var(--color-foreground)",
-                "padding-block-start": 0,
-                "padding-block-end": 0,
-                "padding-inline-start": 0,
-                "padding-inline-end": 0
-              },
-              "blocks": {}
-            }
-          },
-          "block_order": [
-            "product_card_gallery_677WP3",
-            "product_title_YXxMTj",
-            "price_JQzVV4"
-          ]
+            "text": "Turn pride into a keepsake.",
+            "font_size": 24,
+            "font_size_mb": 18,
+            "text_color": "#0b2a4a"
+          }
+        },
+        "button_6p36zY": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP NOW",
+            "button_url": "",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#f7921f",
+            "button_text_color_hover": "#f7921f",
+            "button_bg_color_hover": "#ffffff"
+          }
         }
       },
-      "disabled": true,
-      "name": "Featured collection",
+      "block_order": [
+        "heading_PJYKX8",
+        "text_xnQDqw",
+        "button_6p36zY"
+      ],
+      "name": "图文组合",
       "settings": {
-        "collection": "all",
-        "layout_type": "grid",
-        "carousel_on_mobile": false,
-        "max_products": 8,
-        "columns": 4,
-        "mobile_columns": "2",
-        "mobile_card_size": "60cqw",
-        "columns_gap": 8,
-        "rows_gap": 24,
-        "icons_style": "arrow",
-        "icons_shape": "none",
-        "section_width": "page-width",
-        "horizontal_alignment": "flex-start",
-        "gap": 28,
-        "color_scheme": "scheme-1",
-        "padding-block-start": 48,
-        "padding-block-end": 48
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "layout_type_pc": "right",
+        "layout_type_mb": "top",
+        "bg_color": "rgba(0,0,0,0)",
+        "content_bg_color": "#f2f9e8",
+        "image": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image_url": "shopify://collections",
+        "content_alignment": "center",
+        "content_max_width": 400,
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": true,
+        "remove_right_padding": true,
+        "custom_class": ""
+      }
+    },
+    "cm_multi_collection_products_Xr8YPT": {
+      "type": "cm-multi-collection-products",
+      "blocks": {
+        "collection_tab_UE8hhX": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Best Seller",
+            "collection": "best-seller",
+            "products_limit": 4,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        },
+        "collection_tab_pENzmh": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "",
+            "collection": "new-arrival",
+            "products_limit": 4,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_UE8hhX",
+        "collection_tab_pENzmh"
+      ],
+      "name": "多分类产品列表",
+      "settings": {
+        "section_width": "full-content-width",
+        "section_width_custom": 1440,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#0b2a4a",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "tab_text_color": "#0b2a4a",
+        "tab_bg_color": "#f1f1f1",
+        "tab_active_text_color": "#f7921f",
+        "tab_active_bg": "rgba(0,0,0,0)",
+        "bg_color": "rgba(0,0,0,0)",
+        "product_title_color": "#141414",
+        "price_color": "#f7921f",
+        "button_text_color": "#0b2a4a",
+        "button_bg_color": "#f1f1f1",
+        "button_text_color_hover": "#f7921f",
+        "button_bg_color_hover": "#ffffff",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_multicolumn_list_grrnEP": {
+      "type": "cm-multicolumn-list",
+      "blocks": {
+        "column_EzNqWA": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-bestie.png",
+            "column_title": "For Bestie",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_XMhGyB": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-partner.png",
+            "column_title": "For Partner",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_MFqLtk": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-sibling.png",
+            "column_title": "For Sibling",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_UaMFnT": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-pet-lover.png",
+            "column_title": "For Pet Lover",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_yiefRK": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-family.png",
+            "column_title": "For Family",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_8twa3m": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-mom.png",
+            "column_title": "For Mom",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_3Enx4k": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-dad.png",
+            "column_title": "For Dad",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_YmUEGm": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/recipient-kid-baby.png",
+            "column_title": "For Kid & Baby",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "column_EzNqWA",
+        "column_XMhGyB",
+        "column_MFqLtk",
+        "column_UaMFnT",
+        "column_yiefRK",
+        "column_8twa3m",
+        "column_3Enx4k",
+        "column_YmUEGm"
+      ],
+      "name": "多列列表",
+      "settings": {
+        "section_width": "full-width",
+        "section_width_custom": 1200,
+        "column_count": 4,
+        "column_layout_type": "grid",
+        "column_count_mb": "2",
+        "bg_color": "rgba(0,0,0,0)",
+        "heading": "Shop By Recipient",
+        "subheading": "Shop By Recipient",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#f7921f",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "title_font_size": 26,
+        "title_font_size_mb": 20,
+        "info_font_size": 14,
+        "info_font_size_mb": 12,
+        "text_color": "#0b2a4a",
+        "text_color_hover": "#f7921f",
+        "info_color": "#141414",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_multicolumn_list_Xg9Jax": {
+      "type": "cm-multicolumn-list",
+      "blocks": {
+        "column_gfLxpb": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-001.png",
+            "column_title": "Graduation Stole",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_kQeF3U": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-002.png",
+            "column_title": "Doormat",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_tjNBhk": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-003.png",
+            "column_title": "Tassel Charm",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_QJgzTL": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-004.png",
+            "column_title": "Pocket Hug",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_7Pcpbd": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-005.png",
+            "column_title": "Beach Towel",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_74eMfB": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-006.png",
+            "column_title": "Jewelry Dish",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_gpxjTC": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-007.png",
+            "column_title": "Wooden Plaque",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_Kz4JBW": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-008.png",
+            "column_title": "Shirt",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_iaghYH": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-009.png",
+            "column_title": "Car Accessories",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_dVnRhJ": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-010.png",
+            "column_title": "Belt",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_qt9Fyb": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-011.png",
+            "column_title": "Whiskey Glass",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_mDbLRA": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/product-012.png",
+            "column_title": "Mug",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        }
+      },
+      "block_order": [
+        "column_gfLxpb",
+        "column_kQeF3U",
+        "column_tjNBhk",
+        "column_QJgzTL",
+        "column_7Pcpbd",
+        "column_74eMfB",
+        "column_gpxjTC",
+        "column_Kz4JBW",
+        "column_iaghYH",
+        "column_dVnRhJ",
+        "column_qt9Fyb",
+        "column_mDbLRA"
+      ],
+      "name": "多列列表",
+      "settings": {
+        "section_width": "full-width",
+        "section_width_custom": 1200,
+        "column_count": 4,
+        "column_layout_type": "grid",
+        "column_count_mb": "2",
+        "bg_color": "rgba(0,0,0,0)",
+        "heading": "Shop By Product",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#f7921f",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "title_font_size": 26,
+        "title_font_size_mb": 20,
+        "info_font_size": 14,
+        "info_font_size_mb": 12,
+        "text_color": "#0b2a4a",
+        "text_color_hover": "#f7921f",
+        "info_color": "#141414",
+        "image_border_radius": 10,
+        "image_border_radius_mb": 10,
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
       }
     }
   },
   "order": [
-    "hero_jVaWmY",
     "cm_multicolumn_list_UVhCDB",
     "cm_image_with_text_MpDaWg",
     "cm_collection_products_c889nf",
     "cm_image_with_text_w8VWj9",
     "cm_multi_collection_products_a4TKnc",
-    "product_list_fa6P9H"
+    "cm_image_with_text_JEMyyU",
+    "cm_multi_collection_products_Xr8YPT",
+    "cm_multicolumn_list_grrnEP",
+    "cm_multicolumn_list_Xg9Jax"
   ]
 }

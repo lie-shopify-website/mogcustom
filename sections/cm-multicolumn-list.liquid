@@ -10,11 +10,49 @@
             ]},
             { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' }}" },
 
-            { "type": "range", "id": "column_count", "label": "列数 (电脑端)", "default": 6, "min": 1, "max": 6, "step": 1, "info": "电脑端一行显示的列数, 超过6列会自动换行. 手机端只显示一行不换行" },
-            { "type": "header","content":"颜色"},
+            { "type": "range", "id": "column_count", "label": "列数 (电脑端)", "default": 6, "min": 1, "max": 6, "step": 1, "info": "电脑端一行显示的列数, 超过6列会自动换行" },
+            { "type": "select", "id": "column_layout_type", "label": "布局类型", "default": "carousel", "options": [
+                { "value": "grid", "label": "网格布局" },
+                { "value": "carousel", "label": "横向滚动" }
+            ]},
+            { "type": "select", "id": "column_count_mb", "label": "列数 (手机端)", "default": "2", "options": [
+                { "value": "1", "label": "1 列" },
+                { "value": "2", "label": "2 列" }
+            ], "visible_if": "{{ section.settings.column_layout_type == 'grid' }}"},
+
+            { "type": "header","content":"版块设置"},
             { "type": "color", "id": "bg_color", "label": "背景颜色", "default": "transparent" },
-            { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#0B2A4A" },
-            { "type": "color", "id": "text_color_hover", "label": "文字颜色 (悬浮)", "default": "#F7921F" },
+            { "type": "paragraph", "content": "标题区域" },
+            { "type": "textarea", "id": "heading", "label": "标题" },
+            { "type": "textarea", "id": "subheading", "label": "副标题" },
+            { "type": "select", "id": "header_alignment", "label": "标题对齐", "default": "center",
+            "options": [
+                { "value": "center", "label": "居中" },
+                { "value": "left", "label": "靠左" },
+                { "value": "right", "label": "靠右" }
+            ]
+            },
+            { "type": "number", "id": "heading_font_size", "label": "标题字号 (电脑端)", "default": 36 },
+            { "type": "number", "id": "heading_font_size_mb", "label": "标题字号 (手机端)", "default": 28 },
+            { "type": "color", "id": "heading_color", "label": "标题颜色", "default": "#141414" },
+            { "type": "number", "id": "subheading_font_size", "label": "副标题字号 (电脑端)", "default": 18 },
+            { "type": "number", "id": "subheading_font_size_mb", "label": "副标题字号 (手机端)", "default": 16 },
+            { "type": "color", "id": "subheading_color", "label": "副标题颜色", "default": "#141414" },
+
+
+            { "type": "header","content":"区块设置"},
+            { "type": "paragraph","content":"字号"},
+            { "type": "number", "id": "title_font_size", "label": "标题", "default": 16 },
+            { "type": "number", "id": "title_font_size_mb", "label": "标题 (手机端)", "default": 14 },
+            { "type": "number", "id": "info_font_size", "label": "内容", "default": 14 },
+            { "type": "number", "id": "info_font_size_mb", "label": "内容 (手机端)", "default": 12 },
+            { "type": "paragraph","content":"颜色"},
+            { "type": "color", "id": "text_color", "label": "标题", "default": "#0B2A4A" },
+            { "type": "color", "id": "text_color_hover", "label": "标题 (悬浮)", "default": "#F7921F" },
+            { "type": "color", "id": "info_color", "label": "内容", "default": "#141414" },
+
+            { "type": "number", "id": "image_border_radius", "label": "图片圆角", "default": 0 },
+            { "type": "number", "id": "image_border_radius_mb", "label": "图片圆角 (手机端)", "default": 0 },
             { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
             { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
             { "type": "text", "id": "custom_class", "label": "自定义class" }
@@ -51,7 +89,22 @@
     --bg-color:{{ section.settings.bg_color }};
     --text-color:{{ section.settings.text_color }};
     --text-color-hover:{{ section.settings.text_color_hover }};
+    --info-color:{{ section.settings.info_color }};
     --desktop-column-count:{{ section.settings.column_count }};
+    --title-font-size:{{ section.settings.title_font_size }}px;
+    --title-font-size-mb:{{ section.settings.title_font_size_mb }}px;
+    --info-font-size:{{ section.settings.info_font_size }}px;
+    --info-font-size-mb:{{ section.settings.info_font_size_mb }}px;
+    --mobile-column-count:{{ section.settings.column_count_mb | default: 2 }};
+    --cm-ml-header-align:{{ section.settings.header_alignment }};
+    --cm-ml-heading-size:{{ section.settings.heading_font_size }}px;
+    --cm-ml-heading-size-mb:{{ section.settings.heading_font_size_mb }}px;
+    --cm-ml-heading-color:{{ section.settings.heading_color }};
+    --cm-ml-subheading-size:{{ section.settings.subheading_font_size }}px;
+    --cm-ml-subheading-size-mb:{{ section.settings.subheading_font_size_mb }}px;
+    --cm-ml-subheading-color:{{ section.settings.subheading_color }};
+    --image-border-radius:{{ section.settings.image_border_radius }}px;
+    --image-border-radius-mb:{{ section.settings.image_border_radius_mb }}px;
 
     {% if section.settings.section_width == 'custom-width' %}
         --section-width:{{ section.settings.section_width_custom }}px;
@@ -60,8 +113,21 @@
     {% endif %}
 }
 </style>
-<div class="cm-multicolumn-list {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+<div class="cm-multicolumn-list {% if section.settings.column_layout_type == 'grid' %}cm-multicolumn-list--mb-grid{% else %}cm-multicolumn-list--mb-carousel{% endif %} {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
     <div class="layout-container">
+
+        {% if section.settings.heading != blank or section.settings.subheading != blank %}
+            <div class="cm-multicolumn-list-header">
+                <div class="cm-multicolumn-list-header-inner">
+                    {% if section.settings.heading != blank %}
+                        <div class="cm-multicolumn-list-heading">{{ section.settings.heading }}</div>
+                    {% endif %}
+                    {% if section.settings.subheading != blank %}
+                        <div class="cm-multicolumn-list-subheading">{{ section.settings.subheading }}</div>
+                    {% endif %}
+                </div>
+            </div>
+        {% endif %}
         <div class="cm-multicolumn-list-inner">
             <div class="cm-multicolumn-list-items">
             {% for block in section.blocks %}
@@ -74,19 +140,27 @@
                     
                     <div class="column-image">
                         {% comment %} 图片 {% endcomment %}
-                        {% liquid
-                            assign pc_src = block.settings.column_image | image_url: width: block.settings.image.width
-                            assign pad_src = block.settings.column_image | image_url: width: block.settings.image.width
-                            assign m_src = block.settings.column_image_mb | image_url: width: 1536
-                        %}
-                        {% render 'resp-img'
-                            pc_src: pc_src,
-                            pad_src: pad_src,
-                            m_src: m_src,
-                            lazy: true,
-                            class_name: 'resp-img-class',
-                            alt: block.settings.column_title
-                        %}
+                        {% if block.settings.column_image != blank %}
+                            {% liquid
+                                assign col_img = block.settings.column_image
+                                assign col_w = col_img.width | default: 1200
+                                assign pc_src = col_img | image_url: width: col_w
+                                assign pad_src = pc_src
+                                if block.settings.column_image_mb != blank
+                                    assign m_src = block.settings.column_image_mb | image_url: width: 768
+                                else
+                                    assign m_src = col_img | image_url: width: 768
+                                endif
+                            %}
+                            {% render 'resp-img'
+                                pc_src: pc_src,
+                                pad_src: pad_src,
+                                m_src: m_src,
+                                lazy: true,
+                                class_name: 'resp-img-class',
+                                alt: block.settings.column_title
+                            %}
+                        {% endif %}
                     </div>
                     
                     <div class="column-content">
