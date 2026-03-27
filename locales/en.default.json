@@ -357,5 +357,17 @@
       "default_title": "Default Title",
       "sticky_add_to_cart": "Quick add to cart bar"
     }
+  },
+  "sections": {
+    "multi_collection_products": {
+      "tabs_title": "Product categories"
+    },
+    "cm_collection_products": {
+      "empty_select_collection": "Select a collection to display products."
+    },
+    "cm_multi_collection_products": {
+      "empty_add_tabs": "Add collection tabs and select a collection for each.",
+      "empty_tab_collection": "Select a collection for this tab."
+    }
   }
 }

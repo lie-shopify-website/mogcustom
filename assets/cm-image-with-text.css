@@ -23,6 +23,10 @@
     }
 }
 
+.cm-image-with-text .cm-iwt-inner {
+    background-color: var(--content-bg-color);
+}
+
 .cm-image-with-text .cm-iwt-items {
     display: flex;
     justify-content: center;

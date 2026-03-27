@@ -177,6 +177,8 @@
           "type": "heading",
           "settings": {
             "heading": "Graduation Gifts",
+            "font_size": 46,
+            "font_size_mb": 36,
             "text_color": "#cc423f"
           }
         },
@@ -184,6 +186,8 @@
           "type": "text",
           "settings": {
             "text": "Celebrate their hard work with a gift that feels just as special.",
+            "font_size": 20,
+            "font_size_mb": 16,
             "text_color": "#0b2a4a"
           }
         },
@@ -193,8 +197,8 @@
             "button_text": "SHOP NOW",
             "button_url": "",
             "button_text_color": "#ffffff",
-            "button_bg_color": "#F7921F",
-            "button_text_color_hover": "#F7921F",
+            "button_bg_color": "#f7921f",
+            "button_text_color_hover": "#f7921f",
             "button_bg_color_hover": "#ffffff"
           }
         }
@@ -221,6 +225,164 @@
         "remove_bottom_padding": false,
         "remove_left_padding": true,
         "remove_right_padding": true,
+        "custom_class": ""
+      }
+    },
+    "cm_collection_products_c889nf": {
+      "type": "cm-collection-products",
+      "name": "单分类产品列表",
+      "settings": {
+        "section_width": "full-content-width",
+        "section_width_custom": 1440,
+        "collection": "best-seller",
+        "products_limit": 8,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "Trending Now",
+        "subheading": "Discover our most popular products",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#F7921F",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "view_all_url": "",
+        "view_all_label": "Show More",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#F7921F",
+        "button_text_color_hover": "#F7921F",
+        "button_bg_color_hover": "#ffffff",
+        "bg_color": "transparent",
+        "product_title_color": "#141414",
+        "price_color": "#F7921F",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_image_with_text_w8VWj9": {
+      "type": "cm-image-with-text",
+      "blocks": {
+        "heading_pNWX6h": {
+          "type": "heading",
+          "settings": {
+            "heading": "For Your Grad",
+            "font_size": 46,
+            "font_size_mb": 36,
+            "text_color": "#cc423f"
+          }
+        },
+        "text_p4bHwK": {
+          "type": "text",
+          "settings": {
+            "text": "Turn pride into a keepsake.",
+            "font_size": 24,
+            "font_size_mb": 18,
+            "text_color": "#0b2a4a"
+          }
+        },
+        "button_Hxr4Ui": {
+          "type": "button",
+          "settings": {
+            "button_text": "SHOP NOW",
+            "button_url": "",
+            "button_text_color": "#ffffff",
+            "button_bg_color": "#f7921f",
+            "button_text_color_hover": "#f7921f",
+            "button_bg_color_hover": "#ffffff"
+          }
+        }
+      },
+      "block_order": [
+        "heading_pNWX6h",
+        "text_p4bHwK",
+        "button_Hxr4Ui"
+      ],
+      "name": "图文组合",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "layout_type_pc": "left",
+        "layout_type_mb": "top",
+        "bg_color": "transparent",
+        "content_bg_color": "#fff9f4",
+        "image": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image_url": "shopify://collections",
+        "content_alignment": "center",
+        "content_max_width": 400,
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": true,
+        "remove_right_padding": true,
+        "custom_class": ""
+      }
+    },
+    "cm_multi_collection_products_a4TKnc": {
+      "type": "cm-multi-collection-products",
+      "blocks": {
+        "collection_tab_Ld6Pp3": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Best Seller",
+            "collection": "best-seller",
+            "products_limit": 4,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        },
+        "collection_tab_hT89bP": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "",
+            "collection": "new-arrival",
+            "products_limit": 4,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_Ld6Pp3",
+        "collection_tab_hT89bP"
+      ],
+      "name": "多分类产品列表",
+      "settings": {
+        "section_width": "full-content-width",
+        "section_width_custom": 1440,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#0b2a4a",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "tab_text_color": "#0b2a4a",
+        "tab_bg_color": "#f1f1f1",
+        "tab_active_text_color": "#F7921F",
+        "tab_active_bg": "transparent",
+        "bg_color": "transparent",
+        "product_title_color": "#141414",
+        "price_color": "#F7921F",
+        "button_text_color": "#0b2a4a",
+        "button_bg_color": "#f1f1f1",
+        "button_text_color_hover": "#F7921F",
+        "button_bg_color_hover": "#ffffff",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
         "custom_class": ""
       }
     },
@@ -291,7 +453,7 @@
               "type": "_product-list-button",
               "name": "t:names.product_list_button",
               "settings": {
-                "label": "View all",
+                "label": "Show More",
                 "open_in_new_tab": false,
                 "style_class": "link",
                 "width": "fit-content",
@@ -397,6 +559,7 @@
           ]
         }
       },
+      "disabled": true,
       "name": "Featured collection",
       "settings": {
         "collection": "all",
@@ -416,13 +579,16 @@
         "color_scheme": "scheme-1",
         "padding-block-start": 48,
         "padding-block-end": 48
-      } 
+      }
     }
   },
   "order": [
     "hero_jVaWmY",
     "cm_multicolumn_list_UVhCDB",
     "cm_image_with_text_MpDaWg",
+    "cm_collection_products_c889nf",
+    "cm_image_with_text_w8VWj9",
+    "cm_multi_collection_products_a4TKnc",
     "product_list_fa6P9H"
   ]
 }

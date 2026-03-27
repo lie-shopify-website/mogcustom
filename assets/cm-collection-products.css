@@ -1,0 +1,307 @@
+.cm-collection-products.remove-top-space,
+.cm-multi-collection-products.remove-top-space {
+  padding-top: 0 !important;
+}
+.cm-collection-products.remove-bottom-space,
+.cm-multi-collection-products.remove-bottom-space {
+  padding-bottom: 0 !important;
+}
+@media (max-width: 767px) {
+  .cm-collection-products .remove-left-space,
+  .cm-multi-collection-products .remove-left-space {
+    padding-left: 0 !important;
+  }
+  .cm-collection-products .remove-right-space,
+  .cm-multi-collection-products .remove-right-space {
+    padding-right: 0 !important;
+  }
+}
+.cm-collection-products .full-width,
+.cm-multi-collection-products .full-width {
+  max-width: 100%;
+}
+.cm-collection-products .custom-width,
+.cm-multi-collection-products .custom-width {
+  max-width: var(--section-width) !important;
+}
+
+.cm-collection-products,
+.cm-multi-collection-products {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.cm-collection-products .cm-cp-bg-layout,
+.cm-multi-collection-products .cm-cp-bg-layout {
+  background-color: var(--bg-color);
+}
+
+@media (min-width: 1024px) {
+  .cm-collection-products,
+  .cm-multi-collection-products {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+}
+
+.cm-cp-header {
+  text-align: var(--cm-cp-header-align, center);
+  margin-bottom: 20px;
+  max-width: var(--cm-cp-header-max-width, 720px);
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cm-cp-heading {
+  font-size: var(--cm-cp-heading-size-mb, 28px);
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--cm-cp-heading-color, #141414);
+}
+
+.cm-cp-subheading {
+  margin-top: 4px;
+  font-size: var(--cm-cp-sub-size-mb, 16px);
+  line-height: 1.4;
+  color: var(--cm-cp-sub-color, #141414);
+}
+
+@media (min-width: 1024px) {
+  .cm-cp-heading {
+    font-size: var(--cm-cp-heading-size, 36px);
+  }
+  .cm-cp-subheading {
+    margin-top: 8px;
+    font-size: var(--cm-cp-sub-size, 18px);
+  }
+}
+
+.cm-cp-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.cm-cp-view-all {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 24px;
+  height: 40px;
+  min-height: 40px;
+  border-radius: 40px;
+  background-color: var(--cm-cp-btn-bg, #f7921f);
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--cm-cp-btn-color, #fff);
+  text-decoration: none;
+  border: 1px solid var(--cm-cp-btn-color, #fff);
+  transition: all 0.3s ease;
+}
+
+@media (any-hover: hover) {
+  .cm-cp-view-all:hover {
+    background-color: var(--cm-cp-btn-bg-hover, #fff);
+    color: var(--cm-cp-btn-color-hover, #f7921f);
+    border-color: var(--cm-cp-btn-color-hover, #f7921f);
+  }
+}
+
+.cm-cp-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--cm-cp-cols-mb, 2), minmax(0, 1fr));
+  gap: 20px;
+}
+
+@media (min-width: 1024px) {
+  .cm-cp-grid {
+    grid-template-columns: repeat(var(--cm-cp-cols, 4), minmax(0, 1fr));
+    gap: 40px;
+  }
+}
+
+.cm-cp-empty {
+  margin: 0;
+  padding: 24px 16px;
+  text-align: center;
+  font-size: 15px;
+  color: rgba(20, 20, 20, 0.55);
+}
+
+.cm-cp-inner {
+  min-width: 0;
+}
+
+.cm-cp-item {
+  position: relative;
+  min-width: 0;
+  box-shadow: 12px 4px 14px 0px #0000000d;
+  border-radius: 8px;
+}
+
+.cm-cp-item-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+}
+
+.cm-cp-item-image {
+  position: relative;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.cm-cp-item-image .resp-img,
+.cm-cp-item-image picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cm-cp-item-image img,
+.cm-cp-item-image .js-lazy {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1);
+  transition: all 0.3s ease-in-out;
+}
+
+@media (any-hover: hover) {
+  .cm-cp-item-image:hover img,
+  .cm-cp-item-image:hover .js-lazy {
+    transform: scale(1.05);
+  }
+}
+
+.cm-cp-item-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #eee 0%, #f5f5f5 100%);
+}
+
+.cm-cp-item-info {
+  position: relative;
+  z-index: 0;
+  padding: 10px 2px;
+  text-align: var(--cm-cp-item-text-align, left);
+}
+
+.cm-cp-item-title {
+  font-size: 16px;
+  line-height: 1.35;
+  font-weight: 400;
+  color: var(--cm-cp-title-color, #141414);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.cm-cp-item-price {
+  margin-top: 6px;
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--cm-cp-price-color, #141414);
+}
+
+.cm-cp-price-sale {
+  font-size: 18px;
+  font-weight: 500;
+  margin-right: 6px;
+  color: var(--cm-cp-price-color, #141414);
+}
+
+.cm-cp-price-compare {
+  text-decoration: line-through;
+  opacity: 0.55;
+  font-size: 14px;
+  color: #555;
+}
+
+/* 多分类 Tab */
+.cm-mcp-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  justify-content: center;
+  align-items: center;
+}
+
+.cm-mcp-tab {
+  position: relative;
+  z-index: 2;
+  padding: 12px 16px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--cm-mcp-tab-color, #141414);
+  background: var(--cm-mcp-tab-bg, transparent);
+  border: 1px solid transparent;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: color 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+}
+
+.cm-mcp-tab[aria-selected='true'] {
+  color: var(--cm-mcp-tab-active-color, #fff);
+  background: var(--cm-mcp-tab-active-bg, #f7921f);
+  border-color: var(--cm-mcp-tab-active-color, #f7921f);
+}
+
+@media (any-hover: hover) {
+  .cm-mcp-tab:not([aria-selected='true']):hover {
+    border-color: rgba(20, 20, 20, 0.15);
+  }
+}
+
+/* 手机端 Tab 过多时横向滚动，一屏约 2.5+ 个（随文案宽度变化） */
+@media (max-width: 767px) {
+  .cm-mcp-tabs {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-items: stretch;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    scrollbar-width: thin;
+    gap: 10px;
+    margin-inline: 0;
+    padding-bottom: 10px;
+  }
+
+  .cm-mcp-tabs::-webkit-scrollbar {
+    height: 4px;
+  }
+
+  .cm-mcp-tabs::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.06);
+    border-radius: 4px;
+  }
+
+  .cm-mcp-tabs::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.22);
+    border-radius: 4px;
+  }
+
+  .cm-mcp-tab {
+    flex: 0 0 auto;
+    white-space: nowrap;
+    font-size: 14px;
+  }
+}
+
+.cm-mcp-panel[hidden] {
+  display: none !important;
+}

@@ -1,0 +1,52 @@
+{% comment %}
+  通用产品网格项列表
+  @param {object} collection - 集合对象
+  @param {number} limit - 展示数量上限
+{% endcomment %}
+{% liquid
+  assign cap = limit | default: 8
+  if cap < 1
+    assign cap = 8
+  endif
+%}
+{% if collection != blank %}
+  {% paginate collection.products by cap %}
+    {% for product in collection.products %}
+      <div class="cm-cp-item">
+        {% assign v = product.selected_or_first_available_variant %}
+        <div class="cm-cp-item-image">
+          <a href="{{ v.url }}" class="cm-cp-item-link">
+            <span class="visually-hidden">{{ product.title | escape }}</span>
+          </a>
+          {% if product.featured_media != blank %}
+            {% assign img = product.featured_media.preview_image %}
+            {% assign pc_src = img | image_url: width: 900 %}
+            {% assign pad_src = img | image_url: width: 720 %}
+            {% assign m_src = img | image_url: width: 540 %}
+            {% render 'resp-img',
+              pc_src: pc_src,
+              pad_src: pad_src,
+              m_src: m_src,
+              lazy: true,
+              class_name: 'cm-cp-img',
+              alt: product.title
+            %}
+          {% else %}
+            <div class="cm-cp-item-placeholder" aria-hidden="true"></div>
+          {% endif %}
+        </div>
+        <div class="cm-cp-item-info">
+          <div class="cm-cp-item-title"><a href="{{ v.url }}" class="cm-cp-item-title-link">{{ product.title }}</a></div>
+          <div class="cm-cp-item-price">
+            {% if v.compare_at_price != blank and v.compare_at_price > v.price %}
+              <span class="cm-cp-price-sale">{% render 'format-price', price: v.price %}</span>
+              <span class="cm-cp-price-compare">{% render 'format-price', price: v.compare_at_price %}</span>
+            {% else %}
+              <span>{% render 'format-price', price: v.price %}</span>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    {% endfor %}
+  {% endpaginate %}
+{% endif %}

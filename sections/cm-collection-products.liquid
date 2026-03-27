@@ -1,0 +1,145 @@
+
+{% schema %}
+{
+  "name": "单分类产品列表",
+  "class": "cm-collection-products-section",
+  "settings": [
+    { "type": "header", "content": "配置" },
+    { "type": "select", "id": "section_width", "label": "版块宽度", "default": "full-width",
+      "options": [
+        { "value": "full-width", "label": "版块全宽" },
+        { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+        { "value": "global-width", "label": "版块跟随全局宽度" },
+        { "value": "custom-width", "label": "版块自定义宽度" }
+      ]
+    },
+    { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' or section.settings.section_width == 'full-content-width' }}" },
+    { "type": "collection", "id": "collection", "label": "产品集合" },
+    { "type": "range", "id": "products_limit", "label": "产品数量上限", "min": 1, "max": 48, "step": 1, "default": 8 },
+    { "type": "range", "id": "columns_desktop", "label": "列数 (电脑端)", "min": 2, "max": 6, "step": 1, "default": 4 },
+    { "type": "select", "id": "columns_mobile", "label": "列数 (手机端)", "default": "2",
+      "options": [
+        { "value": "1", "label": "1 列" },
+        { "value": "2", "label": "2 列" }
+      ]
+    },
+    { "type": "header", "content": "标题区域" },
+    { "type": "textarea", "id": "heading", "label": "标题" },
+    { "type": "textarea", "id": "subheading", "label": "副标题" },
+    { "type": "select", "id": "header_alignment", "label": "标题对齐", "default": "center",
+      "options": [
+        { "value": "center", "label": "居中" },
+        { "value": "left", "label": "靠左" },
+        { "value": "right", "label": "靠右" }
+      ]
+    },
+    { "type": "number", "id": "heading_font_size", "label": "标题字号 (电脑端)", "default": 36 },
+    { "type": "number", "id": "heading_font_size_mb", "label": "标题字号 (手机端)", "default": 28 },
+    { "type": "color", "id": "heading_color", "label": "标题颜色", "default": "#141414" },
+    { "type": "number", "id": "subheading_font_size", "label": "副标题字号 (电脑端)", "default": 18 },
+    { "type": "number", "id": "subheading_font_size_mb", "label": "副标题字号 (手机端)", "default": 16 },
+    { "type": "color", "id": "subheading_color", "label": "副标题颜色", "default": "#141414" },
+    { "type": "number", "id": "header_max_width", "label": "标题区域最大宽度", "default": 720 },
+    { "type": "url", "id": "view_all_url", "label": "查看全部链接", "info": "留空则使用当前集合链接" },
+    { "type": "text", "id": "view_all_label", "label": "查看全部按钮文案", "default": "查看全部" },
+    { "type": "color", "id": "button_text_color", "label": "按钮文字颜色", "default": "#ffffff" },
+    { "type": "color", "id": "button_bg_color", "label": "按钮背景颜色", "default": "#F7921F" },
+    { "type": "color", "id": "button_text_color_hover", "label": "按钮文字颜色 (悬浮)", "default": "#F7921F" },
+    { "type": "color", "id": "button_bg_color_hover", "label": "按钮背景颜色 (悬浮)", "default": "#ffffff" },
+    { "type": "header", "content": "颜色与间距" },
+    { "type": "color", "id": "bg_color", "label": "版块背景颜色", "default": "transparent" },
+    { "type": "color", "id": "product_title_color", "label": "产品标题颜色", "default": "#141414" },
+    { "type": "color", "id": "price_color", "label": "价格颜色", "default": "#141414" },
+    { "type": "select", "id": "item_text_alignment", "label": "产品标题与价格对齐", "default": "left",
+      "options": [
+        { "value": "left", "label": "靠左" },
+        { "value": "center", "label": "居中" }
+      ]
+    },
+    { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+    { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+    { "type": "checkbox", "id": "remove_left_padding", "label": "移除左边距 (手机端)", "default": false },
+    { "type": "checkbox", "id": "remove_right_padding", "label": "移除右边距 (手机端)", "default": false },
+    { "type": "text", "id": "custom_class", "label": "自定义 class" }
+  ],
+  "presets": [{ "name": "单分类产品列表", "category": "custom" }]
+}
+{% endschema %}
+
+{% comment %} 样式在theme.liquid中引入 {% endcomment %}
+<style>
+  #shopify-section-{{ section.id }} {
+    --bg-color: {{ section.settings.bg_color }};
+    --section-width: {{ section.settings.section_width_custom }}px;
+    --cm-cp-header-align: {{ section.settings.header_alignment }};
+    --cm-cp-header-max-width: {{ section.settings.header_max_width }}px;
+    --cm-cp-heading-size: {{ section.settings.heading_font_size }}px;
+    --cm-cp-heading-size-mb: {{ section.settings.heading_font_size_mb }}px;
+    --cm-cp-heading-color: {{ section.settings.heading_color }};
+    --cm-cp-sub-size: {{ section.settings.subheading_font_size }}px;
+    --cm-cp-sub-size-mb: {{ section.settings.subheading_font_size_mb }}px;
+    --cm-cp-sub-color: {{ section.settings.subheading_color }};
+    --cm-cp-cols: {{ section.settings.columns_desktop }};
+    --cm-cp-cols-mb: {{ section.settings.columns_mobile }};
+    --cm-cp-item-text-align: {{ section.settings.item_text_alignment }};
+    --cm-cp-title-color: {{ section.settings.product_title_color }};
+    --cm-cp-price-color: {{ section.settings.price_color }};
+    --cm-cp-btn-color: {{ section.settings.button_text_color }};
+    --cm-cp-btn-bg: {{ section.settings.button_bg_color }};
+    --cm-cp-btn-color-hover: {{ section.settings.button_text_color_hover }};
+    --cm-cp-btn-bg-hover: {{ section.settings.button_bg_color_hover }};
+  }
+</style>
+{% liquid
+  case section.settings.section_width
+    when 'full-width'
+      assign layout_container_class = 'full-width'
+    when 'custom-width'
+      assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+      assign layout_container_class = 'layout-container global-width'
+    else
+      assign layout_container_class = 'layout-container'
+  endcase
+
+  assign view_href = section.settings.view_all_url
+  if view_href == blank and section.settings.collection != blank
+    assign view_href = section.settings.collection.url
+  endif
+%}
+<div
+  class="cm-collection-products {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="cm-cp-bg-layout">
+    <div class="{{ layout_container_class }} {% if section.settings.remove_left_padding %}remove-left-space{% endif %} {% if section.settings.remove_right_padding %}remove-right-space{% endif %}">
+      <div class="cm-cp-inner">
+        {% if section.settings.heading != blank or section.settings.subheading != blank %}
+          <div class="cm-cp-header">
+            {% if section.settings.heading != blank %}
+              <div class="cm-cp-heading">{{ section.settings.heading }}</div>
+            {% endif %}
+            {% if section.settings.subheading != blank %}
+              <div class="cm-cp-subheading">{{ section.settings.subheading }}</div>
+            {% endif %}
+          </div>
+        {% endif %}
+
+        {% if section.settings.collection == blank %}
+          <p class="cm-cp-empty">{{ 'sections.cm_collection_products.empty_select_collection' | t }}</p>
+        {% else %}
+          <div class="cm-cp-grid">
+            {% render 'cm-product-items', collection: section.settings.collection, limit: section.settings.products_limit %}
+          </div>
+        {% endif %}
+
+        {% if view_href != blank and section.settings.view_all_label != blank %}
+          <div class="cm-cp-toolbar" style="justify-content: center;">
+            <a href="{{ view_href }}" class="cm-cp-view-all">{{ section.settings.view_all_label }}</a>
+          </div>
+        {% endif %}
+
+      </div>
+    </div>
+  </div>
+</div>
