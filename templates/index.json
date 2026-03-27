@@ -99,6 +99,8 @@
         "text_color": "#0b2a4a",
         "text_color_hover": "#f7921f",
         "info_color": "#141414",
+        "image_border_radius": 0,
+        "image_border_radius_mb": 0,
         "remove_top_padding": false,
         "remove_bottom_padding": false,
         "custom_class": ""
@@ -529,7 +531,7 @@
       ],
       "name": "多列列表",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "global-width",
         "section_width_custom": 1200,
         "column_count": 4,
         "column_layout_type": "grid",
@@ -551,6 +553,8 @@
         "text_color": "#0b2a4a",
         "text_color_hover": "#f7921f",
         "info_color": "#141414",
+        "image_border_radius": 0,
+        "image_border_radius_mb": 0,
         "remove_top_padding": false,
         "remove_bottom_padding": false,
         "custom_class": ""
@@ -684,7 +688,7 @@
       ],
       "name": "多列列表",
       "settings": {
-        "section_width": "full-width",
+        "section_width": "global-width",
         "section_width_custom": 1200,
         "column_count": 4,
         "column_layout_type": "grid",
@@ -712,6 +716,74 @@
         "remove_bottom_padding": false,
         "custom_class": ""
       }
+    },
+    "cm_why_us_grid_Ep6gKR": {
+      "type": "cm-why-us-grid",
+      "blocks": {
+        "column_RYY3DP": {
+          "type": "column",
+          "settings": {
+            "icon_image": "shopify://shop_images/why-us-icon-001.png",
+            "title": "On-Time Delivery",
+            "info": "We ensure gifts arrive promptly for celebrations."
+          }
+        },
+        "column_xeUDWJ": {
+          "type": "column",
+          "settings": {
+            "icon_image": "shopify://shop_images/why-us-icon-002.png",
+            "title": "45-Day Refund",
+            "info": "Free replacement or full refund - no return needed."
+          }
+        },
+        "column_kpKpMw": {
+          "type": "column",
+          "settings": {
+            "icon_image": "shopify://shop_images/why-us-icon-003.png",
+            "title": "Superior Quality",
+            "info": "Made with premium materials for lasting beauty."
+          }
+        },
+        "column_6RGjRK": {
+          "type": "column",
+          "settings": {
+            "icon_image": "shopify://shop_images/why-us-icon-004.png",
+            "title": "Holiday Support",
+            "info": "Friendly help anytime during the holidays."
+          }
+        }
+      },
+      "block_order": [
+        "column_RYY3DP",
+        "column_xeUDWJ",
+        "column_kpKpMw",
+        "column_6RGjRK"
+      ],
+      "name": "Why Us网格",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "bg_color": "transparent",
+        "heading": "Why Us For Mother's Day Gifts?",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 30,
+        "heading_font_size_mb": 20,
+        "heading_color": "#141414",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "title_font_size": 22,
+        "title_font_size_mb": 16,
+        "info_font_size": 14,
+        "info_font_size_mb": 12,
+        "text_color": "#333333",
+        "text_color_hover": "#F7921F",
+        "info_color": "#141414",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -723,6 +795,7 @@
     "cm_image_with_text_JEMyyU",
     "cm_multi_collection_products_Xr8YPT",
     "cm_multicolumn_list_grrnEP",
-    "cm_multicolumn_list_Xg9Jax"
+    "cm_multicolumn_list_Xg9Jax",
+    "cm_why_us_grid_Ep6gKR"
   ]
 }

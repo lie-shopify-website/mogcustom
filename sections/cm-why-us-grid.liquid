@@ -1,7 +1,7 @@
 
 {% schema %}
     {
-        "name": "多列列表",
+        "name": "Why Us网格",
         "settings": [
             { "type": "header","content":"配置"},
             { "type": "select", "id": "section_width", "label": "版块宽度", "default": "global-width", "options": [
@@ -11,16 +11,6 @@
                 { "value": "custom-width", "label": "版块自定义宽度" }
             ]},
             { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' }}" },
-
-            { "type": "range", "id": "column_count", "label": "列数 (电脑端)", "default": 6, "min": 1, "max": 6, "step": 1, "info": "电脑端一行显示的列数, 超过6列会自动换行" },
-            { "type": "select", "id": "column_layout_type", "label": "布局类型", "default": "carousel", "options": [
-                { "value": "grid", "label": "网格布局" },
-                { "value": "carousel", "label": "横向滚动" }
-            ]},
-            { "type": "select", "id": "column_count_mb", "label": "列数 (手机端)", "default": "2", "options": [
-                { "value": "1", "label": "1 列" },
-                { "value": "2", "label": "2 列" }
-            ], "visible_if": "{{ section.settings.column_layout_type == 'grid' }}"},
 
             { "type": "header","content":"版块设置"},
             { "type": "color", "id": "bg_color", "label": "背景颜色", "default": "transparent" },
@@ -53,8 +43,6 @@
             { "type": "color", "id": "text_color_hover", "label": "标题 (悬浮)", "default": "#F7921F" },
             { "type": "color", "id": "info_color", "label": "内容", "default": "#141414" },
 
-            { "type": "number", "id": "image_border_radius", "label": "图片圆角", "default": 0 },
-            { "type": "number", "id": "image_border_radius_mb", "label": "图片圆角 (手机端)", "default": 0 },
             { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
             { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
             { "type": "text", "id": "custom_class", "label": "自定义class" }
@@ -64,19 +52,17 @@
                 "type": "column",
                 "name": "Column",
                 "settings": [
-                    { "type": "header","content":"图片"},
-                    { "type": "image_picker", "id": "column_image", "label": "图片" },
-                    { "type": "image_picker", "id": "column_image_mb", "label": "图片 (手机端)", "info": "选填. 可以为空, 默认使用电脑端图片" },
-                    { "type": "textarea", "id": "column_title", "label": "标题" },
-                    { "type": "textarea", "id": "column_info", "label": "内容" },
-                    { "type": "url", "id": "column_url", "label": "链接" },
+                    { "type": "header","content":"图标"},
+                    { "type": "image_picker", "id": "icon_image", "label": "图标" },
+                    { "type": "textarea", "id": "title", "label": "标题" },
+                    { "type": "textarea", "id": "info", "label": "内容" },
                 ]
             }
         ],
 
         "presets": [
             {
-                "name": "多列列表",
+                "name": "Why Us网格",
                 "category": "custom"
             }
         ]
@@ -85,19 +71,17 @@
 
 
 
-{{ 'cm-multicolumn-list.css' | asset_url | stylesheet_tag }}
+{{ 'cm-why-us-grid.css' | asset_url | stylesheet_tag }}
 <style>
 [data-section-id="{{ section.id }}"] {
     --bg-color:{{ section.settings.bg_color }};
     --text-color:{{ section.settings.text_color }};
     --text-color-hover:{{ section.settings.text_color_hover }};
     --info-color:{{ section.settings.info_color }};
-    --desktop-column-count:{{ section.settings.column_count }};
     --title-font-size:{{ section.settings.title_font_size }}px;
     --title-font-size-mb:{{ section.settings.title_font_size_mb }}px;
     --info-font-size:{{ section.settings.info_font_size }}px;
     --info-font-size-mb:{{ section.settings.info_font_size_mb }}px;
-    --mobile-column-count:{{ section.settings.column_count_mb | default: 2 }};
     --cm-ml-header-align:{{ section.settings.header_alignment }};
     --cm-ml-heading-size:{{ section.settings.heading_font_size }}px;
     --cm-ml-heading-size-mb:{{ section.settings.heading_font_size_mb }}px;
@@ -105,8 +89,6 @@
     --cm-ml-subheading-size:{{ section.settings.subheading_font_size }}px;
     --cm-ml-subheading-size-mb:{{ section.settings.subheading_font_size_mb }}px;
     --cm-ml-subheading-color:{{ section.settings.subheading_color }};
-    --image-border-radius:{{ section.settings.image_border_radius }}px;
-    --image-border-radius-mb:{{ section.settings.image_border_radius_mb }}px;
 
     {% if section.settings.section_width == 'custom-width' %}
         --section-width:{{ section.settings.section_width_custom }}px;
@@ -129,44 +111,35 @@ case section.settings.section_width
 endcase
 %}
 
-<div class="cm-multicolumn-list {% if section.settings.column_layout_type == 'grid' %}cm-multicolumn-list--mb-grid{% else %}cm-multicolumn-list--mb-carousel{% endif %} {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+<div class="cm-wug-column {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
     <div class="{{ layout_container_class }}">
 
         {% if section.settings.heading != blank or section.settings.subheading != blank %}
-            <div class="cm-multicolumn-list-header">
-                <div class="cm-multicolumn-list-header-inner">
+            <div class="cm-column-header">
+                <div class="cm-column-header-inner">
                     {% if section.settings.heading != blank %}
-                        <div class="cm-multicolumn-list-heading">{{ section.settings.heading }}</div>
+                        <div class="cm-column-heading">{{ section.settings.heading }}</div>
                     {% endif %}
                     {% if section.settings.subheading != blank %}
-                        <div class="cm-multicolumn-list-subheading">{{ section.settings.subheading }}</div>
+                        <div class="cm-column-subheading">{{ section.settings.subheading }}</div>
                     {% endif %}
                 </div>
             </div>
         {% endif %}
-        <div class="cm-multicolumn-list-inner">
-            <div class="cm-multicolumn-list-items">
+        <div class="cm-column-inner">
+            <div class="cm-column-items">
             {% for block in section.blocks %}
-                <div class="cm-multicolumn-list-item">
-
-                    {% comment %} 链接, visually-hidden 用于屏幕阅读器, 是无障碍辅助功能 {% endcomment %}
-                    {% if block.settings.column_url != blank %}
-                        <a href="{{ block.settings.column_url }}"><span class="visually-hidden">{{ block.settings.column_title }}</span></a>
-                    {% endif %}
+                <div class="cm-column-item">
                     
-                    <div class="column-image">
+                    <div class="icon-image">
                         {% comment %} 图片 {% endcomment %}
-                        {% if block.settings.column_image != blank %}
+                        {% if block.settings.icon_image != blank %}
                             {% liquid
-                                assign col_img = block.settings.column_image
+                                assign col_img = block.settings.icon_image
                                 assign col_w = col_img.width | default: 1200
                                 assign pc_src = col_img | image_url: width: col_w
                                 assign pad_src = pc_src
-                                if block.settings.column_image_mb != blank
-                                    assign m_src = block.settings.column_image_mb | image_url: width: 768
-                                else
-                                    assign m_src = col_img | image_url: width: 768
-                                endif
+                                assign m_src = col_img | image_url: width: 768
                             %}
                             {% render 'resp-img'
                                 pc_src: pc_src,
@@ -174,17 +147,17 @@ endcase
                                 m_src: m_src,
                                 lazy: true,
                                 class_name: 'resp-img-class',
-                                alt: block.settings.column_title
+                                alt: block.settings.icon_image.alt
                             %}
                         {% endif %}
                     </div>
                     
                     <div class="column-content">
-                        {% if block.settings.column_title != blank %}
-                            <div class="column-title">{{ block.settings.column_title }}</div>
+                        {% if block.settings.title != blank %}
+                            <div class="column-title">{{ block.settings.title }}</div>
                         {% endif %}
-                        {% if block.settings.column_info != blank %}
-                            <div class="column-info">{{ block.settings.column_info }}</div>
+                        {% if block.settings.info != blank %}
+                            <div class="column-info">{{ block.settings.info }}</div>
                         {% endif %}
                     </div>
                 </div>

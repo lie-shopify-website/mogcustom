@@ -1,5 +1,8 @@
 .cm-multicolumn-list.remove-top-space { padding-top: 0 !important; }
 .cm-multicolumn-list.remove-bottom-space { padding-bottom: 0 !important; }
+.cm-multicolumn-list .full-width { max-width: 100%; }
+.cm-multicolumn-list .custom-width { max-width: var(--section-width) !important; }
+
 
 .cm-multicolumn-list {
     background-color: var(--bg-color);
@@ -26,12 +29,6 @@
         --multicolumn-list-item-width: calc(100% / var(--desktop-column-count));
         --multicolumn-list-item-offset: calc(var(--multicolumn-list-gap) * calc((var(--desktop-column-count) - 1) / var(--desktop-column-count)));
     }
-}
-@media (max-width: 767px) {
-  .cm-multicolumn-list .layout-container {
-      padding-left: 0;
-      padding-right: 0;
-  }
 }
 
 .cm-multicolumn-list .cm-multicolumn-list-header {
@@ -81,6 +78,10 @@
         scroll-padding-left: var(--layout-container-horizontal-space);
         scroll-padding-right: var(--layout-container-horizontal-space);
     }
+    .cm-multicolumn-list.cm-multicolumn-list--mb-carousel .layout-container {
+      padding-left: 0;
+      padding-right: 0;
+    }
 
     .cm-multicolumn-list--mb-carousel .cm-multicolumn-list-items::-webkit-scrollbar {
         display: none;
@@ -95,12 +96,12 @@
 
     /* 平板与手机：网格（换行、无横向滚动） */
     .cm-multicolumn-list--mb-grid .cm-multicolumn-list-items {
-        flex-wrap: wrap;
-        overflow-x: visible;
-        overflow-y: visible;
-        scroll-snap-type: none;
-        padding-left: var(--layout-container-horizontal-space);
-        padding-right: var(--layout-container-horizontal-space);
+      flex-wrap: wrap;
+      overflow-x: visible;
+      overflow-y: visible;
+      scroll-snap-type: none;
+      padding-left:0;
+      padding-right:0;
     }
 
     .cm-multicolumn-list--mb-grid .cm-multicolumn-list-item {
