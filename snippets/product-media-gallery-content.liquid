@@ -318,6 +318,15 @@
   {% endif %}
 
   :root { --gallery-media-border-radius: {{ block_settings.media_radius }}px; }
+
+
+  {% if block_settings.customall_product %}
+    media-gallery[data-media-block-id="media-gallery-{{ block_id }}"] slideshow-component,
+    media-gallery[data-media-block-id="media-gallery-{{ block_id }}"] .media-gallery__grid,
+    media-gallery[data-media-block-id="media-gallery-{{ block_id }}"] zoom-dialog {
+      display:none !important;
+    }
+  {% endif %}
 {% endstyle %}
 
 {% if closest.product == blank %}
@@ -351,8 +360,16 @@
     "
     style="{% render 'spacing-style', settings: block_settings %} --thumbnail-width: {{ block_settings.thumbnail_width }}px; --media-radius: {{ block_settings.media_radius }}px;{% if block_settings.icons_style contains 'large' %} --slideshow-icon-padding: 0px;{% endif %}--image-gap: {{ block_settings.image_gap }}px;{% unless block_settings.aspect_ratio == 'adapt' %} --gallery-aspect-ratio: {{ block_settings.aspect_ratio }};{% endunless %}"
     data-presentation="{{ media_presentation }}"
+    data-media-block-id="media-gallery-{{ block_id }}"
     {{ block_shopify_attributes }}
   >
+
+    {% if block_settings.customall_product %}
+      <div id="artwork-preview">
+        <span class="ctm-skeleton-box" style="width: 100%; padding-bottom: 100%;"></span>
+      </div>
+    {% endif %}
+
     {% capture slides %}
       {% for media in sorted_media %}
         {% capture children %}

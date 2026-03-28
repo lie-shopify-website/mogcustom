@@ -33,7 +33,7 @@
 
 .cm-multicolumn-list .cm-multicolumn-list-header {
     text-align: var(--cm-ml-header-align, center);
-    margin-bottom: 20px;
+    margin-bottom: var(--heading-content-space);
     margin-left: auto;
     margin-right: auto;
 }

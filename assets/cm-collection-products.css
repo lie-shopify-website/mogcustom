@@ -49,7 +49,7 @@
 
 .cm-cp-header {
   text-align: var(--cm-cp-header-align, center);
-  margin-bottom: 20px;
+  margin-bottom: var(--heading-content-space);
   max-width: var(--cm-cp-header-max-width, 720px);
   margin-left: auto;
   margin-right: auto;

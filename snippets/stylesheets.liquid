@@ -4,28 +4,34 @@
 
 {% comment %}  layout-container页面安全区域 {% endcomment %}
 <style>
-    .layout-container {
+    :root {
         --layout-container-horizontal-space: 16px;
-        padding-left: var(--layout-container-horizontal-space);
-        padding-right: var(--layout-container-horizontal-space);
-        max-width: 100%;
+        --layout-container-max-width: 100%;
+        --heading-content-space: 20px;
     }
     @media (min-width: 768px){
-        .layout-container {
+        :root {
             --layout-container-horizontal-space: 32px;
         }
     }
     @media (min-width: 1024px){
-        .layout-container {
+        :root {
             --layout-container-horizontal-space: 48px;
         }
     }
     @media (min-width: 1536px){
-        .layout-container {
+        :root {
             --layout-container-horizontal-space: 0;
-            margin-left: auto;
-            margin-right: auto;
-            max-width: 1440px;
+            --layout-container-max-width: 1440px;
+            --heading-content-space: 32px;
         }
+    }
+
+    .layout-container {
+        padding-left: var(--layout-container-horizontal-space);
+        padding-right: var(--layout-container-horizontal-space);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: var(--layout-container-max-width);
     }
 </style>

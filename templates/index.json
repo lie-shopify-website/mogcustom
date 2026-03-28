@@ -763,7 +763,7 @@
       "settings": {
         "section_width": "global-width",
         "section_width_custom": 1440,
-        "bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
         "heading": "Why Us For Mother's Day Gifts?",
         "subheading": "",
         "header_alignment": "center",
@@ -778,8 +778,36 @@
         "info_font_size": 14,
         "info_font_size_mb": 12,
         "text_color": "#333333",
-        "text_color_hover": "#F7921F",
+        "text_color_hover": "#f7921f",
         "info_color": "#141414",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_brand_introduction_P37ktV": {
+      "type": "cm-brand-introduction",
+      "name": "品牌介绍",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "bg_color": "transparent",
+        "heading": "Pawfect House™ — Deliver Happiness, Personally!",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 30,
+        "heading_font_size_mb": 22,
+        "heading_color": "#141414",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "video_url": "https://www.youtube.com/watch?v=HCop5nb0Iyo",
+        "text1_heading": "More than a gift store.",
+        "text1_text": "We believe the best gifts aren’t things you buy — they’re stories you share. Stories about love, laughter, and the moments that make life unforgettable.",
+        "text1_bg_color": "#f1fcff",
+        "text2_heading": "Stories meet art.",
+        "text2_text": "Through thoughtful design and creative artistry, we transform those stories into personalized keepsakes — meaningful gifts made to be treasured for years to come.",
+        "text2_bg_color": "#fff9f1",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
         "custom_class": ""
@@ -796,6 +824,7 @@
     "cm_multi_collection_products_Xr8YPT",
     "cm_multicolumn_list_grrnEP",
     "cm_multicolumn_list_Xg9Jax",
-    "cm_why_us_grid_Ep6gKR"
+    "cm_why_us_grid_Ep6gKR",
+    "cm_brand_introduction_P37ktV"
   ]
 }
