@@ -325,7 +325,7 @@
       "qr_image_alt": "QR code — scan to redeem gift card",
       "copy_code": "Copy gift card code",
       "expiration_date": "Expires {{ expires_on }}",
-      "copy_code_success": "Code copied successfully",
+      "copy_code_success": "Copied!",
       "expired": "Expired"
     }
   },

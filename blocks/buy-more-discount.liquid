@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "购买更多折扣",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "text", "label": "标题", "default": "Spend more pay less!" },
+    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+    { "type": "range", "id": "font_size", "label": "字号", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "font_size_mb", "label": "字号 (移动端)", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "表格配置" },
+    { "type": "range", "id": "cell_font_size", "label": "字号", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "cell_font_size_mb", "label": "字号 (移动端)", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+    { "type": "color", "id": "cell_heading_text_color", "label": "表格头部文字颜色", "default": "#ffffff" },
+    { "type": "color", "id": "cell_heading_background_color", "label": "表格头部背景颜色", "default": "#c4342d" },
+    { "type": "color", "id": "cell_text_color", "label": "表格文字颜色", "default": "#141414" },
+    { "type": "color", "id": "cell_background_color", "label": "表格背景颜色", "default": "transparent" },
+    
+    { "type": "header", "content": "边距" },
+    { "type": "range", "id": "padding_top", "label": "上边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "下边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_left", "label": "左边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_right", "label": "右边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "border_radius", "label": "圆角", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+  ],
+  "blocks": [
+    { "type": "_buy-more-discount-info" }
+  ],
+  "presets": [
+    {
+      "name": "购买更多折扣",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} 样式在cm-section-product.css {% endcomment %}
+
+{% assign block_settings = block.settings %}
+
+<div class="buy-more-discount" data-block-id="{{ block.id }}">
+    <div class="buy-more-discount__title">{{ block_settings.text }}</div>
+    <div class="buy-more-discount-inner">
+        {% content_for 'block', id: 'static-buy-more-discount-heading', type: '_buy-more-discount-heading' %}
+        <div class="buy-more-discount__infos">
+            {% content_for 'blocks' %}
+        </div>
+    </div>
+    <style>
+        .buy-more-discount[data-block-id="{{ block.id }}"] {
+        padding-top: {{ block_settings.padding_top }}px;
+        padding-bottom: {{ block_settings.padding_bottom }}px;
+        padding-left: {{ block_settings.padding_left }}px;
+        padding-right: {{ block_settings.padding_right }}px;
+        border-radius: {{ block_settings.border_radius }}px;
+
+        --buy-more-discount-cell-font-size: {{ block_settings.cell_font_size }}px;
+        --buy-more-discount-cell-font-size-mb: {{ block_settings.cell_font_size_mb }}px;
+        --buy-more-discount-cell-text-color: {{ block_settings.cell_text_color }};
+        --buy-more-discount-cell-background-color: {{ block_settings.cell_background_color }};
+        --buy-more-discount-cell-heading-text-color: {{ block_settings.cell_heading_text_color }};
+        --buy-more-discount-cell-heading-background-color: {{ block_settings.cell_heading_background_color }};
+        }
+
+        .buy-more-discount[data-block-id="{{ block.id }}"] .buy-more-discount__title {
+            color: {{ block_settings.text_color }};
+            font-size: {{ block_settings.font_size }}px;
+            line-height: 1.2;
+        }
+        @media (max-width: 768px) {
+        .buy-more-discount[data-block-id="{{ block.id }}"] {
+            padding-top: {{ block_settings.padding_top | times: 0.8 }}px;
+            padding-bottom: {{ block_settings.padding_bottom | times: 0.8 }}px;
+            padding-left: {{ block_settings.padding_left | times: 0.8 }}px;
+            padding-right: {{ block_settings.padding_right | times: 0.8 }}px;
+            border-radius: {{ block_settings.border_radius | times: 0.8 }}px;
+        }
+        .buy-more-discount[data-block-id="{{ block.id }}"] .buy-more-discount__title {
+            font-size: {{ block_settings.font_size_mb }}px;
+        }
+        }
+    </style>
+</div>
+

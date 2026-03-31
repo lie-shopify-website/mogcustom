@@ -1,4 +1,5 @@
 import { Component } from '@theme/component';
+import { copyTextToClipboard } from '@theme/utilities';
 
 /**
  * Handles copying text to clipboard, from an event like a click.
@@ -6,12 +7,12 @@ import { Component } from '@theme/component';
  * @extends {Component}
  */
 class CopyToClipboardComponent extends Component {
-  copyToClipboard() {
+  async copyToClipboard() {
     const copyContent = this.getAttribute('text-to-copy');
 
     if (!copyContent) return;
 
-    navigator.clipboard.writeText(copyContent);
+    await copyTextToClipboard(copyContent);
 
     const copySuccessMessage = this.refs.copySuccessMessage;
 

@@ -1,0 +1,78 @@
+{% assign block_settings = block.settings %}
+{% liquid
+  assign min_number = block_settings.min_number | default: 0
+  assign max_number = block_settings.max_number | default: min_number
+  if max_number < min_number
+    assign max_number = min_number
+  endif
+
+  assign span = max_number | minus: min_number | plus: 1
+  assign unix = 'now' | date: '%s' | plus: 0
+  assign bid = block.id | default: 1 | plus: 0
+  assign pid = product.id | default: 0 | plus: 0
+  assign mix = unix | plus: bid | times: 31 | plus: pid
+  assign offset = mix | modulo: span
+  assign display_number = min_number | plus: offset
+  assign display_number_bold = "<b>" | append: display_number | append: '%' | append: "</b>"
+
+  assign template_text = block_settings.text | default: ''
+  assign output_text = template_text | replace: '[number]', display_number_bold
+%}
+
+<div class="earlier-delivery" data-block-id="{{ block.id }}">
+  <div class="earlier-delivery__text">{{ output_text }}</div>
+  <style>
+    .earlier-delivery[data-block-id="{{ block.id }}"] {
+      background-color: {{ block_settings.background_color }};
+      color: {{ block_settings.text_color }};
+      font-size: {{ block_settings.font_size }}px;
+      line-height: 1.2;
+      padding-top: {{ block_settings.padding_top }}px;
+      padding-bottom: {{ block_settings.padding_bottom }}px;
+      padding-left: {{ block_settings.padding_left }}px;
+      padding-right: {{ block_settings.padding_right }}px;
+      border-radius: {{ block_settings.border_radius }}px;
+    }
+    @media (max-width: 768px) {
+      .earlier-delivery[data-block-id="{{ block.id }}"] {
+        font-size: {{ block_settings.font_size_mb }}px;
+
+        padding-top: {{ block_settings.padding_top | times: 0.8 }}px;
+        padding-bottom: {{ block_settings.padding_bottom | times: 0.8 }}px;
+        padding-left: {{ block_settings.padding_left | times: 0.8 }}px;
+        padding-right: {{ block_settings.padding_right | times: 0.8 }}px;
+        border-radius: {{ block_settings.border_radius | times: 0.8 }}px;
+      }
+    }
+  </style>
+</div>
+{% schema %}
+{
+  "name": "提前发货提示语",
+  "tag": null,
+  "settings": [
+    { "type": "text", "id": "text", "label": "提示语", "default": "⚡Up to [number] delivered 2 days earlier", "info": "[number] 表示提前发货百分比, 注意:%不写，例子: ⚡Up to [number] delivered 2 days earlier." },
+    { "type": "number", "id": "min_number", "label": "最小值", "default": 80 },
+    { "type": "number", "id": "max_number", "label": "最大值", "default": 90 },
+    { "type": "paragraph", "content": "值在 Liquid 中由当前渲染时间、区块 ID、商品 ID 计算得到（区间内伪随机）。全页缓存时可能一段时间不变；每次刷新缓存或时间跨过秒边界后会变化。若不要商品参与，可仅在商品页使用该区块。" },
+    { "type": "header", "content": "颜色" },
+    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#000000" },
+    { "type": "color", "id": "background_color", "label": "背景颜色", "default": "transparent" },
+    { "type": "header", "content": "字号" },
+    { "type": "range", "id": "font_size", "label": "字号", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+    { "type": "range", "id": "font_size_mb", "label": "字号 (移动端)", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+    { "type": "header", "content": "边距" },
+    { "type": "range", "id": "padding_top", "label": "上边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "下边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_left", "label": "左边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_right", "label": "右边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "border_radius", "label": "圆角", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+  ],
+  "presets": [
+    {
+      "name": "提前发货提示语",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

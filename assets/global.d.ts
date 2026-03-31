@@ -29,6 +29,7 @@ declare global {
       scheduler: {
         schedule: (task: () => void) => void;
       };
+      copyText: (text: string) => Promise<boolean>;
     };
     template: {
       name: string;

@@ -1,0 +1,24 @@
+{% schema %}
+{
+  "name": "折扣头部",
+  "tag": null,
+  "settings": [
+    { "type": "textarea", "id": "text1", "label": "文字1", "default": "Spend" },
+    { "type": "textarea", "id": "text2", "label": "文字2", "default": "Get" },
+    { "type": "textarea", "id": "code", "label": "优惠码", "default": "Code" },
+  ],
+  "presets": [
+    {
+      "name": "折扣头部",
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign block_settings = block.settings -%}
+
+<div class="buy-more-discount-heading" data-block-id="{{ block.id }}">
+  <div class="buy-more-discount-cell">{{ block_settings.text1 }}</div>
+  <div class="buy-more-discount-cell">{{ block_settings.text2 }}</div>
+  <div class="buy-more-discount-cell">{{ block_settings.code }}</div>
+</div>

@@ -1,0 +1,39 @@
+{% schema %}
+{
+  "name": "折扣信息",
+  "tag": null,
+  "settings": [
+    { "type": "textarea", "id": "text1", "label": "文字1", "default": "Buy 2 items" },
+    { "type": "textarea", "id": "text2", "label": "文字2", "default": "10% off" },
+    { "type": "textarea", "id": "code", "label": "优惠码", "default": "BMSM10" },
+  ],
+  "presets": [
+    {
+      "name": "折扣信息",
+    }
+  ]
+}
+{% endschema %}
+
+{%- assign block_settings = block.settings -%}
+
+<div class="buy-more-discount-info" data-block-id="{{ block.id }}">
+  <div class="buy-more-discount-cell">{{ block_settings.text1 }}</div>
+  <div class="buy-more-discount-cell">{{ block_settings.text2 }}</div>
+  <div class="buy-more-discount-cell code">
+    <div class="buy-more-code-container js-buyMoreCodeContainer">
+        <code>{{ block_settings.code }}</code>
+        <button
+          type="button"
+          class="buy-more-copy-btn"
+          data-code="{{ block_settings.code | escape }}"
+          data-copy-label="Copy"
+          data-copied-label="{{ 'gift_cards.issued.copy_code_success' | t | escape }}"
+          aria-label="{{ 'gift_cards.issued.copy_code' | t }}: {{ block_settings.code | escape }}"
+        >
+            <span class="buy-more-copy-icon">📋</span>
+            <span class="buy-more-tooltip">Copy</span>
+        </button>
+    </div>
+  </div>
+</div>

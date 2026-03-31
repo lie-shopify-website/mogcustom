@@ -790,10 +790,44 @@ export function updateAllHeaderCustomProperties() {
   setHeaderMenuStyle();
 }
 
+/**
+ * Copy plain text to the system clipboard (Clipboard API with fallback).
+ * @param {string} text
+ * @returns {Promise<boolean>} true when the text was written successfully
+ */
+export async function copyTextToClipboard(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+
+  try {
+    if (navigator.clipboard?.writeText && window.isSecureContext) {
+      await navigator.clipboard.writeText(text);
+      return true;
+    }
+  } catch {
+    // fall through to legacy copy
+  }
+
+  try {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    document.body.appendChild(textarea);
+    textarea.select();
+    const ok = document.execCommand('copy');
+    document.body.removeChild(textarea);
+    return ok;
+  } catch {
+    return false;
+  }
+}
+
 // Theme is not defined in some layouts, like the gift card page
 if (typeof Theme !== 'undefined') {
   Theme.utilities = {
     ...Theme.utilities,
     scheduler: scheduler,
+    copyText: copyTextToClipboard,
   };
 }
