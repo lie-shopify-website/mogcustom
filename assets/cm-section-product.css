@@ -28,10 +28,14 @@
 }
 
 
+.product-information media-gallery {
+    margin-top: 20px !important;
+}
+ 
 .product-information__grid {
     padding: 0 16px;
-    grid-template-columns: 800px 1fr !important;
 }
+
 
 /* 产品信息 */
 .product-details .text-block h1 {
@@ -52,6 +56,9 @@
 @media screen and (min-width: 768px) {
     .product-details .text-block h1 {
         font-size: 25px;
+    }
+    .product-information__grid {
+        grid-template-columns: min(800px, 50vw) 1fr !important;
     }
 }
 
