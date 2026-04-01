@@ -286,7 +286,7 @@
                   "settings": {
                     "heading": "Shipping & Returns",
                     "open_by_default": false,
-                    "icon": "plane",
+                    "icon": "truck",
                     "width": 20
                   },
                   "blocks": {
@@ -323,9 +323,9 @@
                 "accordion_row_Yxp9xg": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Manufacturing",
+                    "heading": "Personalization",
                     "open_by_default": false,
-                    "icon": "none",
+                    "icon": "star",
                     "width": 20
                   },
                   "blocks": {
