@@ -332,7 +332,7 @@
                     "text_6UNBqW": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value.</p>",
+                        "text": "<ul><li>Please complete fields required to customize options (Name/Characteristics) and <strong>recheck carefully</strong> all the customized options.</li><li>Text: Standard English excluding special characters, emojis to ensure the best looking.</li><li>Characteristics: Pick one-by-one options that match your description.</li><li>The last step, click \"Preview\" to get a glimpse of the wonderful creation you’ve made ❤️.</li></ul><p><strong>Please be aware that the Preview may be slightly different from the physical item in terms of color due to our lighting at our product photoshoot or your device’s display.</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
