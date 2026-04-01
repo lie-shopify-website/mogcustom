@@ -163,6 +163,44 @@
                 "price_tVjtKg"
               ]
             },
+            "recent_sales_3rqTnG": {
+              "type": "recent-sales",
+              "name": "近期销量提示语",
+              "settings": {
+                "text": "In demand. [number] people bought this in the last 24 hours.",
+                "min_number": 50,
+                "max_number": 100,
+                "text_color": "#f1641e",
+                "background_color": "rgba(0,0,0,0)",
+                "font_size": 18,
+                "font_size_mb": 16,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
+            "earlier_delivery_3rqTnG": {
+              "type": "earlier-delivery",
+              "name": "提前发货提示语",
+              "settings": {
+                "text": "⚡Up to [number] delivered 2 days earlier",
+                "min_number": 80,
+                "max_number": 90,
+                "text_color": "#141414",
+                "background_color": "rgba(0,0,0,0)",
+                "font_size": 18,
+                "font_size_mb": 16,
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
             "divider_VJhene": {
               "type": "_divider",
               "name": "t:names.divider",
@@ -223,6 +261,53 @@
                 }
               },
               "block_order": []
+            },
+            "buy_more_discount_AQENCw": {
+              "type": "buy-more-discount",
+              "name": "购买更多折扣",
+              "settings": {
+                "text": "Spend more pay less!",
+                "text_color": "#141414",
+                "font_size": 18,
+                "font_size_mb": 16,
+                "cell_font_size": 14,
+                "cell_font_size_mb": 14,
+                "cell_heading_text_color": "#ffffff",
+                "cell_heading_background_color": "#c4342d",
+                "cell_text_color": "#141414",
+                "cell_background_color": "transparent",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {
+                "buy_more_discount_info_K6QBtF": {
+                  "type": "_buy-more-discount-info",
+                  "name": "折扣信息",
+                  "settings": {
+                    "text1": "Buy 2 items",
+                    "text2": "10% off",
+                    "code": "BMSM10",
+                  },
+                  "blocks": {}
+                },
+                "buy_more_discount_info_3wpD46": {
+                  "type": "_buy-more-discount-info",
+                  "name": "折扣信息",
+                  "settings": {
+                    "text1": "Buy 2 items",
+                    "text2": "10% off",
+                    "code": "BMSM10",
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "buy_more_discount_info_K6QBtF",
+                "buy_more_discount_info_3wpD46"
+              ]
             },
             "accordion_pg6d3J": {
               "type": "accordion",
@@ -397,9 +482,12 @@
           },
           "block_order": [
             "group_icgrde",
+            "recent_sales_3rqTnG",
+            "earlier_delivery_3rqTnG",
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "buy_more_discount_AQENCw",
             "accordion_pg6d3J",
             "text_aEtTtq"
           ]
