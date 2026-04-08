@@ -275,7 +275,7 @@
                 "cell_heading_text_color": "#ffffff",
                 "cell_heading_background_color": "#c4342d",
                 "cell_text_color": "#141414",
-                "cell_background_color": "transparent",
+                "cell_background_color": "rgba(0,0,0,0)",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -300,6 +300,16 @@
                     "text1": "Buy 2 items",
                     "text2": "10% off",
                     "code": "BMSM10"
+                  },
+                  "blocks": {}
+                },
+                "static-buy-more-discount-heading": {
+                  "type": "_buy-more-discount-heading",
+                  "static": true,
+                  "settings": {
+                    "text1": "Spend",
+                    "text2": "Get",
+                    "code": "Code"
                   },
                   "blocks": {}
                 }
@@ -650,7 +660,7 @@
       "type": "custom-liquid",
       "name": "自定义代码 - JS",
       "settings": {
-        "custom_liquid": "{{ product.metafields.custom.code }}",
+        "custom_liquid": "<style>\n#personalized-form .template-select.ant-form-item {\n    display: none;\n}\n</style>\n<script>\n(function () {\n    // 页面 load 后再挂监听；事件委托：表单晚渲染也能响应，无需轮询\n    function onVariantClick(e) {\n        var form = document.querySelector('#personalized-form');\n        if (!form) return;\n        var variantBtn = e.target.closest('.product-attributes .product-form__item button');\n        if (!variantBtn || !form.contains(variantBtn)) return;\n\n        var variantOptions = form.querySelectorAll('.product-attributes .product-form__item button');\n        var templateOptions = form.querySelectorAll('.personalized-options .template-select button');\n        if (variantOptions.length === 0 || templateOptions.length === 0) return;\n\n        var index = Array.prototype.indexOf.call(variantOptions, variantBtn);\n        if (index >= 0 && index < templateOptions.length) {\n            templateOptions[index].click();\n        }\n    }\n\n    window.addEventListener('load', function () {\n        document.addEventListener('click', onVariantClick);\n    });\n})();\n</script>",
         "color_scheme": "",
         "section_width": "page-width",
         "padding-block-start": 0,
