@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -263,7 +263,7 @@
                 "cell_heading_text_color": "#ffffff",
                 "cell_heading_background_color": "#c4342d",
                 "cell_text_color": "#141414",
-                "cell_background_color": "transparent",
+                "cell_background_color": "rgba(0,0,0,0)",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -277,7 +277,7 @@
                   "settings": {
                     "text1": "Buy 2 items",
                     "text2": "10% off",
-                    "code": "BMSM10",
+                    "code": "BMSM10"
                   },
                   "blocks": {}
                 },
@@ -287,7 +287,17 @@
                   "settings": {
                     "text1": "Buy 2 items",
                     "text2": "10% off",
-                    "code": "BMSM10",
+                    "code": "BMSM10"
+                  },
+                  "blocks": {}
+                },
+                "static-buy-more-discount-heading": {
+                  "type": "_buy-more-discount-heading",
+                  "static": true,
+                  "settings": {
+                    "text1": "Spend",
+                    "text2": "Get",
+                    "code": "Code"
                   },
                   "blocks": {}
                 }
@@ -487,10 +497,22 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "custom_liquid_hxWHQP": {
+      "type": "custom-liquid",
+      "name": "自定义代码 - JS",
+      "settings": {
+        "custom_liquid": "{{ product.metafields.custom.code }}",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "custom_liquid_hxWHQP"
   ]
 }
