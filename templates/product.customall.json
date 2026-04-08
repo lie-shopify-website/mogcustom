@@ -645,10 +645,22 @@
         "padding-block-start": 48,
         "padding-block-end": 48
       }
+    },
+    "custom_liquid_hxWHQP": {
+      "type": "custom-liquid",
+      "name": "自定义代码 - JS",
+      "settings": {
+        "custom_liquid": "{{ product.metafields.custom.code }}",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
     "main",
-    "product_recommendations_qggXJq"
+    "product_recommendations_qggXJq",
+    "custom_liquid_hxWHQP"
   ]
 }
