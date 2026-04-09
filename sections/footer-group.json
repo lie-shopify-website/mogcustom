@@ -79,6 +79,27 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "menu_nfe7zT": {
+              "type": "menu",
+              "name": "t:names.menu",
+              "settings": {
+                "menu": "policies",
+                "heading": "",
+                "menu_spacing": 12,
+                "show_as_accordion": false,
+                "accordion_icon": "caret",
+                "accordion_dividers": false,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "heading_preset": "h3",
+                "link_preset": "paragraph",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {}
+            },
             "menu_krAYc4": {
               "type": "menu",
               "name": "t:names.menu",
@@ -97,15 +118,6 @@
                 "padding-block-end": 0,
                 "padding-inline-start": 0,
                 "padding-inline-end": 0
-              },
-              "blocks": {}
-            },
-            "footer_policy_list_DEqPWE": {
-              "type": "footer-policy-list",
-              "name": "t:names.policy_list",
-              "settings": {
-                "font_size": "0.75rem",
-                "case": "none"
               },
               "blocks": {}
             },
@@ -161,8 +173,8 @@
             }
           },
           "block_order": [
+            "menu_nfe7zT",
             "menu_krAYc4",
-            "footer_policy_list_DEqPWE",
             "text_LWt8Pz",
             "text_f9CFLH"
           ]
