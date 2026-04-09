@@ -79,6 +79,15 @@
             "padding-inline-end": 0
           },
           "blocks": {
+            "footer_policy_list_DEqPWE": {
+              "type": "footer-policy-list",
+              "name": "t:names.policy_list",
+              "settings": {
+                "font_size": "0.75rem",
+                "case": "none"
+              },
+              "blocks": {}
+            },
             "text_LWt8Pz": {
               "type": "text",
               "settings": {
@@ -131,6 +140,7 @@
             }
           },
           "block_order": [
+            "footer_policy_list_DEqPWE",
             "text_LWt8Pz",
             "text_f9CFLH"
           ]
