@@ -19,11 +19,11 @@
           "settings": {
             "text": "<strong>Free Shipping For Orders $79+</strong>",
             "link": "",
-            "font": "var(--font-subheading--family)",
-            "font_size": "0.75rem",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
             "weight": "",
-            "letter_spacing": "normal",
-            "case": "none"
+            "letter_spacing": "loose",
+            "case": "uppercase"
           },
           "blocks": {}
         }
