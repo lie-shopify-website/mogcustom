@@ -1,0 +1,131 @@
+{% schema %}
+{
+  "name": "发货时间估算",
+  "tag": null,
+  "settings": [
+    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+    { "type": "range", "id": "font_size", "label": "字号", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "font_size_mb", "label": "字号 (移动端)", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "背景颜色" },
+    { "type": "color", "id": "background_color", "label": "背景颜色", "default": "transparent" },
+    
+    { "type": "header", "content": "边距" },
+    { "type": "range", "id": "padding_top", "label": "上边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "下边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_left", "label": "左边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_right", "label": "右边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "border_radius", "label": "圆角", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+  ],
+  "blocks": [
+    { "type": "_delivery-estimate-info" }
+  ],
+  "presets": [
+    {
+      "name": "发货时间估算",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} 样式在cm-section-product.css {% endcomment %}
+
+{% assign block_settings = block.settings %}
+
+<div class="delivery-estimate" data-block-id="{{ block.id }}" >
+  <div class="delivery-estimate__infos">
+    {% content_for 'blocks' %}
+  </div>
+
+  <div class="delivery-estimate-popup" data-delivery-estimate-popup aria-hidden="true">
+    <div class="delivery-estimate-popup__backdrop js-deliveryEstimateBackdrop"></div>
+    <div class="delivery-estimate-popup__inner" role="dialog" aria-modal="true">
+      <button type="button" class="delivery-estimate-popup__close js-popupCloseBtn" aria-label="{{ 'actions.close' | t }}">
+        {{ 'icon-close.svg' | inline_asset_content }}
+      </button>
+      <div class="delivery-estimate-popup__items popup-items" data-delivery-estimate-popup-clones></div>
+    </div>
+  </div>
+
+  <style>
+    .delivery-estimate[data-block-id="{{ block.id }}"] {
+      padding-top: {{ block_settings.padding_top }}px;
+      padding-bottom: {{ block_settings.padding_bottom }}px;
+      padding-left: {{ block_settings.padding_left }}px;
+      padding-right: {{ block_settings.padding_right }}px;
+      border-radius: {{ block_settings.border_radius }}px;
+      --delivery-estimate-background-color: {{ block_settings.background_color }};
+      --delivery-estimate-text-color: {{ block_settings.text_color }};
+      --delivery-estimate-font-size: {{ block_settings.font_size }}px;
+    }
+
+    .delivery-estimate[data-block-id="{{ block.id }}"] .delivery-estimate__infos .delivery-estimate-info__timeline {
+      display: none !important;
+    }
+    .delivery-estimate[data-block-id="{{ block.id }}"] .delivery-estimate-popup .delivery-estimate-info__compact {
+      display: none !important;
+    }
+
+    @media (max-width: 768px) {
+      .delivery-estimate[data-block-id="{{ block.id }}"] {
+        padding-top: {{ block_settings.padding_top | times: 0.8 }}px;
+        padding-bottom: {{ block_settings.padding_bottom | times: 0.8 }}px;
+        padding-left: {{ block_settings.padding_left | times: 0.8 }}px;
+        padding-right: {{ block_settings.padding_right | times: 0.8 }}px;
+        border-radius: {{ block_settings.border_radius | times: 0.8 }}px;
+        --delivery-estimate-font-size: {{ block_settings.font_size_mb }}px;
+      }
+    }
+  </style>
+
+  <script>
+    (function () {
+      var root = document.querySelector('.delivery-estimate[data-block-id="{{ block.id }}"]');
+      if (!root) return;
+      var popup = root.querySelector('[data-delivery-estimate-popup]');
+      var infos = root.querySelector('.delivery-estimate__infos');
+      var popupItems = popup.querySelector('[data-delivery-estimate-popup-clones]');
+      if (!popup || !infos || !popupItems) return;
+
+      function syncBodyScrollLock() {
+        if (document.querySelector('.delivery-estimate-popup.is-open')) {
+          document.documentElement.classList.add('delivery-estimate-popup-open');
+        } else {
+          document.documentElement.classList.remove('delivery-estimate-popup-open');
+        }
+      }
+      function openPopup() {
+        popup.classList.add('is-open');
+        popup.setAttribute('aria-hidden', 'false');
+        syncBodyScrollLock();
+      }
+      function closePopup() {
+        popup.classList.remove('is-open');
+        popup.setAttribute('aria-hidden', 'true');
+        syncBodyScrollLock();
+      }
+
+      infos.addEventListener('click', function (e) {
+        var compact = e.target.closest('.delivery-estimate-info__compact');
+        if (!compact) return;
+        var item = compact.closest('.delivery-estimate-info');
+        if (!item) return;
+        popupItems.innerHTML = '';
+        popupItems.appendChild(item.cloneNode(true));
+        openPopup();
+      });
+
+      popup.querySelectorAll('.js-popupCloseBtn, .js-deliveryEstimateBackdrop').forEach(function (el) {
+        el.addEventListener('click', function () {
+          closePopup();
+        });
+      });
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && popup.classList.contains('is-open')) closePopup();
+      });
+    })();
+  </script>
+</div>
+

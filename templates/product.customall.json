@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "product-information",
@@ -182,6 +182,59 @@
               },
               "blocks": {}
             },
+            "delivery_estimate_kKaWER": {
+              "type": "delivery-estimate",
+              "name": "发货时间估算",
+              "settings": {
+                "text_color": "#202024",
+                "font_size": 14,
+                "font_size_mb": 13,
+                "background_color": "#f2f2f3",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {
+                "delivery_estimate_info_jDjfTB": {
+                  "type": "_delivery-estimate-info",
+                  "name": "物流方式",
+                  "settings": {
+                    "shipping_method_name": "Priority Shipping",
+                    "arrives_by": "Arrives by",
+                    "order_shipping_days_min": 5,
+                    "order_shipping_days_max": 7,
+                    "order_delivery_days_min": 15,
+                    "order_delivery_days_max": 17,
+                    "label_order": "Order placed",
+                    "label_ship": "Ships",
+                    "label_delivery": "Arrives"
+                  },
+                  "blocks": {}
+                },
+                "delivery_estimate_info_aF3DkH": {
+                  "type": "_delivery-estimate-info",
+                  "name": "物流方式",
+                  "settings": {
+                    "shipping_method_name": "Standard Shipping",
+                    "arrives_by": "Arrives by",
+                    "order_shipping_days_min": 5,
+                    "order_shipping_days_max": 7,
+                    "order_delivery_days_min": 17,
+                    "order_delivery_days_max": 19,
+                    "label_order": "Order placed",
+                    "label_ship": "Ships",
+                    "label_delivery": "Arrives"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "delivery_estimate_info_jDjfTB",
+                "delivery_estimate_info_aF3DkH"
+              ]
+            },
             "earlier_delivery_3rqTnG": {
               "type": "earlier-delivery",
               "name": "提前发货提示语",
@@ -275,7 +328,7 @@
                 "cell_heading_text_color": "#ffffff",
                 "cell_heading_background_color": "#c4342d",
                 "cell_text_color": "#141414",
-                "cell_background_color": "transparent",
+                "cell_background_color": "rgba(0,0,0,0)",
                 "padding_top": 0,
                 "padding_bottom": 0,
                 "padding_left": 0,
@@ -289,7 +342,7 @@
                   "settings": {
                     "text1": "Buy 2 items",
                     "text2": "10% off",
-                    "code": "BMSM10",
+                    "code": "BMSM10"
                   },
                   "blocks": {}
                 },
@@ -299,7 +352,17 @@
                   "settings": {
                     "text1": "Buy 2 items",
                     "text2": "10% off",
-                    "code": "BMSM10",
+                    "code": "BMSM10"
+                  },
+                  "blocks": {}
+                },
+                "static-buy-more-discount-heading": {
+                  "type": "_buy-more-discount-heading",
+                  "static": true,
+                  "settings": {
+                    "text1": "Spend",
+                    "text2": "Get",
+                    "code": "Code"
                   },
                   "blocks": {}
                 }
@@ -483,6 +546,7 @@
           "block_order": [
             "group_icgrde",
             "recent_sales_3rqTnG",
+            "delivery_estimate_kKaWER",
             "earlier_delivery_3rqTnG",
             "divider_VJhene",
             "variant_picker_R3rGDr",

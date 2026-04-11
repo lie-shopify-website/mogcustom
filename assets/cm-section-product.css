@@ -211,3 +211,131 @@
 .accordion accordion-custom summary.details__header {
     font-size: 16px;
 }
+
+
+/* 发货时间估算：列表仅紧凑信息，弹层仅时间线；手机 2 列，桌面 3 列 */
+.delivery-estimate .delivery-estimate__infos {
+    display: flex;
+    gap: 8px;
+}
+
+.delivery-estimate .shipping-method-box {
+    background-color: var(--delivery-estimate-background-color);
+    border-radius: 6px;
+    padding: 6px 8px;
+    color: var(--delivery-estimate-text-color);
+    font-size: var(--delivery-estimate-font-size);
+    font-weight: 400;
+    line-height: 20px;
+}
+
+.delivery-estimate .shipping-method-delivery-date {
+    font-weight: bold;
+    display: inline-flex;
+    text-decoration: underline;
+    text-decoration-style: dotted;
+    text-underline-offset: 2px;
+    cursor: pointer;
+}
+
+.delivery-estimate-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: 100%;
+    text-align: left;
+}
+
+.delivery-estimate-timeline__row {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+.delivery-estimate-timeline__row:last-child {
+    padding-bottom: 0;
+    border-bottom: none;
+}
+
+.delivery-estimate-timeline__label {
+    font-weight: 600;
+    opacity: 0.85;
+}
+
+.delivery-estimate-timeline__value {
+    font-weight: 400;
+}
+
+.delivery-estimate-popup {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: calc(var(--layer-overlay, 1000) + 5);
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    box-sizing: border-box;
+}
+
+.delivery-estimate-popup.is-open {
+    display: flex;
+}
+
+.delivery-estimate-popup__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.45);
+    cursor: pointer;
+}
+
+.delivery-estimate-popup__inner {
+    position: relative;
+    z-index: 1;
+    width: min(420px, 100%);
+    max-height: min(80vh, 100%);
+    overflow: auto;
+    padding: 24px 20px 20px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.18);
+}
+
+.delivery-estimate-popup__close {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    border-radius: 8px;
+    color: inherit;
+}
+
+.delivery-estimate-popup__close:hover {
+    background: rgba(0, 0, 0, 0.06);
+}
+
+.delivery-estimate-popup__close svg {
+    width: 18px;
+    height: 18px;
+}
+
+.delivery-estimate-popup__items .delivery-estimate-info {
+    margin-bottom: 20px;
+}
+
+.delivery-estimate-popup__items .delivery-estimate-info:last-child {
+    margin-bottom: 0;
+}
+
+html.delivery-estimate-popup-open {
+    overflow: hidden;
+}
