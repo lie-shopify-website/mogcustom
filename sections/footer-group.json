@@ -16,7 +16,7 @@
       "name": "公共底部",
       "settings": {
         "footer_menu": "information",
-        "policy_menu": "footer",
+        "policy_menu": "policies",
         "copyright": "© 2026 MogCustom. Powered by Shopify",
         "show_social_media_icons": true,
         "show_payment_icons": true,
