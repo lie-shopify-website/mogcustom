@@ -12,14 +12,6 @@
     "cm_multicolumn_list_UVhCDB": {
       "type": "cm-multicolumn-list",
       "blocks": {
-        "column_ALNM4w": {
-          "type": "column",
-          "settings": {
-            "column_title": "",
-            "column_info": "",
-            "column_url": ""
-          }
-        },
         "column_UBTzQW": {
           "type": "column",
           "settings": {
@@ -82,7 +74,6 @@
         }
       },
       "block_order": [
-        "column_ALNM4w",
         "column_UBTzQW",
         "column_aLh4D3",
         "column_8CDPAr",
@@ -277,6 +268,16 @@
     "cm_multi_collection_products_a4TKnc": {
       "type": "cm-multi-collection-products",
       "blocks": {
+        "collection_tab_trCJPU": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "分类",
+            "collection": "",
+            "products_limit": 8,
+            "view_all_url": "",
+            "view_all_label": "查看全部"
+          }
+        },
         "collection_tab_Ld6Pp3": {
           "type": "collection_tab",
           "settings": {
@@ -299,9 +300,11 @@
         }
       },
       "block_order": [
+        "collection_tab_trCJPU",
         "collection_tab_Ld6Pp3",
         "collection_tab_hT89bP"
       ],
+      "disabled": true,
       "name": "多分类产品列表",
       "settings": {
         "section_width": "full-content-width",
@@ -399,8 +402,19 @@
     "cm_multi_collection_products_Xr8YPT": {
       "type": "cm-multi-collection-products",
       "blocks": {
+        "collection_tab_rhwY3Q": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "分类",
+            "collection": "",
+            "products_limit": 8,
+            "view_all_url": "",
+            "view_all_label": "查看全部"
+          }
+        },
         "collection_tab_UE8hhX": {
           "type": "collection_tab",
+          "disabled": true,
           "settings": {
             "tab_label": "Best Seller",
             "collection": "gift-for-dad",
@@ -411,6 +425,7 @@
         },
         "collection_tab_pENzmh": {
           "type": "collection_tab",
+          "disabled": true,
           "settings": {
             "tab_label": "",
             "collection": "new-arrival",
@@ -421,9 +436,11 @@
         }
       },
       "block_order": [
+        "collection_tab_rhwY3Q",
         "collection_tab_UE8hhX",
         "collection_tab_pENzmh"
       ],
+      "disabled": true,
       "name": "多分类产品列表",
       "settings": {
         "section_width": "full-content-width",
@@ -847,6 +864,79 @@
         "remove_bottom_padding": false,
         "custom_class": ""
       }
+    },
+    "cm_multicolumn_list_TpjbTz": {
+      "type": "cm-multicolumn-list",
+      "blocks": {
+        "column_DqXcrJ": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
+        "column_BPBcG3": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
+        "column_EkHByw": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
+        "column_capcNE": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_DqXcrJ",
+        "column_BPBcG3",
+        "column_EkHByw",
+        "column_capcNE"
+      ],
+      "name": "多列列表",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "column_count": 6,
+        "column_layout_type": "carousel",
+        "column_count_mb": "2",
+        "bg_color": "transparent",
+        "heading": "",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#141414",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "title_font_size": 16,
+        "title_font_size_mb": 14,
+        "info_font_size": 14,
+        "info_font_size_mb": 12,
+        "text_color": "#0B2A4A",
+        "text_color_hover": "#F7921F",
+        "info_color": "#141414",
+        "image_border_radius": 0,
+        "image_border_radius_mb": 0,
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -860,6 +950,7 @@
     "cm_why_us_grid_Ep6gKR",
     "cm_multicolumn_list_grrnEP",
     "cm_multicolumn_list_Xg9Jax",
-    "cm_brand_introduction_P37ktV"
+    "cm_brand_introduction_P37ktV",
+    "cm_multicolumn_list_TpjbTz"
   ]
 }
