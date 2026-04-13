@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "sections": {
     "main": {
       "type": "product-information",
@@ -181,6 +181,59 @@
                 "border_radius": 0
               },
               "blocks": {}
+            },
+            "delivery_estimate_kKaWER": {
+              "type": "delivery-estimate",
+              "name": "发货时间估算",
+              "settings": {
+                "text_color": "#202024",
+                "font_size": 14,
+                "font_size_mb": 13,
+                "background_color": "#f2f2f3",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {
+                "delivery_estimate_info_jDjfTB": {
+                  "type": "_delivery-estimate-info",
+                  "name": "物流方式",
+                  "settings": {
+                    "shipping_method_name": "Priority Shipping",
+                    "arrives_by": "Arrives by",
+                    "order_shipping_days_min": 5,
+                    "order_shipping_days_max": 7,
+                    "order_delivery_days_min": 15,
+                    "order_delivery_days_max": 17,
+                    "label_order": "Order placed",
+                    "label_ship": "Ships",
+                    "label_delivery": "Arrives"
+                  },
+                  "blocks": {}
+                },
+                "delivery_estimate_info_aF3DkH": {
+                  "type": "_delivery-estimate-info",
+                  "name": "物流方式",
+                  "settings": {
+                    "shipping_method_name": "Standard Shipping",
+                    "arrives_by": "Arrives by",
+                    "order_shipping_days_min": 5,
+                    "order_shipping_days_max": 7,
+                    "order_delivery_days_min": 17,
+                    "order_delivery_days_max": 19,
+                    "label_order": "Order placed",
+                    "label_ship": "Ships",
+                    "label_delivery": "Arrives"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "delivery_estimate_info_jDjfTB",
+                "delivery_estimate_info_aF3DkH"
+              ]
             },
             "earlier_delivery_3rqTnG": {
               "type": "earlier-delivery",
@@ -517,6 +570,7 @@
           "block_order": [
             "group_icgrde",
             "recent_sales_3rqTnG",
+            "delivery_estimate_kKaWER",
             "earlier_delivery_3rqTnG",
             "divider_VJhene",
             "variant_picker_R3rGDr",
@@ -540,6 +594,7 @@
         "padding-block-end": 0
       }
     },
+
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -691,11 +746,59 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    }
+    },
+
+    "cm-why-choose_qggXJq": {
+      "type": "cm-why-choose",
+      "blocks": {
+        "why_item_1": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-001.svg",
+            "title": "Premium Quality",
+            "info": "Our products are crafted with durable and high-grade materials to ensure long-lasting memories."
+          }
+        },
+        "why_item_2": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-002.svg",
+            "title": "Vibrant & Sharp Prints",
+            "info": "Every design is printed with advanced technology for stunning detail and color."
+          }
+        },
+        "why_item_3": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-003.svg",
+            "title": "Scratch & Fade Resistant",
+            "info": "Made to withstand time and stay as beautiful as the day you received it."
+          }
+        },
+        "why_item_4": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-004.svg",
+            "title": "Carefully Inspected",
+            "info": "Each product is thoroughly checked to meet strict quality standards."
+          }
+        }
+      },
+      "block_order": [
+        "why_item_1",
+        "why_item_2",
+        "why_item_3",
+        "why_item_4"
+      ],
+      "settings": {
+        "section_width": "global-width"
+      }
+    },
   },
   "order": [
     "main",
     "product_recommendations_qggXJq",
-    "custom_liquid_hxWHQP"
+    "custom_liquid_hxWHQP",
+    "cm-why-choose_qggXJq"
   ]
 }

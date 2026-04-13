@@ -1,0 +1,186 @@
+{% schema %}
+{
+  "name": "为什么选择我们",
+  "settings": [
+    { "type": "header", "content": "配置" },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "版块宽度",
+      "default": "global-width",
+      "options": [
+        { "value": "full-width", "label": "版块全宽" },
+        { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+        { "value": "global-width", "label": "版块跟随全局宽度" },
+        { "value": "custom-width", "label": "版块自定义宽度" }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "section_width_custom",
+      "label": "自定义宽度",
+      "default": 1440,
+      "info": "自定义宽度, 默认1440px",
+      "visible_if": "{{ section.settings.section_width == 'custom-width' }}"
+    },
+
+    { "type": "header", "content": "版块设置" },
+    { "type": "color", "id": "bg_color", "label": "背景颜色", "default": "transparent" },
+    { "type": "paragraph", "content": "标题区域" },
+    { "type": "textarea", "id": "heading", "label": "标题", "default": "Why Choose Us" },
+
+    { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+    { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+    { "type": "text", "id": "custom_class", "label": "自定义class" }
+  ],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "header", "content": "图标" },
+        { "type": "image_picker", "id": "icon_image", "label": "图标" },
+        { "type": "textarea", "id": "title", "label": "标题" },
+        { "type": "textarea", "id": "info", "label": "内容" }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "为什么选择我们",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/whu-001.svg",
+            "title": "Premium Quality",
+            "info": "Our products are crafted with durable and high-grade materials to ensure long-lasting memories."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/whu-002.svg",
+            "title": "Vibrant & Sharp Prints",
+            "info": "Every design is printed with advanced technology for stunning detail and color."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/whu-003.svg",
+            "title": "Scratch & Fade Resistant",
+            "info": "Made to withstand time and stay as beautiful as the day you received it."
+          }
+        },
+        {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/whu-004.svg",
+            "title": "Carefully Inspected",
+            "info": "Each product is thoroughly checked to meet strict quality standards."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+{{ 'cm-why-choose-us.css' | asset_url | stylesheet_tag }}
+<style>
+  [data-section-id="{{ section.id }}"] {
+      --bg-color:{{ section.settings.bg_color }};
+
+      {% if section.settings.section_width == 'custom-width' %}
+          --section-width:{{ section.settings.section_width_custom }}px;
+      {% elsif section.settings.section_width == 'full-width' %}
+          --section-width:100%;
+      {% endif %}
+  }
+</style>
+
+{% liquid
+  case section.settings.section_width
+    when 'full-width'
+      assign layout_container_class = 'full-width'
+    when 'custom-width'
+      assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+      assign layout_container_class = 'layout-container global-width'
+    else
+      assign layout_container_class = 'layout-container'
+  endcase
+%}
+
+<div
+  class="cm-why-choose-us {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="{{ layout_container_class }}">
+    <div class="product-benefit">
+      <div class="benefit-header">
+        <div class="benefit-title">
+            <h3>{{ section.settings.heading }}</h3>
+        </div>
+        <div class="mog-custom">
+            <img class="logo-desktop" src="{{ settings.logo | image_url: width: 180 }}" alt="Why Choose Us" width="90" height="auto">
+            <img class="logo-mobile" src="{{ settings.favicon | image_url: width: 100 }}" alt="Why Choose Us" width="50" height="auto">
+        </div>
+        <div class="others">Others</div>
+      </div>
+      <div class="benefit-content">
+        {% for block in section.blocks %}
+            <div class="benefit-row">
+                <div class="benefit-description">
+                  {% if block.settings.icon_image != blank %}
+                    <div class="icon-image">
+                      <img src="{{ block.settings.icon_image | image_url: width: 80 }}" alt="{{ block.settings.title }}" width="40" height="auto">
+                    </div>
+                  {% endif %}
+                  <div class="benefit-detail">
+                    <h4>{{ block.settings.title }}</h4>
+                    <p>{{ block.settings.info }}</p>
+                  </div>
+                </div>
+                <div class="benefit-check">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-check"
+                  >
+                    <path d="M20 6 9 17l-5-5"></path>
+                  </svg>
+                </div>
+                <div class="benefit-x">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="lucide lucide-x"
+                  >
+                    <path d="M18 6 6 18"></path><path d="m6 6 12 12"></path>
+                  </svg>
+                </div>
+              </div>
+        {% endfor %}
+        
+      </div>
+    </div>
+  </div>
+</div>

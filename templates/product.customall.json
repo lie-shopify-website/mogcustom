@@ -594,6 +594,7 @@
         "padding-block-end": 0
       }
     },
+
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -745,11 +746,59 @@
         "padding-block-start": 0,
         "padding-block-end": 0
       }
-    }
+    },
+
+    "cm-why-choose_qggXJq": {
+      "type": "cm-why-choose",
+      "blocks": {
+        "why_item_1": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-001.svg",
+            "title": "Premium Quality",
+            "info": "Our products are crafted with durable and high-grade materials to ensure long-lasting memories."
+          }
+        },
+        "why_item_2": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-002.svg",
+            "title": "Vibrant & Sharp Prints",
+            "info": "Every design is printed with advanced technology for stunning detail and color."
+          }
+        },
+        "why_item_3": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-003.svg",
+            "title": "Scratch & Fade Resistant",
+            "info": "Made to withstand time and stay as beautiful as the day you received it."
+          }
+        },
+        "why_item_4": {
+          "type": "item",
+          "settings": {
+            "icon_image": "shopify://shop_images/wcu-004.svg",
+            "title": "Carefully Inspected",
+            "info": "Each product is thoroughly checked to meet strict quality standards."
+          }
+        }
+      },
+      "block_order": [
+        "why_item_1",
+        "why_item_2",
+        "why_item_3",
+        "why_item_4"
+      ],
+      "settings": {
+        "section_width": "global-width"
+      }
+    },
   },
   "order": [
     "main",
     "product_recommendations_qggXJq",
-    "custom_liquid_hxWHQP"
+    "custom_liquid_hxWHQP",
+    "cm-why-choose_qggXJq"
   ]
 }
