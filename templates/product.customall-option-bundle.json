@@ -262,6 +262,30 @@
               },
               "block_order": []
             },
+            "delivery_estimate_v2_ygE9jC": {
+              "type": "delivery-estimate-v2",
+              "name": "发货时间估算 v2",
+              "settings": {
+                "text_color": "#141414",
+                "font_size": 18,
+                "font_size_mb": 16,
+                "background_color": "transparent",
+                "title": "Arrives by [date] if you order today. Hooray!",
+                "order_shipping_days_min": 5,
+                "order_shipping_days_max": 7,
+                "order_delivery_days_min": 15,
+                "order_delivery_days_max": 17,
+                "label_order": "Order placed",
+                "label_ship": "Ships",
+                "label_delivery": "Arrives",
+                "padding_top": 0,
+                "padding_bottom": 0,
+                "padding_left": 0,
+                "padding_right": 0,
+                "border_radius": 0
+              },
+              "blocks": {}
+            },
             "buy_more_discount_AQENCw": {
               "type": "buy-more-discount",
               "name": "购买更多折扣",
@@ -497,6 +521,7 @@
             "divider_VJhene",
             "variant_picker_R3rGDr",
             "buy_buttons_eYQEYi",
+            "delivery_estimate_v2_ygE9jC",
             "buy_more_discount_AQENCw",
             "accordion_pg6d3J",
             "text_aEtTtq"

@@ -377,3 +377,26 @@ html.delivery-estimate-popup-open .product-details.sticky-content--desktop,
 html.delivery-estimate-popup-open .product-details.sticky-content--desktop.full-height--desktop > .group-block {
     z-index: calc(var(--header-z-index, 1029) + 1);
 }
+
+
+
+.delivery-estimate-v2 .delivery-estimate-info {
+    flex: 0 0 100%;
+}
+.delivery-estimate-v2 .delivery-estimate__title {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+.delivery-estimate-v2 .delivery-estimate__title .hurry-icon {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+}
+.delivery-estimate-v2 .delivery-estimate__title .text {
+    flex: 1;
+    font-size: 18px;
+    line-height: 1.2;
+}

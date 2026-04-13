@@ -1,0 +1,78 @@
+{% schema %}
+{
+  "name": "发货时间估算 v2",
+  "tag": null,
+  "settings": [
+    { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+    { "type": "range", "id": "font_size", "label": "字号", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 18 },
+    { "type": "range", "id": "font_size_mb", "label": "字号 (移动端)", "min": 10, "max": 100, "step": 1, "unit": "px", "default": 16 },
+
+    { "type": "header", "content": "背景颜色" },
+    { "type": "color", "id": "background_color", "label": "背景颜色", "default": "transparent" },
+
+    { "type": "header", "content": "标题" },
+    { "type": "textarea", "id": "title", "label": "标题", "default": "Arrives by [date] if you order today. Hooray!", "info": "[date] 是占位符, 表示到达日期, 比如 Arrives by [date] if you order today. Hooray! 会显示为 Arrives by Apr 28-30 if you order today. Hooray!" },
+
+    { "type": "header", "content": "时间信息" },
+    { "type": "paragraph", "content": "这里填的是天数, 表示过了多少天之后, 达到什么状态. 比如发货时间填写5天, 即表示是5天后会发货, 前台会显示为对应的日期" },
+    { "type": "number", "id": "order_shipping_days_min", "label": "发货时间(最小值)", "default": 5 },
+    { "type": "number", "id": "order_shipping_days_max", "label": "发货时间(最大值)", "default": 7 },
+    { "type": "number", "id": "order_delivery_days_min", "label": "到货时间(最小值)", "default": 15 },
+    { "type": "number", "id": "order_delivery_days_max", "label": "到货时间(最大值)", "default": 17 },
+
+    { "type": "header", "content": "时间线文案" },
+    { "type": "text", "id": "label_order", "label": "下单", "default": "Order placed" },
+    { "type": "text", "id": "label_ship", "label": "发货", "default": "Ships" },
+    { "type": "text", "id": "label_delivery", "label": "到达", "default": "Arrives" },
+    
+    { "type": "header", "content": "边距" },
+    { "type": "range", "id": "padding_top", "label": "上边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_bottom", "label": "下边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_left", "label": "左边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "padding_right", "label": "右边距", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+    { "type": "range", "id": "border_radius", "label": "圆角", "min": 0, "max": 100, "step": 1, "unit": "px", "default": 0 },
+  ],
+  "presets": [
+    {
+      "name": "发货时间估算 v2",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+{% comment %} 样式在cm-section-product.css {% endcomment %}
+
+{% assign de_settings = block.settings %}
+
+<style>
+    .delivery-estimate[data-section-id="{{ section.id }}"] {
+      padding-top: {{ de_settings.padding_top }}px;
+      padding-bottom: {{ de_settings.padding_bottom }}px;
+      padding-left: {{ de_settings.padding_left }}px;
+      padding-right: {{ de_settings.padding_right }}px;
+      border-radius: {{ de_settings.border_radius }}px;
+      --delivery-estimate-background-color: {{ de_settings.background_color }};
+      --delivery-estimate-text-color: {{ de_settings.text_color }};
+      --delivery-estimate-font-size: {{ de_settings.font_size }}px;
+    }
+    .delivery-estimate[data-section-id="{{ section.id }}"] .delivery-estimate-info__compact {
+        display: none !important;
+    }
+    @media (max-width: 768px) {
+      .delivery-estimate[data-section-id="{{ section.id }}"] {
+        padding-top: {{ de_settings.padding_top | times: 0.8 }}px;
+        padding-bottom: {{ de_settings.padding_bottom | times: 0.8 }}px;
+        padding-left: {{ de_settings.padding_left | times: 0.8 }}px;
+        padding-right: {{ de_settings.padding_right | times: 0.8 }}px;
+        border-radius: {{ de_settings.border_radius | times: 0.8 }}px;
+        --delivery-estimate-font-size: {{ de_settings.font_size_mb }}px;
+      }
+    }
+  </style>
+<div class="delivery-estimate delivery-estimate-v2" data-section-id="{{ section.id }}" data-block-id="{{ block.id }}">
+  <div class="delivery-estimate__infos">
+    {% render '_delivery-estimate-info', block_settings: de_settings, block_id: block.id %}
+  </div>
+</div>
+

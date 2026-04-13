@@ -4979,3 +4979,10 @@ header {
 .header-v202601[style-mode=white] .cart-items__empty-button {
   color: #fff !important;
 }
+
+.price {
+  font-size: 18px;
+}
+.compare-at-price {
+  font-size: 14px;
+}
