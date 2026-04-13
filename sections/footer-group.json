@@ -15,8 +15,8 @@
       "type": "footer-202601",
       "name": "公共底部",
       "settings": {
-        "footer_menu": "information",
-        "policy_menu": "policies",
+        "footer_menu": "footer_menu",
+        "policy_menu": "footer",
         "copyright": "© 2026 MogCustom. Powered by Shopify",
         "show_social_media_icons": true,
         "show_payment_icons": true,
@@ -127,7 +127,7 @@
               "type": "menu",
               "name": "t:names.menu",
               "settings": {
-                "menu": "information",
+                "menu": "",
                 "heading": "",
                 "menu_spacing": 12,
                 "show_as_accordion": false,
