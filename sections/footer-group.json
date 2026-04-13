@@ -17,8 +17,7 @@
       "settings": {
         "footer_menu": "main-menu",
         "policy_menu": "policies",
-        "copyright": "© 2022-2026 Major Fitness. All Rights Reserved.",
-        "logo": "shopify://shop_images/logo.svg",
+        "copyright": "© 2022-2026 Mog Custom. All Rights Reserved.",
         "show_social_media_icons": true,
         "show_payment_icons": true,
         "adapt_to_website_style": false,
@@ -37,7 +36,6 @@
     },
     "footer_m9NzUG": {
       "type": "footer",
-      "disabled": true,
       "blocks": {
         "text_VU7npQ": {
           "type": "text",
@@ -235,6 +233,7 @@
         "group_H6VpwJ",
         "email_signup_crihX7"
       ],
+      "disabled": true,
       "name": "t:names.footer",
       "settings": {
         "section_width": "page-width",
@@ -246,7 +245,6 @@
     },
     "footer_utilities_jLGE8U": {
       "type": "footer-utilities",
-      "disabled": true,
       "blocks": {
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
@@ -290,6 +288,7 @@
         "footer_policy_list_VCdnpa",
         "social_links_Ew63Kq"
       ],
+      "disabled": true,
       "name": "t:names.utilities",
       "settings": {
         "section_width": "page-width",
