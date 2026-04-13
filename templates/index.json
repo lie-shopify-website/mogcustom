@@ -506,7 +506,7 @@
             "collection": "gift-for-mom",
             "products_limit": 4,
             "view_all_url": "shopify://collections/gift-for-mom",
-            "view_all_label": "查看全部"
+            "view_all_label": "Show More"
           }
         },
         "collection_tab_iQgnXe": {
@@ -517,7 +517,7 @@
             "collection": "",
             "products_limit": 8,
             "view_all_url": "",
-            "view_all_label": "查看全部"
+            "view_all_label": "Show More"
           }
         }
       },
@@ -570,7 +570,7 @@
             "collection": "",
             "products_limit": 8,
             "view_all_url": "",
-            "view_all_label": "查看全部"
+            "view_all_label": "Show More"
           }
         },
         "collection_tab_UE8hhX": {
