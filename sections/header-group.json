@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "type": "header",
   "name": "Header",
   "sections": {
@@ -79,6 +79,7 @@
           "blocks": {}
         }
       },
+      "disabled": true,
       "settings": {
         "logo_position": "center",
         "menu_position": "left",
@@ -114,10 +115,24 @@
         "enable_transparent_header_collection": false,
         "collection_color_scheme": "default"
       }
+    },
+    "header_202601_iUdgpe": {
+      "type": "header-202601",
+      "name": "顶部202601",
+      "settings": {
+        "header_style_mode": "white",
+        "main_menu": "main-menu",
+        "sticky_header": "allow_sticky",
+        "show_search": true,
+        "show_account": true,
+        "show_cart": true,
+        "show_hamburger": true
+      }
     }
   },
   "order": [
     "header_announcements_9jGBFp",
-    "header_section"
+    "header_section",
+    "header_202601_iUdgpe"
   ]
 }

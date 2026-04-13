@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
-{
+ {
   "current": {
     "logo": "shopify://shop_images/Logo0402-1.png",
     "logo_height": 40,
@@ -47,6 +47,11 @@
     "page_transition_enabled": false,
     "transition_to_main_product": false,
     "card_hover_effect": "none",
+    "social_twitter_link": "https://twitter.com/shopify",
+    "social_facebook_link": "https://twitter.com/shopify",
+    "social_pinterest_link": "https://twitter.com/shopify",
+    "social_instagram_link": "https://twitter.com/shopify",
+    "social_tiktok_link": "https://twitter.com/shopify",
     "badge_position": "top-right",
     "badge_corner_radius": 100,
     "badge_sale_color_scheme": "scheme-1",

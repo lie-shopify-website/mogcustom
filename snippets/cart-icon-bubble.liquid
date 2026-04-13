@@ -1,0 +1,19 @@
+<span class="as-cart-wrap cart-wrap {% if cart.item_count > 0 %}full{% endif %}">
+  <span class="full-cart">
+    <span class="position-relative d-block icon-wrap-md">
+      {% render 'icon-cart' %}
+      {% if customer.b2b? != true %}
+        {% if settings.show_quantity_in_cart_icon %}
+          <span class="as-cart-count full-cart-dot cart-count me-n1 mt-n1 {% if cart.item_count > 9 %}exceeded{% endif %}" data-count="{{ cart.item_count }}">{% if cart.item_count > 9 %}9{% else %}{{ cart.item_count }}{% endif %}</span>
+        {% else %}
+          <span class="full-cart-dot"></span>
+        {% endif %}
+      {% else %}
+        <span class="as-cart-count full-cart-dot cart-count me-n1 mt-n1 {% if cart.item_count > 9 %}exceeded{% endif %}" data-count="{{ cart.item_count }}">{% if cart.item_count > 9 %}9{% else %}{{ cart.item_count }}{% endif %}</span>
+      {% endif %}
+    </span>
+  </span>
+  <span class="empty-cart icon-wrap-md">
+    {% render 'icon-cart' %}
+  </span>
+</span>

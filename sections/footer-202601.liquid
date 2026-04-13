@@ -1,0 +1,524 @@
+
+{% schema %}
+  {
+    "name": "公共底部-202601",
+    "tag": "section",
+    "class": "footer-202601",
+    "settings": [
+      {
+        "type": "header",
+        "content": "FOOTER"
+      },
+      {
+        "type": "link_list",
+        "id": "footer_menu",
+        "label": "Footer menu",
+        "default": "footer"
+      },
+      {
+        "type": "link_list",
+        "id": "policy_menu",
+        "label": "Policy menu"
+      },
+      {
+        "type": "text",
+        "id": "copyright",
+        "label": "Copyright",
+        "default": "Fastlane Sections Powered by Fastlane"
+      },
+      {
+        "type": "header",
+        "content": "LOGO"
+      },
+      {
+        "label": "Logo image",
+        "type": "image_picker",
+        "info": "png recommended. You can also select logo image through connect dynamic source.",
+        "id": "logo"
+      },
+      {
+        "type":"header",
+        "content": "SOCIAL MEDIA ICONS"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_social_media_icons",
+        "label": "Show social media icons",
+        "default": true
+      },
+      {
+        "type": "header",
+        "content": "PAYMENT METHODS"
+      },
+      {
+        "type": "checkbox",
+        "id": "show_payment_icons",
+        "label": "Show payment icons",
+        "default": true
+      },
+      {
+        "type": "checkbox",
+        "id": "adapt_to_website_style",
+        "label": "Adapt to website style",
+        "default": false
+      },
+      {
+        "type": "header",
+        "content": "CONTACT INFORMATION"
+      },
+      {
+        "type": "text",
+        "id": "email_address",
+        "label": "Email address"
+      },
+      {
+        "type": "text",
+        "id": "b2b_email_address",
+        "label": "B2B Email address"
+      },
+      {
+        "type": "text",
+        "id": "partner_email_address",
+        "label": "Partner Email address"
+      },
+      {
+        "type": "text",
+        "id": "phone_number",
+        "label": "Phone number"
+      },
+      {
+        "type": "richtext",
+        "id": "working_hours",
+        "label": "Working hours"
+      },
+      {
+        "type": "text",
+        "id": "company_address_label",
+        "label": "Company address 1 label"
+      },
+      {
+        "type": "richtext",
+        "id": "company_address",
+        "label": "Company address"
+      },
+      {
+        "type": "text",
+        "id": "company_address2_label",
+        "label": "Company address 2 label"
+      },
+      {
+        "type": "richtext",
+        "id": "company_address2",
+        "label": "Company address 2"
+      },
+      {
+        "type": "text",
+        "id": "company_address3_label",
+        "label": "Company address 3 label"
+      },
+      {
+        "type": "richtext",
+        "id": "company_address3",
+        "label": "Company address 3"
+      }
+    ],
+    "presets": [
+      {
+        "name": "公共底部-202601"
+      }
+    ]
+  }
+{% endschema %}
+  
+{%- assign menu_columns_class = '' -%}
+
+{%- assign menu_links_wrapper_class = 'mb-md-n2' -%}
+<link rel="stylesheet" href="{{ 'footer-202601.css' | asset_url }}">
+
+<div class="as-footer-section footer footer-menu-right bg-surface footer-202601">
+
+  <div class="footer-container overflow-hidden">
+    <div class="footer-menu-container ">
+      <div class="footer-wrapper">
+        <div class="footer-menu-container-item">
+          <div class="footer-main-menu">
+            {%- if section.settings.footer_menu != blank -%}
+              {%- assign mainMenu = section.settings.footer_menu.links -%}
+              {%- if mainMenu.size > 0 -%}
+                {%- for menu in mainMenu limit: 4 -%}
+                  <div class="footer-main-menu-col">
+                    {%- assign submenu = menu.links -%}
+                    <p class="menu-category">{{ menu.title }}</p>
+                    <a data-type="click_footer_nav_link"
+                      href="#"
+                      role="button"
+                      aria-expanded="false"
+                      aria-controls="footer-menu-collapse-{{ forloop.index }}"
+                      class="text-decoration-none menu-trigger fw-bold footer-collapse-trigger collapsed"
+                      data-bs-target="#footer-menu-collapse-{{ forloop.index }}"
+                      data-bs-toggle="collapse">
+                      <span class="baseline-shift-margin">{{ menu.title }}</span>
+                      {% if submenu.size > 0 %}
+                        {% comment %} <span class="icon-right">{% render 'icon-plus-to-minus' %}</span> {% endcomment %}
+                        <svg class="icon-jiantou" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M20 8L12 16L4 8" stroke="white" stroke-width="1.5" stroke-linejoin="round"></path>
+                        </svg>
+                      {% endif %}
+                    </a>
+
+                    {%- if submenu.size > 0 -%}
+                      <div class="mf-collapse collapse" id="footer-menu-collapse-{{ forloop.index }}">
+                        <ul class="menu-links nav flex-column mt-md-3 pb-3 pb-md-0 {{ menu_links_wrapper_class }}">
+                          {%- for link in submenu -%}
+                            {% comment %}
+                              seo 特殊处理:
+                                `@@XX Policy` 输出为 `XX Policy`
+                                链接标记成 nofollow
+                            {% endcomment %}
+                            {% liquid
+                              assign rel = false
+                              assign newPageOpen = false
+                              assign title = link.title
+                              assign titleArr = title | split: '@@'
+                              if titleArr.size > 1
+                                assign rel = true
+                                assign relText = 'nofollow'
+                                assign title = titleArr[1]
+                              endif
+                              if link.url contains 'https://'
+                                assign rel = true
+                                assign newPageOpen = true
+                                if relText == 'nofollow'
+                                  assign relText = 'nofollow noopener'
+                                else
+                                  assign relText = 'noopener'
+                                endif
+                              endif
+                            %}
+                            <li class="nav-item">
+                              <a data-type="click_footer_nav_link"
+                                {% if newPageOpen %}target="_blank"{% endif %}
+                                {% if rel %}rel="{{ relText }}" {% endif %}
+                                class="nav-link " {% render 'link', link: link.url %} href="{{ link.url }}">{{ title }}</a>
+                            </li>
+                          {%- endfor -%}
+                        </ul>
+                      </div>
+                      <hr class="divider {% unless forloop.last %}my-0 my-md-3{% else %}mt-0 mt-md-3 mb-0{% endunless %}">
+                    {%- endif -%}
+                  </div>
+                {%- endfor -%}
+              {%- endif -%}
+            {%- endif -%}
+          </div>
+        </div>
+        <div class="footer-menu-container-item-right">
+          <div class="right-info-container">
+            {%- assign phone_number_strs = section.settings.phone_number -%}
+            {%- assign email_address_strs = section.settings.email_address -%}
+            {%- assign working_hours = section.settings.working_hours -%}
+            {%- assign company_address = section.settings.company_address -%}
+            {%- assign company_address2 = section.settings.company_address2 -%}
+            {%- assign company_address3 = section.settings.company_address3 -%}
+            {%- if phone_number_strs != blank or email_address_strs != blank or working_hours != blank or company_address != blank or company_address2 != blank or company_address3 != blank -%}
+              <div class="right-info-container-item">
+                {%- if phone_number_strs != blank -%}
+                  <div class="right-info-container-item-footnote">
+                    {% comment %} <div>
+                      {% render 'icon-general-group', type: 'phone-footer' %}
+                    </div> {% endcomment %}
+                    <div class="footnote-flex">
+                      {%- if working_hours != blank -%}
+                        <span class="footnote-span">{{ working_hours | replace: '<p', '<p class="mb-0"' }}</span>
+                      {%- endif -%}
+                      <a class=""
+                      target="_blank"
+                      href="tel:{{ phone_number_strs }}">{{ phone_number_strs }}</a>
+                    </div>
+                  </div>
+                {%- endif -%}
+
+                {%- if email_address_strs != blank -%}
+                  <div class="email-container">
+                    {% comment %} <div>
+                      {% render 'icon-general-group', type: 'email-footer' %}
+                    </div> {% endcomment %}
+                    <div class="email-flex">
+                      <div>
+                        <label >Support: &nbsp;</label>
+                        <a class=""
+                        target="_blank"
+                        href="mailto:{{ email_address_strs }}">{{ email_address_strs }}</a>
+                      </div>
+
+                      {% if section.settings.b2b_email_address != blank %}
+                        {% assign b2b_email = section.settings.b2b_email_address %}
+                        <div>
+                          <label>Dealer Inquiries: &nbsp;</label>
+                          <a class=""
+                          target="_blank"
+                          href="mailto:{{ b2b_email }}">{{ b2b_email }}</a>
+                        </div>
+                      {% endif %}
+
+                      {% if section.settings.partner_email_address != blank %}
+                        {% assign partner_email = section.settings.partner_email_address %}
+                        <div>
+                          <label >Partner With Us: &nbsp;</label>
+                          <a class=""
+                          target="_blank"
+                          href="mailto:{{ partner_email }}">{{ partner_email }}</a>
+                        </div>
+                      {% endif %}
+                    </div>
+                  </div>
+                {%- endif -%}
+
+                {%- if company_address != blank or company_address2 != blank or company_address3 != blank -%}
+                  <div class="address-container">
+                    {% comment %} <div>
+                      {% render 'icon-general-group', type: 'address-footer' %}
+                    </div> {% endcomment %}
+                    <div class="address-flex">
+                      {% if company_address != blank %}
+                        <div class="fw-bold" style="">{{ section.settings.company_address_label }}</div>
+                        {{ company_address | replace: '<p', '<p class="mb-0"' }}
+                      {% endif %}
+
+                      {% if company_address2 != blank %}
+                        <div class="fw-bold mt-2" style="">{{ section.settings.company_address2_label }}</div>
+                        {{ company_address2 | replace: '<p', '<p class="mb-0"' }}
+                      {% endif  %}
+
+                      {% if company_address3 != blank %}
+                        <div class="fw-bold mt-2" style="">{{ section.settings.company_address3_label }}</div>
+                        {{ company_address3 | replace: '<p', '<p class="mb-0"' }}
+                      {% endif %}
+                    </div>
+                  </div>
+                {%- endif -%}
+              </div>
+            {%- endif -%}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {%- comment -%} 支付方式icon；联系方式；社媒 {%- endcomment -%}
+    <div class="footer-payment-icons">
+      <div class="footer-payment-icons-inner">
+
+        <div class="social-icons">
+          {%- if section.settings.show_social_media_icons -%}
+            {%- liquid
+              assign social_media_string = 'facebook,twitter,instagram,pinterest,snapchat,youtube,vimeo,tumblr,tiktok'
+              assign social_media = social_media_string | split: ','
+              assign show_media = false
+              for media in social_media
+                assign social_link = media | append: '_link' | prepend: 'social_'
+                if settings[social_link] != blank
+                  assign show_media = true
+                  break
+                endif
+              endfor
+            -%}
+          {%- endif -%}
+          {%- if show_media -%}
+            <div class="social-icons-inner">
+              {%- for media in social_media -%}
+                {%- assign social_link = media | append: '_link' | prepend: 'social_' -%}
+                {%- if settings[social_link] != blank -%}
+                  <a data-type="click_social_media"
+                    class="icon-wrap-md text-decoration-none me-3 mt-3"
+                    {% render 'link', link: settings[social_link] %}
+                    href="{{ settings[social_link] }}">
+                    {% render 'icon-social-media', media: media %}
+                  </a>
+                {%- endif -%}
+              {%- endfor -%}
+            </div>
+          {%- endif -%}
+        </div>
+
+        <div class="payment-icons">
+          {%- if section.settings.show_payment_icons -%}
+            <ul class="payment-icons-inner">
+              {%- for type in shop.enabled_payment_types -%}
+                <li class="list-inline mt-1 d-flex ms-1" width="auto" height="auto" aria-label="{{ type }}">
+                  <span aria-label="{{ type | payment_type_name }}">
+                    {{ type | payment_type_svg_tag: class: '' }}
+                  </span>
+                </li>
+              {%- endfor -%}
+            </ul>
+          {%- endif -%}
+        </div>
+      </div>
+    </div>
+
+
+    <div class=" footer-bottom-bar">
+      <div class="copyright-container">
+        <div class="store-policy">
+          <div class="store-policy-block">
+            <div class="choose-store-trigger">
+              {%- if section.settings.copyright != blank -%}
+                <div class="as-copyright-other "><span>{{ section.settings.copyright }}</span></div>
+              {%- endif -%}
+            </div>
+          </div>
+
+          {%- if section.settings.policy_menu != blank -%}
+            {%- assign policy_menu = section.settings.policy_menu.links -%}
+            {%- if policy_menu.size > 0 -%}
+              <div class="store-policy-block-right">
+                <ul class="menu-policy nav ">
+                  {%- for menu in policy_menu -%}
+                    <li class="nav-item mt-1">
+                      <a data-type="click_footer_nav_link"
+                        rel="nofollow"
+                        class="nav-link {% unless forloop.last %}me-3{% endunless %}"
+                        href="{{ menu.url }}"
+                        {% render 'link', link: menu.url %}>{{ menu.title }}</a>
+                    </li>
+                    {% unless forloop.last %}
+                      <li class="nav-item mt-1">
+                        <span class="line me-3"></span>
+                      </li>
+                    {% endunless %}
+                  {%- endfor -%}
+                </ul>
+              </div>
+            {%- endif -%}
+          {%- endif -%}
+        </div>
+      </div>
+
+      {% comment %} {%- if section.settings.copyright != blank -%}
+        <div class="as-copyright-main copyright d-md-none fs-footnote gray-700"><span>{{ section.settings.copyright }}</span></div>
+      {%- endif -%} {% endcomment %}
+    </div>
+  </div>
+</div>
+
+<style>
+  .footer-202601 {
+    background-color: #0b2a4a;
+    color: #fff;
+  }
+  .footer-202601 .footer-wrapper svg path {
+      fill: transparent;
+  }
+  .footer-202601 .nav-item a {
+      color: rgb(255 255 255 / 70%);
+      font-weight: 400;
+  }
+  .footer-202601 .nav-item a:hover{
+      color: #fff;
+  }
+  .footer-202601 .footer-bottom-bar {
+      border-top: 1px solid rgb(255 255 255 / 10%);
+      padding-top: 24px;
+  }
+  .footer-202601 .footer-payment-icons {
+    padding: 20px 0;
+  }
+  .footer-202601 .breadcrumbs-wrap a, 
+  .footer .breadcrumb-item.active {
+    color:#fff;
+  }
+  .footer-202601 ol.breadcrumb {
+      border-bottom: 1px solid rgb(255 255 255 / 10%);
+  }
+  .footer-202601 .payment-icons a svg path{
+      fill: #fff;
+  }
+
+  .footer-202601 .footer-payment-icons-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+  .footer-202601 .social-icons {
+    flex: 1;
+  }
+  .footer-202601 .payment-icons {
+    flex: 1;
+  }
+  .footer-202601 .social-icons-inner {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 8px;
+  }
+  .footer-202601 .social-icons-inner a {
+    color: #fff;
+}
+  .footer-202601 .payment-icons-inner {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    }
+
+    .copyright-container a.nav-link.me-3 {
+        margin-right: 16px;
+    }
+
+  @media (max-width: 1279px) {
+    /* .footer-202601 .mf-container {
+      padding-left:15px;
+      padding-right:15px;
+    } */
+  }
+  
+  @media (max-width: 1023px) {
+    .footer-202601 {
+        color: #333333;
+    }
+    .breadcrumbs-wrap{
+        padding: 0 24px;
+    }
+    .footer-202601 .breadcrumb-item+.breadcrumb-item::before{
+      color: #fff;
+    }
+    .footer-202601 .footer-wrapper svg path {
+        fill: transparent;
+    }
+    .footer-202601 .payment-icons {
+        padding-bottom: 0;
+    }
+
+    .footer-202601 .footer-main-menu .menu-links .nav-link {
+        color: rgb(51 51 51 / 70%);
+        font-weight: 400;
+        height: 1rem;
+    }
+    .footer-202601 .footer-main-menu .menu-trigger {
+        padding: 0;
+    }
+    .footer-202601 hr {
+        color: hsl(0deg 0% 0% / 10%);
+    }
+    .footer-202601 .as-copyright-main.copyright {
+        color: #fff !important;
+    }
+    .footer-202601 .footer-bottom-bar .nav-item a {
+        font-size: 12px;
+    }
+  }
+  @media (max-width: 767px) {
+
+    .footer .menu-policy .line{
+      display: none;
+    }
+  }
+</style>
+

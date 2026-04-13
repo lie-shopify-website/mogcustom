@@ -54,6 +54,10 @@
     line-height: 1.2;
 }
 @media screen and (min-width: 768px) {
+    .product-information {
+        margin-top: 24px;
+    }
+    
     .product-details .text-block h1 {
         font-size: 25px;
     }

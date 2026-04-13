@@ -359,6 +359,24 @@
     }
   },
   "sections": {
+    "header": {
+      "announcement": "Announcement",
+      "back": "Back",
+      "including": "Including",
+      "search_text": "Search",
+      "a11y_main_nav": "Main navigation",
+      "a11y_open_menu": "Open main menu",
+      "a11y_close_menu": "Close main menu",
+      "a11y_menu_button": "Main menu",
+      "a11y_open_search": "Open search",
+      "a11y_open_cart": "Open cart",
+      "a11y_submenu_back": "Back to main menu",
+      "a11y_has_submenu": "{{ title }}, has submenu",
+      "a11y_expand_submenu": "Expand submenu",
+      "a11y_collapse_submenu": "Collapse submenu",
+      "a11y_account_menu": "Account menu",
+      "a11y_logo": "Home, {{ shop_name }}"
+    },
     "multi_collection_products": {
       "tabs_title": "Product categories"
     },

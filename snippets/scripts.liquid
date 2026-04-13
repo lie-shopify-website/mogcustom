@@ -251,6 +251,14 @@
 {% endif %}
 
 {% if template == 'product' or template.name == 'product' or request.page_type == 'product' %}
+  <script>
+    window.__cartJsonUrl = {{ routes.cart_url | append: '.js' | json }};
+  </script>
+  <script
+    src="{{ 'customall-cart-drawer-bridge.js' | asset_url }}"
+    type="module"
+    fetchpriority="low"
+  ></script>
   <script
     src="{{ 'fly-to-cart.js' | asset_url }}"
     type="module"

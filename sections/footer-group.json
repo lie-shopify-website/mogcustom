@@ -11,8 +11,33 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "footer_202601_HcKKJU": {
+      "type": "footer-202601",
+      "name": "公共底部",
+      "settings": {
+        "footer_menu": "main-menu",
+        "policy_menu": "policies",
+        "copyright": "© 2022-2026 Major Fitness. All Rights Reserved.",
+        "logo": "shopify://shop_images/logo.svg",
+        "show_social_media_icons": true,
+        "show_payment_icons": true,
+        "adapt_to_website_style": false,
+        "email_address": "support@majorfitness.com",
+        "b2b_email_address": "b2b@majorfitness.com",
+        "partner_email_address": "partnerships@majorfitness.com",
+        "phone_number": "800-276-8577",
+        "working_hours": "<p><strong>Mon - Fri: 9:00 am - 6:00 pm EDT, excluding holidays.</strong></p>",
+        "company_address_label": "Address 1 (USA):",
+        "company_address": "<p>33 S WOOD AVE SUITE 600 ISELIN NJ 08830, United States</p>",
+        "company_address2_label": "Address 2 (USA):",
+        "company_address2": "<p>700 WESTLAKE PKWY SW STE 760 ATLANTA, GA 30336, United States</p>",
+        "company_address3_label": "",
+        "company_address3": ""
+      }
+    },
     "footer_m9NzUG": {
       "type": "footer",
+      "disabled": true,
       "blocks": {
         "text_VU7npQ": {
           "type": "text",
@@ -221,6 +246,7 @@
     },
     "footer_utilities_jLGE8U": {
       "type": "footer-utilities",
+      "disabled": true,
       "blocks": {
         "footer_copyright_jweRK8": {
           "type": "footer-copyright",
@@ -276,6 +302,7 @@
     }
   },
   "order": [
+    "footer_202601_HcKKJU",
     "footer_m9NzUG",
     "footer_utilities_jLGE8U"
   ]

@@ -1,0 +1,6 @@
+{%- liquid
+    assign linkFirst =  link | slice : 0
+  -%}
+  
+  {% if link contains 'https://' %}target="_blank" rel="noopener" {% endif %}
+  {% if linkFirst == '#' and is_modal == true %}data-bs-toggle="modal" data-bs-target="{{ link }}"{% endif %}

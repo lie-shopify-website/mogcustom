@@ -1,0 +1,191 @@
+<header-nav class="header-menu">
+    {% comment %} 一级菜单：仅顶部链接条，与子级结构分离，便于样式与焦点控制 {% endcomment %}
+    <div class="top-menu menu-level-1" role="menubar" aria-label="{{ 'sections.header.a11y_main_nav' | t }}">
+      {%- for link in section.settings.main_menu.links -%}
+          {% comment %} 判断是否为 Mega 菜单 {% endcomment %}
+          {% liquid
+              assign link_title_downcase = link.title | downcase
+              assign current_block = ''
+  
+              for block in section.blocks
+              assign menu_item_downcase = block.settings.menu_item | strip | downcase
+              if menu_item_downcase == link_title_downcase
+                  assign current_block = block
+                  break
+              endif
+              endfor
+          %}
+  
+          {% assign has_mega_menu = false %}
+          {% assign image_count = 0 %}
+          {% if current_block %}
+          {% for i in (1..4) %}
+              {% capture image %}image{{ i }}{% endcapture %}
+              {% if current_block.settings[image] != blank %}
+                  {% assign has_mega_menu = true %}
+                  {% assign image_count = image_count | plus: 1 %}
+              {% endif %}
+          {% endfor %}
+          {% endif %}
+  
+          {% if link.links != blank or has_mega_menu %}
+            {% assign has_submenu = true %}
+          {% else %}
+            {% assign has_submenu = false %}
+          {% endif %}
+  
+          <div class="top-menu-item {% if link.links != blank %} has-child {% endif %} {% if has_submenu %}js-dropdown{% endif %}" role="none">
+                  <div class="link-title" role="none">
+                      <a href="{{ link.url }}"
+                         {% if link.url == '#' %} onclick="return false;" {% endif %}
+                         title="{{ link.title | escape }}"
+                         class="menu__link top-link"
+                         role="menuitem"
+                         {% if has_submenu %}
+                           aria-haspopup="menu"
+                           aria-expanded="false"
+                           aria-controls="header-desktop-submenu-{{ forloop.index }}"
+                           aria-label="{{ 'sections.header.a11y_has_submenu' | t: title: link.title }}"
+                         {% endif %}>
+                          <span class="top-level-title"> {{- link.title | escape -}}</span>
+                      </a>
+                  </div>
+          </div>
+      {%- endfor -%}
+    </div>
+  
+    {% comment %} 子级菜单层：二级列表 + Mega 促销区，与一级 DOM 分离，通过 id 与 aria-controls 与对应一级项关联。各 panel 的显示/隐藏与 aria-expanded、aria-hidden 由 JS 控制。 {% endcomment %}
+    <div class="menu-level-2">
+      <div class="menu-level-2-inner">
+      {%- for link in section.settings.main_menu.links -%}
+          {% liquid
+              assign link_title_downcase = link.title | downcase
+              assign current_block = ''
+  
+              for block in section.blocks
+              assign menu_item_downcase = block.settings.menu_item | strip | downcase
+              if menu_item_downcase == link_title_downcase
+                  assign current_block = block
+                  break
+              endif
+              endfor
+          %}
+  
+          {% assign has_mega_menu = false %}
+          {% assign image_count = 0 %}
+          {% if current_block %}
+          {% for i in (1..4) %}
+              {% capture image %}image{{ i }}{% endcapture %}
+              {% if current_block.settings[image] != blank %}
+                  {% assign has_mega_menu = true %}
+                  {% assign image_count = image_count | plus: 1 %}
+              {% endif %}
+          {% endfor %}
+          {% endif %}
+  
+          {% if link.links != blank or has_mega_menu %}
+          {% comment %}
+              -- 子菜单下拉区域由二级菜单和活动区域组成.
+              -- 无二级菜单时活动图最多 3 个，活动区可占满；有二级菜单时活动区最多占 2/3，留位给二级菜单.
+          {% endcomment %}
+          {% liquid
+            if link.links != blank and image_count > 2
+              assign promotion_area_percent = 2
+            else
+              assign promotion_area_percent = image_count
+            endif
+            assign total_percent = 4
+          %}
+  
+          <div class="menu-submenu-container"
+               id="header-desktop-submenu-{{ forloop.index }}"
+               role="menu"
+               aria-label="{{ link.title | escape }}"
+               aria-hidden="true"
+               style="--promotion_area_percent:{{ promotion_area_percent }};--total_percent:{{ total_percent }};">
+              <div class="menu-submenu-inner-wrapper">
+                  <div class="menu-submenu-inner mf-container">
+  
+                      {%- if link.links != blank -%}
+                      <div class="submenu-container">
+                          <div class="submenu-list" role="group" aria-label="{{ link.title | escape }}">
+                              {%- for childlink in link.links -%}
+                              <div class="submenu-item" role="none">
+                                  <a href="{{ childlink.url }}"
+                                     class="menu__link sub-link"
+                                     role="menuitem">
+                                      <span class="submenu-title">{{ childlink.title | escape }}</span>
+                                  </a>
+  
+                                  {%- if childlink.links != blank -%}
+                                  <div class="grandmenu-container" role="group" aria-label="{{ childlink.title | escape }}">
+                                      <div class="grandmenu-list">
+                                          {%- for grandchildlink in childlink.links -%}
+                                          {% assign grandchildlink_title = grandchildlink.title | escape %}
+                                          {% assign grandchildlink_title_downcase = grandchildlink.title | downcase | escape %}
+  
+                                          <div class="grandmenu-item" role="none">
+                                              <a href="{{ grandchildlink.url }}"
+                                                 class="menu__link grand-link {% if grandchildlink_title_downcase == 'view all' %}view-all{% endif %}"
+                                                 role="menuitem"
+                                                 aria-label="{{ grandchildlink_title }}">
+                                                  <span class="grandmenu-title">{{ grandchildlink_title }}</span>
+                                              </a>
+                                          </div>
+                                          {%- endfor -%}
+                                      </div>
+                                  </div>
+                                  {%- endif -%}
+                              </div>
+                              {%- endfor -%}
+                          </div>
+                      </div>
+                      {% endif %}
+  
+                      {% if has_mega_menu %}
+                      <div class="promotion-container" role="group" aria-label="Promotions">
+                          <div class="items">
+                              {% for i in (1..4) %}
+                                  {% capture promotion_image %}image{{ i }}{% endcapture %}
+                                  {% capture promotion_title %}title{{ i }}{% endcapture %}
+                                  {% capture promotion_link %}link{{ i }}{% endcapture %}
+  
+                                  {% if current_block.settings[promotion_image] != blank and current_block.settings[promotion_link] != blank %}
+                                      {% liquid
+                                        assign pc_src = current_block.settings[promotion_image] | image_url: width: 940
+                                        assign pad_src = current_block.settings[promotion_image] | image_url: width: 940
+                                        assign m_src = current_block.settings[promotion_image] | image_url: width: 940
+                                      %}
+                                      <div class="item">
+                                          <div class="item_image">
+                                              <a href="{{ current_block.settings[promotion_link] }}"
+                                                 aria-label="{{ current_block.settings[promotion_title] | escape }}"></a>
+                                              {% render 'resp-img'
+                                                  pc_src: pc_src,
+                                                  pad_src: pad_src,
+                                                  m_src: m_src,
+                                                  lazy: true,
+                                                  class_name: 'resp-img-class',
+                                                  alt: current_block.settings[promotion_title]
+                                              %}
+                                          </div>
+                                          <div class="item_title">
+                                              <a href="{{ current_block.settings[promotion_link] }}"><span>{{ current_block.settings[promotion_title] }}</span></a>
+                                          </div>
+                                      </div>
+                                  {% endif %}
+                              {% endfor %}
+                          </div>
+                      </div>
+                      {% endif %}
+                  </div>  
+                  
+              </div>
+          </div>
+          {% endif %}
+      {%- endfor -%}
+  
+      </div>
+    </div>
+  </header-nav>
+  

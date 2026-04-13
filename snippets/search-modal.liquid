@@ -12,7 +12,9 @@
 <dialog-component
   id="search-modal"
   class="search-modal"
-  {{ block.shopify_attributes }}
+  {% if block %}
+    {{ block.shopify_attributes }}
+  {% endif %}
 >
   <dialog
     ref="dialog"

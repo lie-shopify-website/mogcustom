@@ -1,0 +1,223 @@
+<header-nav class="header-menu">
+
+    {% comment %} ======== 一级菜单 ======== {% endcomment %}
+    <div class="index-topmenu-area area-space js-topMenuArea">
+        <div class="mobile-search mobile-search--icon-only js-searchTrigger" role="button" tabindex="0" on:click="#search-modal/showDialog" aria-label="{{ 'sections.header.a11y_open_search' | t }}" aria-haspopup="dialog">
+            <div class="search-input" aria-hidden="true">
+                <span class="search-icon">{%- render 'icon-search' -%}</span>
+            </div>
+        </div>
+
+        <div class="top-menu menu-top-level">
+
+            {%- for link in section.settings.main_menu.links -%}
+                {% comment %} 判断是否为Mage菜单 {% endcomment %}
+                {% liquid
+                    assign link_title_downcase = link.title | downcase
+                    assign current_block = false
+                    assign has_mega_menu = false
+
+                    for block in section.blocks
+                    assign menu_item_downcase = block.settings.menu_item | strip | downcase
+                    if menu_item_downcase == link_title_downcase
+                        assign current_block = block
+                        break
+                    endif
+                    endfor
+                %}
+
+                {% assign has_mega_menu = false %}
+                {% if current_block %}
+                {% for i in (1..3) %}
+                    {% capture image %}image{{ i }}{% endcapture %}
+                    {% if current_block.settings[image] != blank %}
+                        {% assign has_mega_menu = true %}
+                    {% endif %}
+                {% endfor %}
+                {% endif %}
+
+
+                {% comment %} 是否有子菜单或者mega菜单 {% endcomment %}
+                {% assign has_child_menu = false %}
+                {%- if link.links != blank or has_mega_menu -%}
+                    {% assign has_child_menu = true %}
+                {% endif %}
+                
+                <div class="top-menu-item js-topMenuItem {% if has_child_menu %}js-hasChildMenu{% endif %}" {% if has_child_menu %}data-tab-index="{{ forloop.index }}" data-tab-target="submenu-content-{{ forloop.index }}" role="button" tabindex="0" aria-expanded="false" aria-controls="submenu-content-{{ forloop.index }}" aria-label="{{ 'sections.header.a11y_has_submenu' | t: title: link.title }}"{% endif %}>
+                        <div class="link-title">
+                            <a href="{% if has_child_menu %}javascript:void(0);{% else %}{{ link.url }}{% endif %}" title="{{ link.title | escape }}" class="menu__link top-link" {% if has_child_menu %}aria-hidden="true" tabindex="-1"{% endif %}>
+                                <span class="top-level-title"> {{- link.title | escape -}}</span>
+                            </a>
+                            {% if has_child_menu %}
+                                <span class="arrow arrow-right">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M20 8L12 16L4 8" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                    </svg>
+                                </span>
+                            {% endif %}
+                        </div>
+                </div>
+            {%- endfor -%}
+        </div>
+    </div>
+
+
+
+
+
+    {% comment %} ======== 子菜单 ======== {% endcomment %}
+    <div class="index-submenu-area area-space js-subMenuArea">
+        <div class="index-submenu-container height-100">
+        
+        {%- for link in section.settings.main_menu.links -%}
+            {% comment %} 判断是否为Mage菜单 {% endcomment %}
+            {% liquid
+                assign link_title_downcase = link.title | downcase
+                assign current_block = false
+        
+                for block in section.blocks
+                assign menu_item_downcase = block.settings.menu_item | strip | downcase
+                if menu_item_downcase == link_title_downcase
+                    assign current_block = block
+                    break
+                endif
+                endfor
+            %}
+
+            {% assign has_mega_menu = false %}
+            {% if current_block %}
+            {% for i in (1..4) %}
+                {% capture image %}image{{ i }}{% endcapture %}
+                {% if current_block.settings[image] != blank %}
+                    {% assign has_mega_menu = true %}
+                {% endif %}
+            {% endfor %}
+            {% endif %}
+        
+        
+            {% comment %} 是否有子菜单或者mega菜单 {% endcomment %}
+            {% assign has_child_menu = false %}
+            {%- if link.links != blank or has_mega_menu -%}
+                {% assign has_child_menu = true %}
+            {% endif %}
+                
+            {% if has_child_menu %}
+                {% assign submenu_index = forloop.index %}
+                <div class="index-submenu height-100 js-indexSubmenu" data-tab-index="{{ forloop.index }}" id="submenu-content-{{ forloop.index }}">
+                    <div class="submenu-header">
+                        <button type="button" class="go-back js-goBack" aria-label="{{ 'sections.header.a11y_submenu_back' | t }}">
+                            <span class="arrow arrow-go-back" aria-hidden="true">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M20 8L12 16L4 8" stroke="black" stroke-width="1.5" stroke-linejoin="round"/>
+                                </svg>
+                            </span>
+                            <span class="topmenu-title">{{- link.title | escape -}}</span>
+                        </button>
+
+                        <button type="button" class="submenu-level hamburger-icon js-mobileMenuIcon" aria-label="{{ 'sections.header.a11y_close_menu' | t }}">
+                            <span class="hamburger-box-wrapper" aria-hidden="true">
+                              <span class="hamburger-box"></span>
+                              <span class="hamburger-box"></span>
+                              <span class="hamburger-box"></span>
+                            </span>
+                        </button>
+                    </div>
+
+
+                    <div class="submenu-content height-100">
+                        {%- if link.links != blank -%}
+                        <div class="submenu-container">
+                            <div class="submenu-list">
+                                {%- for childlink in link.links -%}
+                                <div class="submenu-item js-subMenuItem {% if forloop.first %}open{% endif %}" {% if childlink.links != blank %}role="button" tabindex="0" aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="mobile-grandmenu-{{ submenu_index }}-{{ forloop.index }}" aria-label="{{ childlink.title | escape }}{% if childlink.links != blank %}, {{ 'sections.header.a11y_expand_submenu' | t }}{% endif %}"{% endif %}>
+                                    <div class="child-link-title js-subMenuHeader">
+                                        <a href="{% if childlink.links != blank %}javascript:void(0);{% else %}{{ childlink.url }}{% endif %}" class="menu__link sub-link" {% if childlink.links != blank %}aria-hidden="true" tabindex="-1"{% endif %}> <span class="submenu-title">{{ childlink.title | escape }}</span> </a>
+                                        {% if childlink.links != blank %}
+                                            <span class="arrow arrow-down accordion-toggle" aria-hidden="true">
+                                                <svg class="accordion-icon-svg" viewBox="0 0 24 24" width="24" height="24" fill="none">
+                                                    <path d="M20 8L12 16L4 8" stroke="black" stroke-width="1.5" stroke-linejoin="round">
+                                                      <animate class="expandAnim" attributeName="d" 
+                                                        values="M20 8L12 16L4 8; M21.5 12L12 12L2.5 12; M20 16L12 8L4 16" 
+                                                        dur="320ms" begin="indefinite" fill="freeze" keyTimes="0;0.5;1" 
+                                                        calcMode="spline" keySplines="0.12, 0, 0.38, 0; 0.2, 1, 0.68, 1"
+                                                      ></animate>
+                                                      <animate class="collapseAnim" attributeName="d" 
+                                                        values="M20 16L12 8L4 16; M21.5 12L12 12L2.5 12; M20 8L12 16L4 8" 
+                                                        dur="320ms" begin="indefinite" fill="freeze" keyTimes="0;0.5;1" 
+                                                        calcMode="spline" keySplines="0.2, 0, 0.68, 0; 0.2, 1, 0.68, 1"
+                                                      ></animate>
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        {% endif %}
+                                    </div>
+
+                                    {%- if childlink.links != blank -%}
+                                    <div class="grandmenu-container js-grandMenuContainer" id="mobile-grandmenu-{{ submenu_index }}-{{ forloop.index }}" role="region" aria-label="{{ childlink.title | escape }}">
+                                        <div class="grandmenu-container-inner">
+                                        <div class="grandmenu-list">
+                                            {%- for grandchildlink in childlink.links -%}
+                                                {% assign grandchildlink_title = grandchildlink.title | escape %}
+                                                {% assign grandchildlink_title_downcase = grandchildlink.title | downcase | escape %}
+                                                <div class="grandmenu-item">
+                                                    <a href="{{ grandchildlink.url }}" class="menu__link grand-link {% if grandchildlink_title_downcase == 'view all' %}view-all{% endif %}" aria-label="{{ grandchildlink_title }}" >
+                                                    <span class="grandmenu-title"> {{ grandchildlink_title }}</span>
+                                                    </a>
+                                                </div>
+                                            {%- endfor -%}
+                                        </div>
+                                        </div>
+                                    </div>
+                                    {%- endif -%}
+                                </div>
+                                {%- endfor -%}
+                            </div>
+                        </div>
+                        {% endif %}
+                        
+                        {% if has_mega_menu %}
+                            <div class="promotion-container">
+                                <div class="items">
+                                    {% for i in (1..4) %}
+                                        {% capture promotion_image %}image{{ i }}{% endcapture %}
+                                        {% capture promotion_title %}title{{ i }}{% endcapture %}
+                                        {% capture promotion_link %}link{{ i }}{% endcapture %}
+                                        
+                                        {% if current_block.settings[promotion_image] != blank and current_block.settings[promotion_link] != blank %}
+                                            {% liquid
+                                                assign pc_src = current_block.settings[promotion_image] | image_url: width: 940
+                                                assign pad_src = current_block.settings[promotion_image] | image_url: width: 940
+                                                assign m_src = current_block.settings[promotion_image] | image_url: width: 940
+                                            %}
+                                            <div class="item">
+                                                <div class="item_image">
+                                                    <a href="{{ current_block.settings[promotion_link] }}" aria-label="{{ current_block.settings[promotion_title] }}"></a>
+                                                    {% render 'resp-img'
+                                                        pc_src: pc_src,
+                                                        pad_src: pad_src,
+                                                        m_src: m_src,
+                                                        lazy: true,
+                                                        class_name: 'resp-img-class',
+                                                        alt: current_block.settings[promotion_title]
+                                                    %}
+                                                </div>
+                                                <div class="item_title">
+                                                    <a href="{{ current_block.settings[promotion_link] }}"><span>{{ current_block.settings[promotion_title] }}</span></a>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endif %}
+
+        {%- endfor -%}
+
+        </div>
+    </div>
+    
+
+</header-nav>

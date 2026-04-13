@@ -1,0 +1,275 @@
+
+{%- if settings.show_cart -%}
+    {%- liquid
+      assign show_mini_cart = false
+      assign show_drawer_cart = false
+      case settings.cart_type
+        when 'drawer'
+          assign show_mini_cart = false
+          if request.page_type != 'cart'
+            assign show_drawer_cart = true
+          endif
+        when 'mini_cart'
+          assign show_drawer_cart = false
+          if request.page_type != 'cart'
+            assign show_mini_cart = true
+          endif
+        when 'page'
+          assign show_drawer_cart = false
+          assign show_mini_cart = false
+      endcase
+      if show_mini_cart
+        assign cart_dropdown_style = 'as-cart-dropdown js-dropdown'
+      endif
+    -%}
+  {% endif %}
+  
+  
+  {% liquid
+    case section.settings.sticky_header
+      when 'allow_sticky'
+        assign sticky_header = 'sticky'
+      when 'never_sticky'
+        assign sticky_header = 'relative'
+    endcase
+  %}
+  
+  <style>
+  header {
+    --sticky-header:{{ sticky_header }};
+    --header-logo-hight:{{ settings.logo_height }}px;
+    --header-logo-hight-mb:{{ settings.logo_height_mobile }}px;
+  }
+  </style>
+  
+  <script src="{{ 'header-custom-202601.js' |  asset_url}}" defer></script>
+  {{ 'header-custom-202601.css' | asset_url | stylesheet_tag }} 
+  
+  <div
+    class="header-v202601 js-headerV202601"
+    style-mode="{{ section.settings.header_style_mode }}"
+    {% if section.settings.sticky_header == 'allow_sticky' %}
+      data-sticky-header
+    {% endif %}
+  >
+    <nav class="site-header js-siteHeader" aria-label="{{ 'sections.header.a11y_main_nav' | t }}">
+      <div class="site-header-container">
+  
+        <ul class="header-items mb-header-items">
+  
+          {% comment %} Logo {% endcomment %}
+          <li class="nav-menu-item logo-item">
+            {%- if request.page_type == 'index' -%}
+              <h1 class="visually-hidden">Mog Custom</h1>
+            {%- endif -%}
+            <a class="logo" href="{{ routes.root_url }}" aria-label="{{ 'sections.header.a11y_logo' | t: shop_name: shop.name }}">
+              {%- if settings.logo != blank -%}
+                {% assign logo_height_2x = settings.logo_height | times: 2 %}
+                <img class="logo" width="auto" height="{{ settings.logo_height }}"
+                    src="{{ settings.logo | image_url: height: logo_height_2x }}"
+                    loading="lazy"
+                    alt="{{ settings.logo.alt | default: shop.name | escape }}"
+                >
+              {%- else -%}
+                <span class="h6 mb-0">{{ shop.name }}</span>
+              {%- endif -%}
+            </a>
+          </li>
+  
+          {% comment %} 电脑端菜单 {% endcomment %}
+          <li class="nav-menu-item menu-item header-mobile-hidden">
+            <div class="desktop-menu">{% render 'header-menu', section: section %}</div>
+          </li>
+  
+          {% comment %} 快捷链接 {% endcomment %}
+          <li class="nav-menu-item right-link-item">
+            <ul class="list-unstyled">
+              {%- if section.settings.show_search -%}
+                <li class="nav-item header-search-icon header-search--icon-on-mobile js-searchIcon desktop-search-layout">
+                    <div
+                      class="desktop-search js-searchTrigger"
+                      role="button"
+                      tabindex="0"
+                      on:click="#search-modal/showDialog"
+                      aria-label="{{ 'sections.header.a11y_open_search' | t }}"
+                      aria-haspopup="dialog"
+                    >
+                      <div class="search-input" aria-hidden="true">
+                          <span class="search-icon">{%- render 'icon-search' -%}</span>
+                          <span class="search-text">{{ 'sections.header.search_text' | t }}</span>
+                      </div>
+                    </div>
+                  </li>
+              {%- endif -%}
+  
+              {% if section.settings.show_account and shop.customer_accounts_enabled %}
+                {% if customer %}
+                  <li class="nav-item header-account-icon js-dropdown js-accountIcon" tabindex="0" role="button" aria-haspopup="true" aria-expanded="false" aria-controls="header-account-menu" aria-label="{{ 'sections.header.a11y_account_menu' | t }}">
+                    <div class="icon-wrapper">
+                      {% comment %} <a
+                        class="account-icon nav-link nav-link-text-outline small icon-btn d-flex align-items-center"
+                        data-bs-toggle="dropdown"
+                        aria-hidden="true"
+                        tabindex="-1"
+                      >
+                        <picture>
+                          <source mobile srcset="{{ 'account_icon.png' | asset_url }}" media="(max-width: 989px)">
+                          <source desktop srcset="{{ 'account_icon.png' | asset_url }}" media="(min-width: 990px)">
+                          <img src="{{ 'account_icon.png' | asset_url }}" width="100%" height="auto" alt="Account Icon">
+                        </picture>
+                      </a> {% endcomment %}
+                      <div class="account-quick-links js-accountQuickLinks" id="header-account-menu" role="menu">
+                        <div class="quick-links">
+                          {% if customer.name %}
+                            <a class="dropdown-item customer-name" href="{{ routes.account_url }}">
+                              {{- customer.name -}}
+                            </a>
+                          {% endif %}
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                {% else %}
+                  <li class="nav-item">
+                    <div class="p-0 flex-center lead icon-wrapper">
+                      <a
+                        href="{{ routes.account_login_url }}?return_to={{ shop.url }}{{ request.path }}"
+                        class="nav-link icon-btn nav-link-text-outline lh-1" aria-label="{{ 'sections.header.a11y_account_menu' | t }}"
+                        ><span class="d-inline-block">{% render 'icon-user' %}</span></a
+                      >
+                    </div>
+                  </li>
+                {% endif %}
+              {% endif %}
+  
+              {%- if section.settings.show_cart -%}
+                <li class="nav-item header-v202601__theme-cart">
+                  {% render 'header-actions-202601',
+                    display_style: 'icon',
+                    section: section
+                  %}
+                </li>
+              {%- endif -%}
+  
+              {% if section.settings.show_hamburger %}
+                <li class="nav-item hamburger-icon header-mobile-show js-mobileMenuIcon">
+                  <div class="hamburger-box-wrapper">
+                    <span class="hamburger-box"></span>
+                    <span class="hamburger-box"></span>
+                    <span class="hamburger-box"></span>
+                  </div>
+                </li>
+              {% endif %}
+            </ul>
+          </li>
+        </ul>
+  
+        {% comment %} 手机端菜单 {% endcomment %}
+        <mobile-menu class="header-mobile-show mobile-menu js-mobileMenu">
+          <div class="mobile-menu-container js-mobileMenuContainer">{% render 'header-menu-mobile', section: section %}</div>
+        </mobile-menu>
+  
+        {% comment %} 搜索弹层由 layout/theme.liquid 全局引入的 search-modal（dialog-component#search-modal），此处勿重复 render，避免重复 id {% endcomment %}
+      </div>
+    </nav>
+  </div>
+  <div class="dropdown-backdrop js-dropdownBackdrop-202601"></div>
+  
+  
+  {%- if settings.show_cart -%}
+    {%- if settings.add_to_cart_action == 'show_added_msg' and show_mini_cart -%}
+      <div class="cart-notification-container container">
+        {% render 'cart-notification', class: 'd-none d-md-block' %}
+      </div>
+    {%- endif -%}
+  {%- endif -%}
+  
+  {% schema %}
+  {
+    "name": "顶部",
+    "tag": "header",
+    "class": "shopify-header shopify-section-header as-shopify-header",
+    "settings": [
+      {
+        "type": "select",
+        "id": "header_style_mode",
+        "label": "风格模式",
+        "options": [
+          {
+            "value": "black",
+            "label": "黑色风格"
+          },
+          {
+            "value": "white",
+            "label": "白色风格"
+          }
+        ],
+        "default": "black"
+      },
+      {
+        "type": "link_list",
+        "label": "主菜单",
+        "id": "main_menu",
+        "default": "main-menu"
+      },
+      {
+        "type": "select",
+        "id": "sticky_header",
+        "label": "吸附顶部",
+        "options": [
+          {
+            "value": "allow_sticky",
+            "label": "吸附"
+          },
+          {
+            "value": "never_sticky",
+            "label": "从不"
+          }
+        ],
+        "default": "never_sticky"
+      },
+  
+      { "type": "header", "content": "右边栏配置" },
+      { "type": "checkbox", "id": "show_search", "label": "显示搜索", "default": true },
+      { "type": "checkbox", "id": "show_account", "label": "显示账户", "default": true },
+      { "type": "checkbox", "id": "show_cart", "label": "显示购物车", "default": true },
+      { "type": "checkbox", "id": "show_hamburger", "label": "显示汉堡", "default": true }
+    ],
+    "blocks": [
+      {
+        "type": "mega_menu",
+        "name": "Mega菜单",
+        "settings": [
+          { "type": "text", "id": "menu_item", "label": "Menu_item", "info": "一级菜单导航名称, 通过名称绑定" },
+  
+          { "type": "header", "content": "活动" },
+          { "type": "image_picker", "id": "image1", "label": "图片" },
+          { "type": "text", "id": "title1", "label": "标题" },
+          { "type": "url", "id": "link1", "label": "链接" },
+  
+          { "type": "header", "content": "活动" },
+          { "type": "image_picker", "id": "image2", "label": "图片" },
+          { "type": "text", "id": "title2", "label": "标题" },
+          { "type": "url", "id": "link2", "label": "链接" },
+  
+          { "type": "header", "content": "活动" },
+          { "type": "image_picker", "id": "image3", "label": "图片" },
+          { "type": "text", "id": "title3", "label": "标题" },
+          { "type": "url", "id": "link3", "label": "链接" },
+  
+          { "type": "header", "content": "活动" },
+          { "type": "image_picker", "id": "image4", "label": "图片" },
+          { "type": "text", "id": "title4", "label": "标题" },
+          { "type": "url", "id": "link4", "label": "链接" }
+        ]
+      }
+    ],
+    "presets": [
+      {
+        "name": "顶部202601",
+        "category": "Custom"
+      }
+    ]
+  }
+  {% endschema %}
+  
