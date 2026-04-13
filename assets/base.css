@@ -4975,3 +4975,7 @@ product-recommendations:has([data-has-recommendations='false']) {
 header {
   border-bottom: 1px solid #d3d3d3;
 }
+
+.header-v202601[style-mode=white] .cart-items__empty-button {
+  color: #fff !important;
+}
