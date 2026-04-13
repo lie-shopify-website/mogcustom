@@ -254,7 +254,7 @@
         "bg_color": "rgba(0,0,0,0)",
         "content_bg_color": "#fff9f4",
         "image": "shopify://shop_images/pc.jpg",
-        "image_mb": "shopify://shop_images/img_v3_0210n_78a3a99c-f985-467d-9a09-2235a2391f6g.jpg",
+        "image_mb": "shopify://shop_images/pc.jpg",
         "image_url": "shopify://collections/gift-for-mom",
         "content_alignment": "center",
         "content_max_width": 400,
@@ -712,7 +712,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/cb1c5cef59af067ee44cf6fde43d06bf.png",
-            "column_image_mb": "shopify://shop_images/cb1c5cef59af067ee44cf6fde43d06bf_b5767462-3c9a-46eb-b1e6-fb44689aad92.png",
+            "column_image_mb": "shopify://shop_images/cb1c5cef59af067ee44cf6fde43d06bf_15056ba8-5dcf-4c81-aa37-dfcc4d2bb8af.png",
             "column_title": "For Me",
             "column_info": "",
             "column_url": "shopify://collections"
@@ -722,7 +722,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/0503d5db032fd000c2165c6561fda16b.png",
-            "column_image_mb": "shopify://shop_images/0503d5db032fd000c2165c6561fda16b_d4d68052-fdbb-43a2-8d27-76a3e6b39bcd.png",
+            "column_image_mb": "shopify://shop_images/0503d5db032fd000c2165c6561fda16b_f7faf299-f0eb-490c-b571-874e2a7c6aaa.png",
             "column_title": "For Lover",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-lovers"
@@ -732,7 +732,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/6954c99806d0563b1d551e95f6233e57.png",
-            "column_image_mb": "shopify://shop_images/6954c99806d0563b1d551e95f6233e57_7dd53e11-78fb-43e1-96b6-672a7ccb9093.png",
+            "column_image_mb": "shopify://shop_images/6954c99806d0563b1d551e95f6233e57_11381bb8-06db-4060-8ff1-c7e783898233.png",
             "column_title": "For Bestie",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-bestie"
@@ -742,7 +742,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/d06d6a04262a1324fed4782783f1ed63.png",
-            "column_image_mb": "shopify://shop_images/d06d6a04262a1324fed4782783f1ed63_87ecad54-41ba-4bda-85b4-af7cc7713221.png",
+            "column_image_mb": "shopify://shop_images/d06d6a04262a1324fed4782783f1ed63_f23795d3-955b-4d4f-8ac9-05c38f6b9e35.png",
             "column_title": "For Fmaily",
             "column_info": "",
             "column_url": "shopify://collections"
@@ -752,7 +752,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/3baf5ed44e29e7df84772e06841b28a9.png",
-            "column_image_mb": "shopify://shop_images/3baf5ed44e29e7df84772e06841b28a9_db0eda9a-cc87-43b1-8e21-1221e086a168.png",
+            "column_image_mb": "shopify://shop_images/3baf5ed44e29e7df84772e06841b28a9_edefa281-4477-4b0c-8545-625655ff53fd.png",
             "column_title": "For Mom",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-him"
@@ -762,7 +762,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/402dde462314234c02ca0e5aca77c9e4.png",
-            "column_image_mb": "shopify://shop_images/402dde462314234c02ca0e5aca77c9e4_88180e8f-9bef-4b03-bc69-8799be1edc24.png",
+            "column_image_mb": "shopify://shop_images/402dde462314234c02ca0e5aca77c9e4_0eb6652c-eb32-478a-84f4-789680078d35.png",
             "column_title": "For Dad",
             "column_info": "",
             "column_url": ""
@@ -772,7 +772,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/aa4e786bcf21a8b475e4e1a96e6d92a7.png",
-            "column_image_mb": "shopify://shop_images/aa4e786bcf21a8b475e4e1a96e6d92a7_6acc7591-e6f8-4601-9dfb-dd7189dd5a44.png",
+            "column_image_mb": "shopify://shop_images/aa4e786bcf21a8b475e4e1a96e6d92a7_bc4c8212-41d5-40fb-bbc3-559b60532c86.png",
             "column_title": "For Siblings",
             "column_info": "",
             "column_url": "shopify://collections"
@@ -781,7 +781,7 @@
         "column_3Enx4k": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/23a38ca6b5892a7fb15ccdebf6e207ca_ea149690-0d59-4d9a-922c-96d60dd4348b.png",
+            "column_image": "shopify://shop_images/23a38ca6b5892a7fb15ccdebf6e207ca_882b30fd-4bfa-46eb-a6ba-54825a405f46.png",
             "column_title": "For Pet Lover",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-pet-lover"
