@@ -22,6 +22,14 @@
             "column_url": "shopify://collections"
           }
         },
+        "column_hNAcbg": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
         "column_aLh4D3": {
           "type": "column",
           "settings": {
@@ -75,6 +83,7 @@
       },
       "block_order": [
         "column_UBTzQW",
+        "column_hNAcbg",
         "column_aLh4D3",
         "column_8CDPAr",
         "column_hAN9zC",
@@ -127,7 +136,7 @@
         "text_YRxUtD": {
           "type": "text",
           "settings": {
-            "text": "Celebrate their hard work with a gift that feels just as special.",
+            "text": "Celebrate their achievements with a gift as meaningful as they are.",
             "font_size": 20,
             "font_size_mb": 16,
             "text_color": "#0b2a4a"
@@ -158,8 +167,8 @@
         "layout_type_mb": "top",
         "bg_color": "#fff2e7",
         "content_bg_color": "#fff2e7",
-        "image": "shopify://shop_images/Graduation_Homepage_Banner.png",
-        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner.png",
+        "image": "shopify://shop_images/1bf0898faaaccddf32963b2076f260e0.jpg",
+        "image_mb": "shopify://shop_images/3.jpg",
         "image_url": "shopify://collections",
         "content_alignment": "center",
         "content_max_width": 400,
@@ -213,7 +222,7 @@
         "heading_pNWX6h": {
           "type": "heading",
           "settings": {
-            "heading": "For Your Grad",
+            "heading": "Gifts For Mom",
             "font_size": 46,
             "font_size_mb": 36,
             "text_color": "#cc423f"
@@ -222,7 +231,7 @@
         "text_p4bHwK": {
           "type": "text",
           "settings": {
-            "text": "Turn pride into a keepsake.",
+            "text": "Customized by you. Cherished by her.",
             "font_size": 24,
             "font_size_mb": 18,
             "text_color": "#0b2a4a"
@@ -253,8 +262,8 @@
         "layout_type_mb": "top",
         "bg_color": "rgba(0,0,0,0)",
         "content_bg_color": "#fff9f4",
-        "image": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
-        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image": "shopify://shop_images/ed5cb826d8e8739c768f6080bc88f97a.jpg",
+        "image_mb": "shopify://shop_images/2.jpg",
         "image_url": "shopify://collections",
         "content_alignment": "center",
         "content_max_width": 400,
@@ -334,7 +343,7 @@
         "heading_PJYKX8": {
           "type": "heading",
           "settings": {
-            "heading": "For Your Grad",
+            "heading": "Gifts for Dad",
             "font_size": 46,
             "font_size_mb": 36,
             "text_color": "#cc423f"
@@ -343,7 +352,7 @@
         "text_xnQDqw": {
           "type": "text",
           "settings": {
-            "text": "Turn pride into a keepsake.",
+            "text": "Celebrate his hard work with a one-of-a-kind custom gift.",
             "font_size": 24,
             "font_size_mb": 18,
             "text_color": "#0b2a4a"
@@ -374,8 +383,8 @@
         "layout_type_mb": "top",
         "bg_color": "rgba(0,0,0,0)",
         "content_bg_color": "#f2f9e8",
-        "image": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
-        "image_mb": "shopify://shop_images/Graduation_Homepage_Banner_1_2000x_3ead13b7-b52b-406d-85dd-e223175e414a.png",
+        "image": "shopify://shop_images/1.jpg",
+        "image_mb": "shopify://shop_images/1_c025817e-c2ae-48f4-ba9c-08d2c530f103.jpg",
         "image_url": "shopify://collections",
         "content_alignment": "center",
         "content_max_width": 400,
@@ -452,20 +461,12 @@
     "cm_multicolumn_list_grrnEP": {
       "type": "cm-multicolumn-list",
       "blocks": {
-        "column_EzNqWA": {
-          "type": "column",
-          "settings": {
-            "column_image": "shopify://shop_images/recipient-bestie.png",
-            "column_title": "For Bestie",
-            "column_info": "",
-            "column_url": "shopify://collections"
-          }
-        },
         "column_XMhGyB": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-partner.png",
-            "column_title": "For Partner",
+            "column_image": "shopify://shop_images/cb1c5cef59af067ee44cf6fde43d06bf.png",
+            "column_image_mb": "shopify://shop_images/cb1c5cef59af067ee44cf6fde43d06bf.png",
+            "column_title": "For Me",
             "column_info": "",
             "column_url": "shopify://collections"
           }
@@ -473,8 +474,17 @@
         "column_MFqLtk": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-sibling.png",
-            "column_title": "For Sibling",
+            "column_image": "shopify://shop_images/0503d5db032fd000c2165c6561fda16b.png",
+            "column_title": "For Lover",
+            "column_info": "",
+            "column_url": "shopify://collections"
+          }
+        },
+        "column_EzNqWA": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/6954c99806d0563b1d551e95f6233e57.png",
+            "column_title": "For Bestie",
             "column_info": "",
             "column_url": "shopify://collections"
           }
@@ -482,8 +492,8 @@
         "column_UaMFnT": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-pet-lover.png",
-            "column_title": "For Pet Lover",
+            "column_image": "shopify://shop_images/d06d6a04262a1324fed4782783f1ed63.png",
+            "column_title": "For Fmaily",
             "column_info": "",
             "column_url": "shopify://collections"
           }
@@ -491,17 +501,26 @@
         "column_yiefRK": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-family.png",
-            "column_title": "For Family",
+            "column_image": "shopify://shop_images/3baf5ed44e29e7df84772e06841b28a9.png",
+            "column_title": "For Mom",
             "column_info": "",
             "column_url": "shopify://collections"
+          }
+        },
+        "column_yiLLxa": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/402dde462314234c02ca0e5aca77c9e4.png",
+            "column_title": "For Dad",
+            "column_info": "",
+            "column_url": ""
           }
         },
         "column_8twa3m": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-mom.png",
-            "column_title": "For Mom",
+            "column_image": "shopify://shop_images/aa4e786bcf21a8b475e4e1a96e6d92a7.png",
+            "column_title": "For Siblings",
             "column_info": "",
             "column_url": "shopify://collections"
           }
@@ -509,14 +528,15 @@
         "column_3Enx4k": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/recipient-dad.png",
-            "column_title": "For Dad",
+            "column_image": "shopify://shop_images/23a38ca6b5892a7fb15ccdebf6e207ca.png",
+            "column_title": "For Pet Lover",
             "column_info": "",
             "column_url": "shopify://collections"
           }
         },
         "column_YmUEGm": {
           "type": "column",
+          "disabled": true,
           "settings": {
             "column_image": "shopify://shop_images/recipient-kid-baby.png",
             "column_title": "For Kid & Baby",
@@ -526,11 +546,12 @@
         }
       },
       "block_order": [
-        "column_EzNqWA",
         "column_XMhGyB",
         "column_MFqLtk",
+        "column_EzNqWA",
         "column_UaMFnT",
         "column_yiefRK",
+        "column_yiLLxa",
         "column_8twa3m",
         "column_3Enx4k",
         "column_YmUEGm"
