@@ -160,7 +160,7 @@
         "content_bg_color": "#fef6e3",
         "image": "shopify://shop_images/1bf0898faaaccddf32963b2076f260e0.jpg",
         "image_mb": "shopify://shop_images/3.jpg",
-        "image_url": "shopify://collections",
+        "image_url": "shopify://collections/graduation-gift",
         "content_alignment": "center",
         "content_max_width": 400,
         "remove_top_padding": false,
@@ -181,7 +181,7 @@
         "columns_desktop": 4,
         "columns_mobile": "2",
         "heading": "Trending Now",
-        "subheading": "Discover our most popular products",
+        "subheading": "Explore our customer-loved bestsellers",
         "header_alignment": "center",
         "heading_font_size": 36,
         "heading_font_size_mb": 28,
@@ -393,7 +393,7 @@
           "type": "collection_tab",
           "settings": {
             "tab_label": "Best Seller",
-            "collection": "best-seller",
+            "collection": "gift-for-dad",
             "products_limit": 4,
             "view_all_url": "",
             "view_all_label": "Show More"
