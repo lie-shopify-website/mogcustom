@@ -161,7 +161,7 @@
                       {% if submenu.size > 0 %}
                         {% comment %} <span class="icon-right">{% render 'icon-plus-to-minus' %}</span> {% endcomment %}
                         <svg class="icon-jiantou" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M20 8L12 16L4 8" stroke="white" stroke-width="1.5" stroke-linejoin="round"></path>
+                            <path d="M20 8L12 16L4 8" stroke="black" stroke-width="1.5" stroke-linejoin="round"></path>
                         </svg>
                       {% endif %}
                     </a>
@@ -311,7 +311,7 @@
         <div class="social-icons">
           {%- if section.settings.show_social_media_icons -%}
             {%- liquid
-              assign social_media_string = 'facebook,twitter,instagram,pinterest,snapchat,youtube,vimeo,tumblr,tiktok'
+              assign social_media_string = 'facebook,twitter,instagram,pinterest,snapchat,youtube,vimeo,tumblr,tiktok,'
               assign social_media = social_media_string | split: ','
               assign show_media = false
               for media in social_media
@@ -350,6 +350,13 @@
                   </span>
                 </li>
               {%- endfor -%}
+              {%- unless shop.enabled_payment_types contains 'amazon_pay' -%}
+                <li class="list-inline mt-1 d-flex ms-1" aria-label="amazon_pay">
+                  <span aria-label="{{ 'amazon_pay' }}">
+                    {{ 'amazon_pay' | payment_type_svg_tag: class: '' }}
+                  </span>
+                </li>
+              {%- endunless -%}
             </ul>
           {%- endif -%}
         </div>
@@ -403,22 +410,21 @@
 
 <style>
   .footer-202601 {
-    background-color: #0b2a4a;
-    color: #fff;
+    background-color: #FEF6E3;
+    color: #000;
   }
   .footer-202601 .footer-wrapper svg path {
       fill: transparent;
   }
   .footer-202601 .nav-item a {
-      color: rgb(255 255 255 / 70%);
+      color: #000;
       font-weight: 400;
   }
   .footer-202601 .nav-item a:hover{
-      color: #fff;
+      color: #141414;
   }
   .footer-202601 .footer-bottom-bar {
-      border-top: 1px solid rgb(255 255 255 / 10%);
-      padding-top: 24px;
+      border-top: 1px solid #000;
   }
   .footer-202601 .footer-payment-icons {
     padding: 20px 0;
@@ -455,7 +461,7 @@
         gap: 8px;
   }
   .footer-202601 .social-icons-inner a {
-    color: #fff;
+    color: #000;
 }
   .footer-202601 .payment-icons-inner {
     display: flex;
@@ -481,7 +487,7 @@
   
   @media (max-width: 1023px) {
     .footer-202601 {
-        color: #333333;
+        color: #000;
     }
     .breadcrumbs-wrap{
         padding: 0 24px;
@@ -497,7 +503,7 @@
     }
 
     .footer-202601 .footer-main-menu .menu-links .nav-link {
-        color: rgb(51 51 51 / 70%);
+        color: #000;
         font-weight: 400;
         height: 1rem;
     }
@@ -518,6 +524,22 @@
 
     .footer .menu-policy .line{
       display: none;
+    }
+    .footer-202601 .footer-payment-icons-inner {
+        gap: 4px;
+    }
+    .footer-202601 .social-icons {
+      flex: 0 0 100%;
+    }
+    .footer-202601 .payment-icons {
+        flex: 0 0 100%;
+    }
+    .footer-202601 .footer-payment-icons svg {
+        width: 28px;
+        height: 28px;
+    }
+    .footer-202601 .payment-icons-inner {
+        justify-content: flex-start;
     }
   }
 </style>
