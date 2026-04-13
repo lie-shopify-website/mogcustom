@@ -12,6 +12,14 @@
     "cm_multicolumn_list_UVhCDB": {
       "type": "cm-multicolumn-list",
       "blocks": {
+        "column_ALNM4w": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
         "column_UBTzQW": {
           "type": "column",
           "settings": {
@@ -74,6 +82,7 @@
         }
       },
       "block_order": [
+        "column_ALNM4w",
         "column_UBTzQW",
         "column_aLh4D3",
         "column_8CDPAr",
