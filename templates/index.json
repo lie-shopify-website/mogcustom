@@ -156,8 +156,8 @@
         "section_width_custom": 1440,
         "layout_type_pc": "right",
         "layout_type_mb": "top",
-        "bg_color": "#fff2e7",
-        "content_bg_color": "#fff2e7",
+        "bg_color": "#fef6e3",
+        "content_bg_color": "#fef6e3",
         "image": "shopify://shop_images/1bf0898faaaccddf32963b2076f260e0.jpg",
         "image_mb": "shopify://shop_images/3.jpg",
         "image_url": "shopify://collections",
@@ -710,6 +710,7 @@
         "column_qt9Fyb",
         "column_mDbLRA"
       ],
+      "disabled": true,
       "name": "多列列表",
       "settings": {
         "section_width": "global-width",
