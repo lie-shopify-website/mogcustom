@@ -272,7 +272,7 @@
           "type": "collection_tab",
           "settings": {
             "tab_label": "Best Seller",
-            "collection": "best-seller",
+            "collection": "gift-for-mom",
             "products_limit": 4,
             "view_all_url": "",
             "view_all_label": "Show More"
