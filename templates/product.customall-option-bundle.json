@@ -203,10 +203,10 @@
                   "settings": {
                     "shipping_method_name": "Priority Shipping",
                     "arrives_by": "Arrives by",
-                    "order_shipping_days_min": 5,
-                    "order_shipping_days_max": 7,
-                    "order_delivery_days_min": 15,
-                    "order_delivery_days_max": 17,
+                    "order_shipping_days_min": 0,
+                    "order_shipping_days_max": 1,
+                    "order_delivery_days_min": 5,
+                    "order_delivery_days_max": 7,
                     "label_order": "Order placed",
                     "label_ship": "Ships",
                     "label_delivery": "Arrives"
@@ -219,10 +219,10 @@
                   "settings": {
                     "shipping_method_name": "Standard Shipping",
                     "arrives_by": "Arrives by",
-                    "order_shipping_days_min": 5,
-                    "order_shipping_days_max": 7,
-                    "order_delivery_days_min": 17,
-                    "order_delivery_days_max": 19,
+                    "order_shipping_days_min": 1,
+                    "order_shipping_days_max": 2,
+                    "order_delivery_days_min": 8,
+                    "order_delivery_days_max": 12,
                     "label_order": "Order placed",
                     "label_ship": "Ships",
                     "label_delivery": "Arrives"
