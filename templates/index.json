@@ -96,7 +96,7 @@
       "settings": {
         "section_width": "custom-width",
         "section_width_custom": 1200,
-        "column_count": 6,
+        "column_count": 7,
         "column_layout_type": "carousel",
         "column_count_mb": "2",
         "bg_color": "rgba(0,0,0,0)",
