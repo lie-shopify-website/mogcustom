@@ -22,6 +22,16 @@
             "column_url": "shopify://collections/graduation-gift"
           }
         },
+        "column_4TFCUK": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/7.png",
+            "column_image_mb": "shopify://shop_images/7.png",
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
         "column_aLh4D3": {
           "type": "column",
           "settings": {
@@ -75,6 +85,7 @@
       },
       "block_order": [
         "column_UBTzQW",
+        "column_4TFCUK",
         "column_aLh4D3",
         "column_8CDPAr",
         "column_hAN9zC",
