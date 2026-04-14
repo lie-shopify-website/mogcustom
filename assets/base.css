@@ -5001,6 +5001,6 @@ product-card a[ref="productTitleLink"] p {
     white-space: normal;
 }
 
-product-card a[ref="priceContainer"] .price {
+product-card [ref="priceContainer"] .price {
     color: #f7921f;
 }
