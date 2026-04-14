@@ -655,8 +655,8 @@
         "section_width": "global-width",
         "section_width_custom": 1440,
         "collection": "gift-for-mom",
-        "products_limit": 5,
-        "columns_desktop": 5,
+        "products_limit": 6,
+        "columns_desktop": 6,
         "columns_mobile": "2",
         "heading": "A Gift Only You Can Give",
         "subheading": "",
@@ -816,6 +816,14 @@
             "column_url": ""
           }
         },
+        "column_rGVmmY": {
+          "type": "column",
+          "settings": {
+            "column_title": "",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
         "column_8twa3m": {
           "type": "column",
           "settings": {
@@ -854,6 +862,7 @@
         "column_UaMFnT",
         "column_yiefRK",
         "column_yiLLxa",
+        "column_rGVmmY",
         "column_8twa3m",
         "column_3Enx4k",
         "column_YmUEGm"
@@ -1082,7 +1091,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h2>Subscribe to our emails</h2>",
+            "text": "<h3><strong>Subscribe to our emails</strong></h3>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
