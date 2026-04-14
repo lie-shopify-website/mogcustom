@@ -1,0 +1,93 @@
+
+{% schema %}
+    {
+        "name": "客户评价-轮播",
+        "class": "cm-customer-review-carousel-section",
+        "settings": [
+            { "type": "header","content":"配置"},
+            { "type": "select", "id": "section_width", "label": "版块宽度", "default": "global-width", "options": [
+                { "value": "full-width", "label": "版块全宽" },
+                { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+                { "value": "global-width", "label": "版块跟随全局宽度" },
+                { "value": "custom-width", "label": "版块自定义宽度" }
+            ]},
+            { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' or section.settings.section_width == 'full-content-width' }}" },
+
+            { "type": "header","content":"颜色"},
+            { "type": "color", "id": "bg_color", "label": "版块背景颜色", "default": "transparent" },
+            { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#141414" },
+            { "type": "textarea", "id": "heading", "label": "版块标题" },
+            { "type": "textarea", "id": "subheading", "label": "版块副标题" },
+
+            { "type": "header","content":"其他"},
+            { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+            { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+            { "type": "checkbox", "id": "remove_left_padding", "label": "移除左边距 (手机端)", "default": false },
+            { "type": "checkbox", "id": "remove_right_padding", "label": "移除右边距 (手机端)", "default": false },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+        "blocks": [
+            {
+                "type": "customer_review",
+                "name": "客户评价",
+                "settings": [
+                    { "type": "image_picker", "id": "avatar", "label": "图片" },
+                    { "type": "text", "id": "name", "label": "姓名" },
+                    { "type": "textarea", "id": "review", "label": "评价内容" },
+                    { "type": "checkbox", "id": "is_verified", "label": "是否为认证用户", "default": true },
+                    { "type": "select", "id": "review_stars", "label": "评价星级", "default": "5", "options": [
+                        { "value": "1", "label": "1星" },
+                        { "value": "2", "label": "2星" },
+                        { "value": "3", "label": "3星" },
+                        { "value": "4", "label": "4星" },
+                        { "value": "5", "label": "5星" }
+                    ]},
+                    
+                ]
+            }
+        ],
+
+        "presets": [
+            {
+                "name": "客户评价-轮播",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+
+
+{{ 'cm-image-with-text.css' | asset_url | stylesheet_tag }}
+<style>
+#shopify-section-{{ section.id }} {
+    --bg-color:{{ section.settings.bg_color }};
+    --content-bg-color:{{ section.settings.content_bg_color }};
+    --layout-type-pc:{{ section.settings.layout_type_pc }};
+    --layout-type-mb:{{ section.settings.layout_type_mb }};
+    --section-width:{{ section.settings.section_width_custom }}px;
+    --content-alignment:{{ section.settings.content_alignment }};
+    --content-max-width:{{ section.settings.content_max_width }}px;
+}
+</style>
+{% liquid
+  case section.settings.section_width
+    when 'full-width'
+      assign layout_container_class = 'full-width'
+    when 'custom-width'
+      assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+      assign layout_container_class = 'layout-container global-width'
+    else
+      assign layout_container_class = 'layout-container'
+  endcase
+%}
+<div class="cm-image-with-text {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+    <div class="cm-iwt-bg-layout">
+    <div class="{{ layout_container_class }} {% if section.settings.remove_left_padding %}remove-left-space{% endif %} {% if section.settings.remove_right_padding %}remove-right-space{% endif %}">
+        <div class="cm-customer-review-carousel-inner">
+            
+        </div>
+    </div>
+    </div>
+</div>
