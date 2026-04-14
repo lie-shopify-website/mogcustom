@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -322,7 +322,7 @@
                 "text_color": "#141414",
                 "font_size": 18,
                 "font_size_mb": 16,
-                "background_color": "transparent",
+                "background_color": "rgba(0,0,0,0)",
                 "title": "Arrives by [date] if you order today. Hooray!",
                 "order_shipping_days_min": 5,
                 "order_shipping_days_max": 7,
@@ -466,7 +466,7 @@
                     "text_kD6GCK": {
                       "type": "text",
                       "settings": {
-                        "text": "<ul><li>Orders cannot be canceled once placed. Changes are allowed within <strong>2 hours</strong> of purchase.</li><li><strong>Canvas/ Poster/ Metal Sign</strong>: These packages cannot be delivered to a <strong>PO box</strong>.</li><li><strong>International orders</strong>: It may take additional days if orders have to go through customs. We have no influence on the customs process and apologize for any inconvenience due to delivery delays resulting from this</li><li>For more detailed information and instructions, please visit our <a href=\"https://macorner.co/pages/replacement-refund\" target=\"_blank\">Replacement & Refund</a> Policy.</li><li><strong>International orders</strong>: It may take additional days if orders have to go through customs. We have no influence on the customs process and apologize for any inconvenience due to delivery delays resulting from this.</li><li>Learn more about Shipping Policy<strong> </strong><a href=\"https://macorner.co/pages/shipping-delivery\" target=\"_blank\">here.</a></li></ul>",
+                        "text": "<ul><li>Orders cannot be canceled once placed. Changes are allowed within <strong>2 hours</strong> of purchase.</li><li><strong>Canvas/ Poster/ Metal Sign</strong>: These packages cannot be delivered to a <strong>PO box</strong>.</li><li><strong>International orders</strong>: It may take additional days if orders have to go through customs. We have no influence on the customs process and apologize for any inconvenience due to delivery delays resulting from this</li><li>For more detailed information and instructions, please visit our <a href=\"/pages/refund-replacement-policy\" target=\"_blank\" title=\"Returns & Exchanges\">Replacement & Refund</a> Policy.</li><li><strong>International orders</strong>: It may take additional days if orders have to go through customs. We have no influence on the customs process and apologize for any inconvenience due to delivery delays resulting from this.</li><li>Learn more about Shipping Policy<strong> </strong><a href=\"https://macorner.co/pages/shipping-delivery\" target=\"_blank\">here.</a></li></ul>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "left",
@@ -594,7 +594,6 @@
         "padding-block-end": 0
       }
     },
-
     "product_recommendations_qggXJq": {
       "type": "product-recommendations",
       "blocks": {
@@ -747,7 +746,6 @@
         "padding-block-end": 0
       }
     },
-
     "cm-why-choose_qggXJq": {
       "type": "cm-why-choose",
       "blocks": {
@@ -791,9 +789,15 @@
         "why_item_4"
       ],
       "settings": {
-        "section_width": "global-width"
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "bg_color": "rgba(0,0,0,0)",
+        "heading": "Why Choose Us",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "custom_class": ""
       }
-    },
+    }
   },
   "order": [
     "main",
