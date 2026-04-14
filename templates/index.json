@@ -507,70 +507,6 @@
         "custom_class": ""
       }
     },
-    "cm_multi_collection_products_DzEnBG": {
-      "type": "cm-multi-collection-products",
-      "blocks": {
-        "collection_tab_BJm84W": {
-          "type": "collection_tab",
-          "settings": {
-            "tab_label": "Your Love, Her Story.",
-            "collection": "gift-for-mom",
-            "products_limit": 4,
-            "view_all_url": "shopify://collections/gift-for-mom",
-            "view_all_label": "Show More"
-          }
-        },
-        "collection_tab_iQgnXe": {
-          "type": "collection_tab",
-          "disabled": true,
-          "settings": {
-            "tab_label": "分类二",
-            "collection": "",
-            "products_limit": 8,
-            "view_all_url": "",
-            "view_all_label": "Show More"
-          }
-        }
-      },
-      "block_order": [
-        "collection_tab_BJm84W",
-        "collection_tab_iQgnXe"
-      ],
-      "name": "多分类产品列表",
-      "settings": {
-        "section_width": "global-width",
-        "section_width_custom": 1440,
-        "columns_desktop": 4,
-        "columns_mobile": "2",
-        "heading": "",
-        "subheading": "",
-        "header_alignment": "center",
-        "heading_font_size": 36,
-        "heading_font_size_mb": 28,
-        "heading_color": "#141414",
-        "subheading_font_size": 18,
-        "subheading_font_size_mb": 16,
-        "subheading_color": "#141414",
-        "header_max_width": 720,
-        "tab_text_color": "#141414",
-        "tab_bg_color": "#f1f1f1",
-        "tab_active_text_color": "#ffffff",
-        "tab_active_bg": "#f7921f",
-        "bg_color": "rgba(0,0,0,0)",
-        "product_title_color": "#141414",
-        "price_color": "#141414",
-        "button_text_color": "#ffffff",
-        "button_bg_color": "#f7921f",
-        "button_text_color_hover": "#f7921f",
-        "button_bg_color_hover": "#ffffff",
-        "item_text_alignment": "left",
-        "remove_top_padding": false,
-        "remove_bottom_padding": false,
-        "remove_left_padding": false,
-        "remove_right_padding": false,
-        "custom_class": ""
-      }
-    },
     "cm_multi_collection_products_Xr8YPT": {
       "type": "cm-multi-collection-products",
       "blocks": {
@@ -640,6 +576,43 @@
         "button_bg_color": "#f1f1f1",
         "button_text_color_hover": "#f7921f",
         "button_bg_color_hover": "#ffffff",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    },
+    "cm_collection_products_xcXUMU": {
+      "type": "cm-collection-products",
+      "name": "单分类产品列表",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "collection": "gift-for-mom",
+        "products_limit": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "A Gift Only You Can Give",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#f7921f",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "view_all_url": "",
+        "view_all_label": "查看全部",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#F7921F",
+        "button_text_color_hover": "#F7921F",
+        "button_bg_color_hover": "#ffffff",
+        "bg_color": "transparent",
+        "product_title_color": "#141414",
+        "price_color": "#141414",
         "item_text_alignment": "left",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
@@ -1161,8 +1134,8 @@
     "cm_multi_collection_products_a4TKnc",
     "cm_image_with_text_JEMyyU",
     "cm_multicolumn_list_TpjbTz",
-    "cm_multi_collection_products_DzEnBG",
     "cm_multi_collection_products_Xr8YPT",
+    "cm_collection_products_xcXUMU",
     "cm_why_us_grid_Ep6gKR",
     "cm_multicolumn_list_grrnEP",
     "cm_multicolumn_list_Xg9Jax",
