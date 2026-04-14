@@ -455,6 +455,11 @@
 }
 
 @media (max-width:767px) {
+    /* 无 Bootstrap 时由 .show + footer-202601.js 控制展开；默认收起 */
+    .footer-202601 .footer-wrapper .footer-menu-container-item .footer-main-menu .footer-main-menu-col .mf-collapse.collapse:not(.show) {
+        display: none;
+    }
+
     .footer-202601 .footer-wrapper {
         -webkit-box-orient: vertical;
         -webkit-box-direction: normal;

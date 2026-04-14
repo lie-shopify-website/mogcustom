@@ -31,7 +31,7 @@
             "column_info": "",
             "column_url": "shopify://collections/gift-for-mom"
           }
-        },
+        }, 
         "column_aLh4D3": {
           "type": "column",
           "settings": {
@@ -558,7 +558,7 @@
         "tab_active_bg": "#f7921f",
         "bg_color": "rgba(0,0,0,0)",
         "product_title_color": "#141414",
-        "price_color": "#141414",
+        "price_color": "#f7921f",
         "button_text_color": "#ffffff",
         "button_bg_color": "#f7921f",
         "button_text_color_hover": "#f7921f",
