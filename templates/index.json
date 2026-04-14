@@ -31,7 +31,7 @@
             "column_info": "",
             "column_url": "shopify://collections/gift-for-mom"
           }
-        }, 
+        },
         "column_aLh4D3": {
           "type": "column",
           "settings": {
@@ -514,7 +514,7 @@
           "type": "collection_tab",
           "settings": {
             "tab_label": "Your Love, Her Story.",
-            "collection": "gift-for-mom",
+            "collection": "garden-flag",
             "products_limit": 4,
             "view_all_url": "shopify://collections/gift-for-mom",
             "view_all_label": "Show More"
@@ -655,8 +655,8 @@
         "section_width": "global-width",
         "section_width_custom": 1440,
         "collection": "gift-for-mom",
-        "products_limit": 4,
-        "columns_desktop": 4,
+        "products_limit": 5,
+        "columns_desktop": 5,
         "columns_mobile": "2",
         "heading": "A Gift Only You Can Give",
         "subheading": "",
@@ -671,10 +671,10 @@
         "view_all_url": "",
         "view_all_label": "Show More",
         "button_text_color": "#ffffff",
-        "button_bg_color": "#F7921F",
-        "button_text_color_hover": "#F7921F",
+        "button_bg_color": "#f7921f",
+        "button_text_color_hover": "#f7921f",
         "button_bg_color_hover": "#ffffff",
-        "bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
         "product_title_color": "#141414",
         "price_color": "#f7921f",
         "item_text_alignment": "left",
