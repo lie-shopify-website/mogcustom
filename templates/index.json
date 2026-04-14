@@ -648,6 +648,43 @@
         "custom_class": ""
       }
     },
+    "cm_collection_products_xcXUMU": {
+      "type": "cm-collection-products",
+      "name": "单分类产品列表",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "collection": "gift-for-mom",
+        "products_limit": 4,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "A Gift Only You Can Give",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#f7921f",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "view_all_url": "",
+        "view_all_label": "Show More",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#F7921F",
+        "button_text_color_hover": "#F7921F",
+        "button_bg_color_hover": "#ffffff",
+        "bg_color": "transparent",
+        "product_title_color": "#141414",
+        "price_color": "#f7921f",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    },
     "cm_why_us_grid_Ep6gKR": {
       "type": "cm-why-us-grid",
       "blocks": {
@@ -1161,8 +1198,8 @@
     "cm_multi_collection_products_a4TKnc",
     "cm_image_with_text_JEMyyU",
     "cm_multicolumn_list_TpjbTz",
-    "cm_multi_collection_products_DzEnBG",
     "cm_multi_collection_products_Xr8YPT",
+    "cm_collection_products_xcXUMU",
     "cm_why_us_grid_Ep6gKR",
     "cm_multicolumn_list_grrnEP",
     "cm_multicolumn_list_Xg9Jax",
