@@ -205,8 +205,8 @@
                     "arrives_by": "Arrives by",
                     "order_shipping_days_min": 0,
                     "order_shipping_days_max": 1,
-                    "order_delivery_days_min": 5,
-                    "order_delivery_days_max": 7,
+                    "order_delivery_days_min": 7,
+                    "order_delivery_days_max": 8,
                     "label_order": "Order placed",
                     "label_ship": "Ships",
                     "label_delivery": "Arrives"
