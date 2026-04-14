@@ -1,0 +1,32 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+ {
+  "sections": {
+    "cm_one_image_afsffs": {
+      "type": "cm-one-image",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "image": "shopify://shop_images/20260413-181526.jpg",
+        "ratio_mobile": "auto",
+        "ratio_desktop": "auto",
+        "image_url": "shopify://collections/best-seller",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    }
+  },
+  "order": [
+    "cm_one_image_afsffs"
+  ]
+}
