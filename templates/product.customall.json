@@ -366,7 +366,7 @@
                   "settings": {
                     "text1": "Buy 2 items",
                     "text2": "10% off",
-                    "code": "BMSM10"
+                    "code": "MOG10"
                   },
                   "blocks": {}
                 },
@@ -374,9 +374,9 @@
                   "type": "_buy-more-discount-info",
                   "name": "折扣信息",
                   "settings": {
-                    "text1": "Buy 2 items",
-                    "text2": "10% off",
-                    "code": "BMSM10"
+                    "text1": "Buy 3 items",
+                    "text2": "15% off",
+                    "code": "MOG15"
                   },
                   "blocks": {}
                 },
