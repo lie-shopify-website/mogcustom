@@ -15,18 +15,28 @@
         "column_UBTzQW": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/1.png",
-            "column_image_mb": "shopify://shop_images/1_d3fc1af0-6e95-45e7-8fd6-5fc045161760.png",
+            "column_image": "shopify://shop_images/1_98191a7d-edd9-4b9b-a050-aa5935992f5b.png",
+            "column_image_mb": "shopify://shop_images/1_98191a7d-edd9-4b9b-a050-aa5935992f5b.png",
             "column_title": "Graduation",
             "column_info": "",
             "column_url": "shopify://collections/graduation-gift"
           }
         },
+        "column_4TFCUK": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/7.png",
+            "column_image_mb": "shopify://shop_images/7.png",
+            "column_title": "For Mom",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
         "column_aLh4D3": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/2.png",
-            "column_image_mb": "shopify://shop_images/2_ec22e62e-07d5-456d-8204-e6a1eea0ad39.png",
+            "column_image": "shopify://shop_images/2_de8ce8d2-fd08-4d3c-901a-de4826b39a84.png",
+            "column_image_mb": "shopify://shop_images/2_de8ce8d2-fd08-4d3c-901a-de4826b39a84.png",
             "column_title": "America 250",
             "column_info": "",
             "column_url": "shopify://collections"
@@ -35,8 +45,8 @@
         "column_8CDPAr": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/3.png",
-            "column_image_mb": "shopify://shop_images/3_f421ae3b-cc66-49df-9235-8203c97bd7ad.png",
+            "column_image": "shopify://shop_images/3_8f7199e9-76f7-40eb-b942-a51b25d038d6.png",
+            "column_image_mb": "shopify://shop_images/3_8f7199e9-76f7-40eb-b942-a51b25d038d6.png",
             "column_title": "For Him",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-him"
@@ -45,8 +55,8 @@
         "column_hAN9zC": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/4.png",
-            "column_image_mb": "shopify://shop_images/4_d9ad921d-92cf-4388-8e4f-7a459bc4de07.png",
+            "column_image": "shopify://shop_images/4_56af5bf4-6a0f-44ed-98e6-d23d396520ed.png",
+            "column_image_mb": "shopify://shop_images/4_56af5bf4-6a0f-44ed-98e6-d23d396520ed.png",
             "column_title": "For Her",
             "column_info": "",
             "column_url": "shopify://collections/gift-for-her"
@@ -55,8 +65,8 @@
         "column_YNtdaU": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/5.png",
-            "column_image_mb": "shopify://shop_images/5_53f2bc34-2f19-4341-a59f-6e8f22825974.png",
+            "column_image": "shopify://shop_images/5_dddd4363-e609-44fc-9784-8da2f857d2e0.png",
+            "column_image_mb": "shopify://shop_images/5_dddd4363-e609-44fc-9784-8da2f857d2e0.png",
             "column_title": "Friends",
             "column_info": "",
             "column_url": "shopify://collections/for-friends"
@@ -65,8 +75,8 @@
         "column_mkFkcj": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/6.png",
-            "column_image_mb": "shopify://shop_images/6_63910d28-7c1f-4231-b368-f241953ff93b.png",
+            "column_image": "shopify://shop_images/6_c9788c90-a00e-4b61-a49f-477da5c19719.png",
+            "column_image_mb": "shopify://shop_images/6_c9788c90-a00e-4b61-a49f-477da5c19719.png",
             "column_title": "Shirt",
             "column_info": "",
             "column_url": "shopify://collections/t-shirt"
@@ -75,6 +85,7 @@
       },
       "block_order": [
         "column_UBTzQW",
+        "column_4TFCUK",
         "column_aLh4D3",
         "column_8CDPAr",
         "column_hAN9zC",
@@ -1026,6 +1037,120 @@
         "remove_bottom_padding": false,
         "custom_class": ""
       }
+    },
+    "section_7xx6VU": {
+      "type": "section",
+      "blocks": {
+        "text_AxUC4d": {
+          "type": "text",
+          "name": "t:names.heading",
+          "settings": {
+            "text": "<h2>Subscribe to our emails</h2>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_hEQDPY": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Be the first to know about new collections and special offers. </p>",
+            "width": "100%",
+            "max_width": "normal",
+            "alignment": "center",
+            "type_preset": "paragraph",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "email_signup_im9G7j": {
+          "type": "email-signup",
+          "settings": {
+            "width": "custom",
+            "custom_width": 50,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading": "",
+            "heading_preset": "h3",
+            "border_style": "all",
+            "border_width": 1,
+            "border_radius": 100,
+            "input_type_preset": "paragraph",
+            "style_class": "button-unstyled",
+            "display_type": "arrow",
+            "label": "Sign up",
+            "integrated_button": true,
+            "button_type_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "text_AxUC4d",
+        "text_hEQDPY",
+        "email_signup_im9G7j"
+      ],
+      "name": "t:names.email_signup",
+      "settings": {
+        "content_direction": "column",
+        "vertical_on_mobile": true,
+        "horizontal_alignment": "flex-start",
+        "vertical_alignment": "center",
+        "align_baseline": false,
+        "horizontal_alignment_flex_direction_column": "center",
+        "vertical_alignment_flex_direction_column": "center",
+        "gap": 16,
+        "section_width": "page-width",
+        "section_height": "",
+        "section_height_custom": 50,
+        "color_scheme": "scheme-2",
+        "background_media": "none",
+        "video_position": "cover",
+        "background_image_position": "cover",
+        "border": "none",
+        "border_width": 1,
+        "border_opacity": 100,
+        "border_radius": 0,
+        "toggle_overlay": false,
+        "overlay_color": "#00000026",
+        "overlay_style": "solid",
+        "gradient_direction": "to top",
+        "padding-block-start": 40,
+        "padding-block-end": 40
+      }
     }
   },
   "order": [
@@ -1041,6 +1166,7 @@
     "cm_why_us_grid_Ep6gKR",
     "cm_multicolumn_list_grrnEP",
     "cm_multicolumn_list_Xg9Jax",
-    "cm_brand_introduction_P37ktV"
+    "cm_brand_introduction_P37ktV",
+    "section_7xx6VU"
   ]
 }
