@@ -121,11 +121,22 @@
     "cm_multicolumn_list_9mLanx": {
       "type": "cm-multicolumn-list",
       "blocks": {
-        "column_xhtEbm": {
+        "column_UV33mc": {
           "type": "column",
           "settings": {
-            "column_image": "shopify://shop_images/Grandma_2024903b-d25f-4181-9b3a-c12cdb19c874.png",
-            "column_title": "",
+            "column_image": "shopify://shop_images/Mom_08706113-4c31-4142-9752-9270d011a09a.png",
+            "column_image_mb": "shopify://shop_images/Mom_08706113-4c31-4142-9752-9270d011a09a.png",
+            "column_title": "Mom",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
+        "column_Rf8MV4": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/New_Mom_58a2efb7-7174-4471-86a5-dae6e30ca103.png",
+            "column_image_mb": "shopify://shop_images/New_Mom_58a2efb7-7174-4471-86a5-dae6e30ca103.png",
+            "column_title": "New Mom",
             "column_info": "",
             "column_url": ""
           }
@@ -140,19 +151,44 @@
             "column_url": ""
           }
         },
-        "column_GUBHWK": {
+        "column_xhtEbm": {
           "type": "column",
           "settings": {
-            "column_title": "",
+            "column_image": "shopify://shop_images/Grandma_2024903b-d25f-4181-9b3a-c12cdb19c874.png",
+            "column_image_mb": "shopify://shop_images/Grandma_2024903b-d25f-4181-9b3a-c12cdb19c874.png",
+            "column_title": "Grandma",
             "column_info": "",
             "column_url": ""
+          }
+        },
+        "column_T7ADKX": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/Pet_Mom_1a0cf519-8ce3-4fb2-9fe7-26d12fea6bc3.png",
+            "column_image_mb": "shopify://shop_images/Pet_Mom_1a0cf519-8ce3-4fb2-9fe7-26d12fea6bc3.png",
+            "column_title": "Pet Mom",
+            "column_info": "",
+            "column_url": ""
+          }
+        },
+        "column_rtjKYH": {
+          "type": "column",
+          "settings": {
+            "column_image": "shopify://shop_images/Wife_ab7a21e4-1ef9-4c9a-89d5-3750d7465031.png",
+            "column_image_mb": "shopify://shop_images/Wife_ab7a21e4-1ef9-4c9a-89d5-3750d7465031.png",
+            "column_title": "Wife",
+            "column_info": "",
+            "column_url": "shopify://collections/gift-for-her"
           }
         }
       },
       "block_order": [
-        "column_xhtEbm",
+        "column_UV33mc",
+        "column_Rf8MV4",
         "column_9qkR4y",
-        "column_GUBHWK"
+        "column_xhtEbm",
+        "column_T7ADKX",
+        "column_rtjKYH"
       ],
       "name": "多列列表",
       "settings": {
