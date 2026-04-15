@@ -1083,7 +1083,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3><strong>Subscribe to our emails</strong></h3>",
+            "text": "<h4><strong>Today Only: Secret privileges for you!</strong></h4>",
             "width": "100%",
             "max_width": "normal",
             "alignment": "center",
