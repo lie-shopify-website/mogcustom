@@ -746,6 +746,20 @@
         "padding-block-end": 0
       }
     },
+    "cm_product_image_text_Q7nCDg": {
+      "type": "cm-product-image-text",
+      "name": "商品图文组合",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "product": "",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
+    },
     "cm-why-choose_qggXJq": {
       "type": "cm-why-choose",
       "blocks": {
@@ -803,6 +817,7 @@
     "main",
     "product_recommendations_qggXJq",
     "custom_liquid_hxWHQP",
+    "cm_product_image_text_Q7nCDg",
     "cm-why-choose_qggXJq"
   ]
 }

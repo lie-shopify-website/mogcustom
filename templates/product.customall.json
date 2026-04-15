@@ -762,6 +762,7 @@
     },
     "cm_image_with_text_kHMqEA": {
       "type": "cm-image-with-text",
+      "disabled": true,
       "blocks": {
         "heading_PJfMyp": {
           "type": "heading",
