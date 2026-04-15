@@ -1,0 +1,524 @@
+{{ 'cm-refund-replacement-policy.css' | asset_url | stylesheet_tag }}
+<style>
+  [data-section-id="{{ section.id }}"] {
+    {% if section.settings.section_width == 'custom-width' %}
+      --section-width: {{ section.settings.section_width_custom }}px;
+    {% elsif section.settings.section_width == 'full-width' %}
+      --section-width: 100%;
+    {% endif %}
+  }
+</style>
+
+{% liquid
+  case section.settings.section_width
+    when 'full-width'
+      assign layout_container_class = 'full-width'
+    when 'custom-width'
+      assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+      assign layout_container_class = 'layout-container global-width'
+    when 'full-content-width'
+      assign layout_container_class = 'layout-container'
+    else
+      assign layout_container_class = 'layout-container'
+  endcase
+%}
+
+<div
+  class="cm-refund-policy {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}"
+  data-section-id="{{ section.id }}"
+>
+  <div class="{{ layout_container_class }}">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'hero' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__hero {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="cm-refund-policy__hero-inner">
+              <div class="cm-refund-policy__hero-text">
+                {% if block.settings.line1 != blank %}
+                  <p class="cm-refund-policy__hero-line1">{{ block.settings.line1 | escape }}</p>
+                {% endif %}
+                {% if block.settings.line2 != blank %}
+                  <p class="cm-refund-policy__hero-line2">{{ block.settings.line2 | escape }}</p>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__hero-media">
+                {% if block.settings.image != blank %}
+                  {% liquid
+                    assign h_img = block.settings.image
+                    assign hw = h_img.width | default: 800
+                    assign pc_src = h_img | image_url: width: hw
+                  %}
+                  {% render 'resp-img', pc_src: pc_src, pad_src: pc_src, m_src: pc_src, lazy: true, class_name: '', alt: h_img.alt %}
+                {% else %}
+                  <div class="cm-refund-policy__placeholder">{{ 'hero-apparel-1' | placeholder_svg_tag: 'cm-refund-policy__ph-svg' }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        {% when 'intro' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__intro {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="rte">{{ block.settings.content }}</div>
+          </div>
+
+        {% when 'eligibility' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__eligibility {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% assign el_class = 'cm-refund-policy__split cm-refund-policy__split--img-right' %}
+            {% if block.settings.image_position == 'left' %}
+              {% assign el_class = 'cm-refund-policy__split cm-refund-policy__split--img-left' %}
+            {% endif %}
+            <div class="{{ el_class }}">
+              <div class="cm-refund-policy__split-text">
+                {% if block.settings.title != blank %}
+                  <h2 class="cm-refund-policy__block-title">{{ block.settings.title | escape }}</h2>
+                {% endif %}
+                <ul class="cm-refund-policy__steps" role="list">
+                  {% if block.settings.point1 != blank %}
+                    <li class="cm-refund-policy__step">
+                      <span class="cm-refund-policy__step-num" aria-hidden="true">1</span>
+                      <div class="cm-refund-policy__step-body rte">{{ block.settings.point1 }}</div>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.point2 != blank %}
+                    <li class="cm-refund-policy__step">
+                      <span class="cm-refund-policy__step-num" aria-hidden="true">2</span>
+                      <div class="cm-refund-policy__step-body rte">{{ block.settings.point2 }}</div>
+                    </li>
+                  {% endif %}
+                  {% if block.settings.point3 != blank %}
+                    <li class="cm-refund-policy__step">
+                      <span class="cm-refund-policy__step-num" aria-hidden="true">3</span>
+                      <div class="cm-refund-policy__step-body rte">{{ block.settings.point3 }}</div>
+                    </li>
+                  {% endif %}
+                </ul>
+              </div>
+              <div class="cm-refund-policy__split-media">
+                {% if block.settings.image != blank %}
+                  {% liquid
+                    assign e_img = block.settings.image
+                    assign ew = e_img.width | default: 800
+                    assign pc_src = e_img | image_url: width: ew
+                  %}
+                  {% render 'resp-img', pc_src: pc_src, pad_src: pc_src, m_src: pc_src, lazy: true, class_name: '', alt: e_img.alt %}
+                {% else %}
+                  <div class="cm-refund-policy__ph-box">{{ 'detailed-apparel-1' | placeholder_svg_tag: 'cm-refund-policy__ph-svg' }}</div>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        {% when 'how_to_grid' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__how-to {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.title != blank %}
+              <h2 class="cm-refund-policy__grid-head">{{ block.settings.title | escape }}</h2>
+            {% endif %}
+            <div class="cm-refund-policy__grid">
+              <div class="cm-refund-policy__grid-item">
+                {% if block.settings.s1_title != blank %}
+                  <h3>{{ block.settings.s1_title | escape }}</h3>
+                {% endif %}
+                {% if block.settings.s1_text != blank %}
+                  <p>{{ block.settings.s1_text | escape | newline_to_br }}</p>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__grid-item">
+                {% if block.settings.s2_title != blank %}
+                  <h3>{{ block.settings.s2_title | escape }}</h3>
+                {% endif %}
+                {% if block.settings.s2_text != blank %}
+                  <p>{{ block.settings.s2_text | escape | newline_to_br }}</p>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__grid-item">
+                {% if block.settings.s3_title != blank %}
+                  <h3>{{ block.settings.s3_title | escape }}</h3>
+                {% endif %}
+                {% if block.settings.s3_text != blank %}
+                  <p>{{ block.settings.s3_text | escape | newline_to_br }}</p>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__grid-item">
+                {% if block.settings.s4_title != blank %}
+                  <h3>{{ block.settings.s4_title | escape }}</h3>
+                {% endif %}
+                {% if block.settings.s4_text != blank %}
+                  <p>{{ block.settings.s4_text | escape | newline_to_br }}</p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        {% when 'refund_process' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__refund-process {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% assign rp_class = 'cm-refund-policy__split cm-refund-policy__split--img-left' %}
+            {% if block.settings.image_position == 'right' %}
+              {% assign rp_class = 'cm-refund-policy__split cm-refund-policy__split--img-right' %}
+            {% endif %}
+            <div class="{{ rp_class }}">
+              <div class="cm-refund-policy__split-media">
+                {% if block.settings.image != blank %}
+                  {% liquid
+                    assign r_img = block.settings.image
+                    assign rw = r_img.width | default: 800
+                    assign pc_src = r_img | image_url: width: rw
+                  %}
+                  {% render 'resp-img', pc_src: pc_src, pad_src: pc_src, m_src: pc_src, lazy: true, class_name: '', alt: r_img.alt %}
+                {% else %}
+                  <div class="cm-refund-policy__ph-box">{{ 'detailed-apparel-1' | placeholder_svg_tag: 'cm-refund-policy__ph-svg' }}</div>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__split-text">
+                {% if block.settings.title != blank %}
+                  <h2 class="cm-refund-policy__process-title">{{ block.settings.title | escape }}</h2>
+                {% endif %}
+                {% if block.settings.line1_label != blank or block.settings.line1_text != blank %}
+                  <p class="cm-refund-policy__process-line">
+                    {% if block.settings.line1_label != blank %}
+                      <strong>{{ block.settings.line1_label | escape }}</strong>
+                    {% endif %}
+                    {% if block.settings.line1_text != blank %}
+                      {{ block.settings.line1_text | escape }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+                {% if block.settings.line2_label != blank or block.settings.line2_text != blank %}
+                  <p class="cm-refund-policy__process-line">
+                    {% if block.settings.line2_label != blank %}
+                      <strong>{{ block.settings.line2_label | escape }}</strong>
+                    {% endif %}
+                    {% if block.settings.line2_text != blank %}
+                      {{ block.settings.line2_text | escape }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+                {% if block.settings.line3_label != blank or block.settings.line3_text != blank %}
+                  <p class="cm-refund-policy__process-line">
+                    {% if block.settings.line3_label != blank %}
+                      <strong>{{ block.settings.line3_label | escape }}</strong>
+                    {% endif %}
+                    {% if block.settings.line3_text != blank %}
+                      {{ block.settings.line3_text | escape }}
+                    {% endif %}
+                  </p>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+
+        {% when 'simple_text' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__simple {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.title != blank %}
+              <h2 class="cm-refund-policy__simple-title">{{ block.settings.title | escape }}</h2>
+            {% endif %}
+            <div class="rte">{{ block.settings.content }}</div>
+          </div>
+
+        {% when 'highlight_box' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__highlight {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            {% if block.settings.title != blank %}
+              <h2 class="cm-refund-policy__highlight-title">{{ block.settings.title | escape }}</h2>
+            {% endif %}
+            <div class="rte">{{ block.settings.content }}</div>
+          </div>
+
+        {% when 'get_in_touch' %}
+          <div
+            class="cm-refund-policy__block cm-refund-policy__touch-wrap {{ block.settings.custom_class }}"
+            {{ block.shopify_attributes }}
+          >
+            <div class="cm-refund-policy__touch">
+              <div class="cm-refund-policy__touch-icon">
+                {% if block.settings.icon != blank %}
+                  {% liquid
+                    assign ic = block.settings.icon
+                    assign iw = ic.width | default: 96
+                    assign pc_src = ic | image_url: width: iw
+                    assign icon_alt = ic.alt | default: block.settings.title | default: 'Contact'
+                  %}
+                  {% render 'resp-img', pc_src: pc_src, pad_src: pc_src, m_src: pc_src, lazy: true, class_name: '', alt: icon_alt %}
+                {% else %}
+                  <div class="cm-refund-policy__touch-ph" aria-hidden="true"></div>
+                {% endif %}
+              </div>
+              <div class="cm-refund-policy__touch-body">
+                {% if block.settings.title != blank %}
+                  <h3>{{ block.settings.title | escape }}</h3>
+                {% endif %}
+                <div class="rte">{{ block.settings.content }}</div>
+              </div>
+            </div>
+          </div>
+
+      {% endcase %}
+    {% endfor %}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "退款/换货政策",
+  "class": "cm-refund-policy-section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "布局"
+    },
+    {
+      "type": "select",
+      "id": "section_width",
+      "label": "版块宽度",
+      "default": "global-width",
+      "options": [
+        { "value": "full-width", "label": "版块全宽" },
+        { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+        { "value": "global-width", "label": "版块跟随全局宽度" },
+        { "value": "custom-width", "label": "版块自定义宽度" }
+      ]
+    },
+    {
+      "type": "number",
+      "id": "section_width_custom",
+      "label": "自定义宽度 (px)",
+      "default": 1440,
+      "visible_if": "{{ section.settings.section_width == 'custom-width' or section.settings.section_width == 'full-content-width' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_top_padding",
+      "label": "移除主题上边距",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "remove_bottom_padding",
+      "label": "移除主题下边距",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "custom_class",
+      "label": "Section 自定义 class"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "hero",
+      "name": "① 顶部横幅",
+      "settings": [
+        { "type": "text", "id": "line1", "label": "主标题行", "default": "30 DAYS" },
+        { "type": "text", "id": "line2", "label": "副标题行", "default": "Refund/Replacement Policy" },
+        { "type": "image_picker", "id": "image", "label": "右侧插图" },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "intro",
+      "name": "② 引言段落",
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "内容",
+          "default": "<p>Thank you for shopping with us! We want you to be completely happy with your purchase. If you have any issues with your order, please review our return and refund policy below.</p>"
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "eligibility",
+      "name": "③ 退换条件 (文+图)",
+      "settings": [
+        { "type": "text", "id": "title", "label": "区块标题", "default": "Eligibility for Returns & Exchanges" },
+        {
+          "type": "richtext",
+          "id": "point1",
+          "label": "要点 1",
+          "default": "<p><strong>Return Window:</strong> Contact us within 30 days of delivery.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "point2",
+          "label": "要点 2",
+          "default": "<p><strong>Item Condition:</strong> Items must be unused and in original packaging.</p>"
+        },
+        {
+          "type": "richtext",
+          "id": "point3",
+          "label": "要点 3",
+          "default": "<p><strong>Custom Items:</strong> Personalized products are not returnable unless defective.</p>"
+        },
+        { "type": "image_picker", "id": "image", "label": "插图" },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "插图位置 (桌面端)",
+          "default": "right",
+          "options": [
+            { "value": "right", "label": "文字左，图右" },
+            { "value": "left", "label": "图左，文字右" }
+          ]
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "how_to_grid",
+      "name": "④ 操作步骤 (四宫格)",
+      "settings": [
+        { "type": "text", "id": "title", "label": "区块标题", "default": "How to Return or Exchange an Item" },
+        { "type": "text", "id": "s1_title", "label": "左上标题", "default": "Contact Us" },
+        { "type": "textarea", "id": "s1_text", "label": "左上说明", "default": "Reach out with your order number and reason for return." },
+        { "type": "text", "id": "s2_title", "label": "右上标题", "default": "Ship the Item" },
+        { "type": "textarea", "id": "s2_text", "label": "右上说明", "default": "Send the item back using a trackable shipping method." },
+        { "type": "text", "id": "s3_title", "label": "左下标题", "default": "Request Approval" },
+        { "type": "textarea", "id": "s3_text", "label": "左下说明", "default": "Wait for our team to review and approve your request." },
+        { "type": "text", "id": "s4_title", "label": "右下标题", "default": "Refund or Exchange" },
+        { "type": "textarea", "id": "s4_text", "label": "右下说明", "default": "Once received, we will process your refund or exchange." },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "refund_process",
+      "name": "⑤ 退款流程 (图+文)",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "左侧插图" },
+        { "type": "text", "id": "title", "label": "标题", "default": "Refund Process" },
+        { "type": "text", "id": "line1_label", "label": "第1段标签", "default": "Processing Time:" },
+        {
+          "type": "textarea",
+          "id": "line1_text",
+          "label": "第1段正文",
+          "default": "Refunds are processed within 7–10 business days after we receive your return."
+        },
+        { "type": "text", "id": "line2_label", "label": "第2段标签", "default": "Shipping Costs:" },
+        {
+          "type": "textarea",
+          "id": "line2_text",
+          "label": "第2段正文",
+          "default": "Return shipping is the customer’s responsibility unless the item is defective or incorrect."
+        },
+        { "type": "text", "id": "line3_label", "label": "第3段标签", "default": "Custom Items:" },
+        {
+          "type": "textarea",
+          "id": "line3_text",
+          "label": "第3段正文",
+          "default": "Custom or personalized items are final sale unless there is a manufacturing defect."
+        },
+        {
+          "type": "select",
+          "id": "image_position",
+          "label": "插图位置 (桌面端)",
+          "default": "left",
+          "options": [
+            { "value": "left", "label": "图左，文右" },
+            { "value": "right", "label": "文左，图右" }
+          ]
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "simple_text",
+      "name": "⑥ 纯文本块",
+      "settings": [
+        { "type": "text", "id": "title", "label": "标题", "default": "Defective or Incorrect Items" },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "正文",
+          "default": "<p>If your item arrives damaged or incorrect, contact us within 7 days with photos. We will arrange a replacement or refund at no extra cost.</p>"
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "highlight_box",
+      "name": "⑦ 高亮提示框",
+      "settings": [
+        { "type": "text", "id": "title", "label": "标题", "default": "Order Cancellation" },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "正文",
+          "default": "<p>You may cancel an order within 24 hours of purchase if it has not yet shipped. After that, our standard return policy applies.</p>"
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    },
+    {
+      "type": "get_in_touch",
+      "name": "⑧ 联系我们",
+      "settings": [
+        { "type": "image_picker", "id": "icon", "label": "图标" },
+        { "type": "text", "id": "title", "label": "标题", "default": "Get in Touch" },
+        {
+          "type": "richtext",
+          "id": "content",
+          "label": "正文",
+          "default": "<p>Questions? Our support team is here to help — reach out anytime and we’ll get back to you as soon as possible.</p>"
+        },
+        { "type": "text", "id": "custom_class", "label": "自定义 class" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "退款/换货政策",
+      "category": "custom",
+      "blocks": [
+        {
+          "type": "hero",
+          "settings": {
+            "line1": "30 DAYS",
+            "line2": "Refund/Replacement Policy"
+          }
+        },
+        {
+          "type": "intro"
+        },
+        {
+          "type": "eligibility"
+        },
+        {
+          "type": "how_to_grid"
+        },
+        {
+          "type": "refund_process"
+        },
+        {
+          "type": "simple_text"
+        },
+        {
+          "type": "highlight_box"
+        },
+        {
+          "type": "get_in_touch"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

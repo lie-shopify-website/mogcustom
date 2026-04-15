@@ -1,0 +1,173 @@
+{% schema %}
+    {
+        "name": "媒体图文",
+        "settings": [
+            { "type": "header","content":"配置"},
+            { "type": "select", "id": "section_width", "label": "版块宽度", "default": "global-width", "options": [
+                { "value": "full-width", "label": "版块全宽" },
+                { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+                { "value": "global-width", "label": "版块跟随全局宽度" },
+                { "value": "custom-width", "label": "版块自定义宽度" }
+            ]},
+            { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' }}" },
+            { "type": "color", "id": "bg_color", "label": "背景颜色", "default": "#000000" },
+
+            { "type": "header","content":"图片"},
+            { "type": "image_picker", "id": "image", "label": "图片" },
+            { "type": "image_picker", "id": "image_mb", "label": "图片 (手机端)" },
+            { "type": "header","content":"视频"},
+            { "type": "video", "id": "video", "label": "视频" },
+            { "type": "video", "id": "video_mb", "label": "视频 (手机端)" },
+            { "type": "paragraph","content":"当同时存在视频和图片时, 视频优先, 而图片则会当成视频的封面"},
+
+
+            { "type": "header","content":"图文布局"},
+            { "type": "select", "id": "content_layout", "options": [
+                    { "value": "left_image_right_text", "label": "左图右文" },
+                    { "value": "right_image_left_text", "label": "右图左文" },
+                ],
+                "default": "left_image_right_text",
+                "label": "图文布局"
+            },
+            { "type": "select", "id": "content_layout_mb", "options": [
+                { "value": "top_image_bottom_text", "label": "上图下文" },
+                { "value": "bottom_image_top_text", "label": "下图上文" },
+            ],
+            "default": "top_image_bottom_text",
+            "label": "图文布局 (手机端)"
+        },
+            { "type": "image_picker", "id": "title_image", "label": "标题图片" },
+            { "type": "image_picker", "id": "title_image_mb", "label": "标题图片 (手机端)" },
+            { "type": "textarea", "id": "sub_title", "label": "小标题" },
+            { "type": "textarea", "id": "title", "label": "大标题" },
+            { "type": "textarea", "id": "info", "label": "内容" },
+
+            { "type": "header","content":"颜色"},
+            { "type": "color", "id": "text_color", "label": "文字颜色", "default": "#000000"},
+
+            { "type": "header","content":"其他"},
+            { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+            { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+            { "type": "text", "id": "custom_class", "label": "自定义class" }
+        ],
+
+        "presets": [
+            {
+                "name": "媒体图文",
+                "category": "custom"
+            }
+        ]
+    }
+{% endschema %}
+
+{{ 'cm-media-with-text.css' | asset_url | stylesheet_tag }}
+<style>
+    [data-section-id="{{ section.id }}"] {
+        --background-color: {{ section.settings.bg_color }};
+        --text-color: {{ section.settings.text_color }};
+        --text-color-mb: {{ section.settings.text_color_mb }};
+    }
+</style>
+{% liquid
+case section.settings.section_width
+    when 'full-width'
+    assign layout_container_class = 'full-width'
+    when 'custom-width'
+    assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+    assign layout_container_class = 'layout-container global-width'
+    else
+    assign layout_container_class = 'layout-container'
+endcase
+%}
+<div data-section-id="{{ section.id }}" class="media-with-text-202601-layout">
+    <div class="{{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}">
+        <div class="{{ layout_container_class }}">
+            <div class="content-layout" data-content-layout="{{ section.settings.content_layout }}" data-content-layout-mb="{{ section.settings.content_layout_mb }}">
+                <div class="mwt-content">
+                    <div class="mwt-image">
+                        {% if section.settings.video != blank and section.settings.video_mb != blank  %}
+                            {% comment %} 视频 {% endcomment %}
+                            {% liquid
+                            assign video_url = section.settings.video.sources[0].url
+                            assign video_mb_url = section.settings.video_mb.sources[0].url
+                            assign video_poster = section.settings.video.previewImage.url
+                            assign video_mb_poster = section.settings.video_mb.previewImage.url
+
+                            if section.settings.video.sources[1].url != blank
+                                assign video_url = section.settings.video.sources[1].url
+                            endif
+                            if section.settings.video_mb.sources[1].url != blank
+                                assign video_mb_url = section.settings.video_mb.sources[1].url
+                            endif
+                            %}
+                            <mf-video 
+                                class="mwt-video"
+                                autoplay 
+                                muted 
+                                playsinline
+                                webkit-playsinline
+                                loop
+                                preload="metadata"
+                            >
+                                <source src="{{ video_url }}" type="video/mp4" media="(min-width: 1280px)" poster="{{ video_poster }}">
+                                <source src="{{ video_url }}" type="video/mp4" media="(min-width: 768px)" poster="{{ video_mb_poster }}">
+                                <source src="{{ video_mb_url }}" type="video/mp4" poster="{{ video_poster }}">
+                            </mf-video>
+                        {% else %}
+                            {% comment %} 图片 {% endcomment %}
+                            {% liquid
+                                assign pc_src = section.settings.image | image_url: width: section.settings.image.width
+                                assign pad_src = section.settings.image | image_url: width: section.settings.image.width
+                                assign m_src = section.settings.image_mb | image_url: width: 1536
+
+                                assign lazy = true
+                            %}
+                            {% render 'resp-img'
+                                pc_src: pc_src,
+                                pad_src: pad_src,
+                                m_src: m_src,
+                                lazy: lazy,
+                                class_name: 'resp-img-class',
+                                alt: section.settings.image.alt
+                            %}
+                        {% endif %}
+                    </div>
+                    <div class="mwt-text">
+                        {% if section.settings.title_image != blank %}
+                            {% comment %} 标题图片 {% endcomment %}
+                            {% liquid
+                                assign pc_src = section.settings.title_image | image_url: width: section.settings.title_image.width
+                                assign pad_src = section.settings.title_image | image_url: width: section.settings.title_image.width
+                                assign m_src = section.settings.title_image_mb | image_url: width: 1536
+
+                                assign lazy = true
+                            %}
+                            {% render 'resp-img'
+                                pc_src: pc_src,
+                                pad_src: pad_src,
+                                m_src: m_src,
+                                lazy: lazy,
+                                class_name: 'resp-img-class',
+                                alt: section.settings.title_image.alt
+                            %}
+                        {% endif %}
+
+                        {% if section.settings.sub_title != blank %}
+                            <div class="mwt-sub-text">{{ section.settings.sub_title | newline_to_br }}</div>
+                        {% endif %}
+
+                        {% if section.settings.title != blank %}
+                            <h3 class="mwt-title">{{ section.settings.title | newline_to_br }}</h3>
+                        {% endif %}
+
+                        {% if section.settings.info != blank %}
+                            <div class="mwt-info">{{ section.settings.info | newline_to_br }}</div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>

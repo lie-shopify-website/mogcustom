@@ -5004,3 +5004,8 @@ product-card a[ref="productTitleLink"] p {
 product-card [ref="priceContainer"] .price {
     color: #f7921f;
 }
+
+
+#predictive-search-results img.resource-card__image.resource-card__image--secondary {
+  left: 0;
+}

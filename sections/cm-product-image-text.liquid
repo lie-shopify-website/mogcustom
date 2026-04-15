@@ -1,0 +1,132 @@
+{% schema %}
+  {
+    "name": "商品图文组合",
+    "settings": [
+      { "type": "header","content":"配置"},
+      { "type": "select", "id": "section_width", "label": "版块宽度", "default": "global-width", "options": [
+          { "value": "full-width", "label": "版块全宽" },
+          { "value": "full-content-width", "label": "版块全宽, 内容区域跟随全局宽度" },
+          { "value": "global-width", "label": "版块跟随全局宽度" },
+          { "value": "custom-width", "label": "版块自定义宽度" }
+      ]},
+      { "type": "number", "id": "section_width_custom", "label": "自定义宽度", "default": 1440, "info": "自定义宽度, 默认1440px", "visible_if": "{{ section.settings.section_width == 'custom-width' }}" },
+
+      { "type": "header","content":"商品"},
+      { "type": "product", "id": "product", "label": "商品", "info": "注意：默认不选商品。此值为空时便会动态显示当前商品，如果选择了商品，则全部显示选中商品！" },
+
+      { "type": "header","content":"其他"},
+      { "type": "checkbox", "id": "remove_top_padding", "label": "移除上边距", "default": false },
+      { "type": "checkbox", "id": "remove_bottom_padding", "label": "移除下边距", "default": false },
+      { "type": "checkbox", "id": "remove_left_padding", "label": "移除左边距 (手机端)", "default": false },
+      { "type": "checkbox", "id": "remove_right_padding", "label": "移除右边距 (手机端)", "default": false },
+      { "type": "text", "id": "custom_class", "label": "自定义 class" }
+    ],
+    "presets": [
+    {
+      "name": "商品图文组合",
+      "category": "custom"
+    }
+  ]
+  }
+{% endschema %}
+
+{% if section.settings.product != blank %}
+  {% assign product = section.settings.product %}
+{% endif %}
+
+
+
+
+{{ 'cm-product-image-text.css' | asset_url | stylesheet_tag }}
+<style>
+[data-section-id="{{ section.id }}"] {
+    {% if section.settings.section_width == 'custom-width' %}
+        --section-width:{{ section.settings.section_width_custom }}px;
+    {% elsif section.settings.section_width == 'full-width' %}
+        --section-width:100%;
+    {% endif %}
+}
+</style>
+
+{% liquid
+case section.settings.section_width
+    when 'full-width'
+    assign layout_container_class = 'full-width'
+    when 'custom-width'
+    assign layout_container_class = 'layout-container custom-width'
+    when 'global-width'
+    assign layout_container_class = 'layout-container global-width'
+    else
+    assign layout_container_class = 'layout-container'
+endcase
+%}
+
+<div class="cm-product-image-text {{ section.settings.custom_class }} {% if section.settings.remove_top_padding %}remove-top-space{% endif %} {% if section.settings.remove_bottom_padding %}remove-bottom-space{% endif %}" data-section-id="{{ section.id }}">
+    <div class="{{ layout_container_class }}">
+      {% for i in (1..4) %}
+        {% capture file %}image{{ i }}{% endcapture %}
+        {% capture text %}text{{ i }}{% endcapture %}
+        
+        {% assign inx = i | modulo:2 %}
+        {% if product.metafields.custom[file] != blank %}
+            <image-with-text class=" {% if inx == 0 %}image-with-text--reverse{% endif %}">
+              <div class="image-with-text__wrapper">
+                <div class="image-with-text__image-wrapper">
+                  {% if product.metafields.custom[file].value.media_type == 'video' %}
+                    {{ product.metafields.custom[file].value | video_tag: autoplay: true, loop: true, muted: true, controls: true, class:'image-with-text__image' }}
+                  {% else %}
+                    {% assign image_url = product.metafields.custom[file] | file_url %}
+                    {% render 'resp-img',
+                      pc_src: image_url,
+                      lazy: true,
+                      class_name: 'image-with-text__image',
+                      alt: product.metafields.custom[file].value.alt
+                    %}
+                  {% endif %}
+                  
+                </div>
+          
+                <div class="image-with-text__content-wrapper">
+                  <div class="image-with-text__content-list">
+                    <image-with-text-item class="image-with-text__content text-container">
+                            <div class="heading">
+                              <split-lines reveal="" style="opacity: 1;">{{ product.metafields.custom[text] | metafield_tag  | replace: '<h1>', '<strong>' | replace: '</h1>', '</strong>' | replace: '<h2>', '<p>' | replace: '</h2>', '</p>'  }}</split-lines>
+                            </div>
+                            <div class="image-with-text__text-wrapper" reveal="" style="opacity: 1;"></div>
+                      </image-with-text-item>
+                  </div>
+                </div>
+              </div>
+            </image-with-text>
+        {% endif %}
+      {% endfor %}
+
+      <style>  
+        [data-section-id="{{ section.id }}"] split-lines strong {
+            font-size: 30px;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 2rem;
+        }
+        [data-section-id="{{ section.id }}"] split-lines p {
+            font-size: 16px;
+            font-weight: 400;
+            margin:0;
+        }
+        @media screen and (max-width: 767px) {
+            [data-section-id="{{ section.id }}"] split-lines strong {
+                font-size:22px;
+                text-align: center;
+                margin-bottom: 1rem;
+            }
+            [data-section-id="{{ section.id }}"] split-lines p {
+                font-size: 14px;
+                line-height: 1.6;
+                padding: 0 10px;
+                color: #333;
+            }
+        }
+      </style>
+    </div>
+</div>
+
