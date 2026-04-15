@@ -249,7 +249,7 @@
           "settings": {
             "tab_label": "Mug",
             "collection": "mug",
-            "products_limit": 8,
+            "products_limit": 4,
             "view_all_url": "",
             "view_all_label": "Show More"
           }
