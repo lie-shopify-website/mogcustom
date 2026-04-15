@@ -19,10 +19,10 @@
         "ratio_mobile": "auto",
         "ratio_desktop": "auto",
         "image_url": "shopify://collections/best-seller",
-        "remove_top_padding": false,
-        "remove_bottom_padding": false,
-        "remove_left_padding": false,
-        "remove_right_padding": false,
+        "remove_top_padding": true,
+        "remove_bottom_padding": true,
+        "remove_left_padding": true,
+        "remove_right_padding": true,
         "custom_class": ""
       }
     },
@@ -41,7 +41,7 @@
         "header_alignment": "center",
         "heading_font_size": 36,
         "heading_font_size_mb": 28,
-        "heading_color": "#ff7070",
+        "heading_color": "#f07374",
         "subheading_font_size": 18,
         "subheading_font_size_mb": 16,
         "subheading_color": "#141414",
@@ -49,12 +49,12 @@
         "view_all_url": "",
         "view_all_label": "Show More",
         "button_text_color": "#ffffff",
-        "button_bg_color": "#ff7070",
+        "button_bg_color": "#f07374",
         "button_text_color_hover": "#F7921F",
         "button_bg_color_hover": "#ffffff",
         "bg_color": "transparent",
         "product_title_color": "#141414",
-        "price_color": "#f7921f",
+        "price_color": "#f07374",
         "item_text_alignment": "left",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
@@ -91,12 +91,12 @@
         "products_limit": 8,
         "columns_desktop": 4,
         "columns_mobile": "2",
-        "heading": "",
+        "heading": "Top Gifts For Mom Chosen With Love",
         "subheading": "",
         "header_alignment": "center",
         "heading_font_size": 36,
         "heading_font_size_mb": 28,
-        "heading_color": "#141414",
+        "heading_color": "#f07374",
         "subheading_font_size": 18,
         "subheading_font_size_mb": 16,
         "subheading_color": "#141414",
@@ -104,12 +104,12 @@
         "view_all_url": "",
         "view_all_label": "Show More",
         "button_text_color": "#ffffff",
-        "button_bg_color": "#F7921F",
+        "button_bg_color": "#f07374",
         "button_text_color_hover": "#F7921F",
         "button_bg_color_hover": "#ffffff",
         "bg_color": "transparent",
         "product_title_color": "#141414",
-        "price_color": "#f7921f",
+        "price_color": "#f07374",
         "item_text_alignment": "left",
         "remove_top_padding": false,
         "remove_bottom_padding": false,
@@ -220,6 +220,69 @@
         "remove_bottom_padding": false,
         "custom_class": ""
       }
+    },
+    "cm_multi_collection_products_3CmVfQ": {
+      "type": "cm-multi-collection-products",
+      "blocks": {
+        "collection_tab_Xy64jm": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Jewelry Dish",
+            "collection": "jewelry-dish-for-mom",
+            "products_limit": 8,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        },
+        "collection_tab_ydE3PR": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "分类二",
+            "collection": "",
+            "products_limit": 8,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        }
+      },
+      "block_order": [
+        "collection_tab_Xy64jm",
+        "collection_tab_ydE3PR"
+      ],
+      "name": "多分类产品列表",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "columns_desktop": 4,
+        "columns_mobile": "2",
+        "heading": "A Little Bit Of Everything. All For Mom",
+        "subheading": "",
+        "header_alignment": "center",
+        "heading_font_size": 36,
+        "heading_font_size_mb": 28,
+        "heading_color": "#f07374",
+        "subheading_font_size": 18,
+        "subheading_font_size_mb": 16,
+        "subheading_color": "#141414",
+        "header_max_width": 720,
+        "tab_text_color": "#141414",
+        "tab_bg_color": "#f1f1f1",
+        "tab_active_text_color": "#ffffff",
+        "tab_active_bg": "#f07374",
+        "bg_color": "transparent",
+        "product_title_color": "#141414",
+        "price_color": "#f07374",
+        "button_text_color": "#ffffff",
+        "button_bg_color": "#f07374",
+        "button_text_color_hover": "#f07374",
+        "button_bg_color_hover": "#ffffff",
+        "item_text_alignment": "left",
+        "remove_top_padding": false,
+        "remove_bottom_padding": false,
+        "remove_left_padding": false,
+        "remove_right_padding": false,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -227,6 +290,7 @@
     "cm_collection_products_aR9JJf",
     "cm_one_image_6jDnGW",
     "cm_collection_products_EMKGnq",
-    "cm_multicolumn_list_9mLanx"
+    "cm_multicolumn_list_9mLanx",
+    "cm_multi_collection_products_3CmVfQ"
   ]
 }
