@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "type": "header",
   "name": "Header",
   "sections": {
@@ -17,7 +17,7 @@
         "announcement_BxgCk9": {
           "type": "_announcement",
           "settings": {
-            "text": "<strong>Free Shipping For Orders $79+</strong>",
+            "text": "<strong>🔥 </strong>Buy 2+ Get 10% OFF - Code: <span style=\"text-decoration:underline\"><strong>MOG10</strong></span>",
             "link": "",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
