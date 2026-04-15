@@ -237,8 +237,18 @@
         "collection_tab_ydE3PR": {
           "type": "collection_tab",
           "settings": {
-            "tab_label": "分类二",
-            "collection": "",
+            "tab_label": "T-shirt",
+            "collection": "t-shirt-for-mom",
+            "products_limit": 8,
+            "view_all_url": "",
+            "view_all_label": "Show More"
+          }
+        },
+        "collection_tab_mybx7N": {
+          "type": "collection_tab",
+          "settings": {
+            "tab_label": "Mug",
+            "collection": "mug",
             "products_limit": 8,
             "view_all_url": "",
             "view_all_label": "Show More"
@@ -247,7 +257,8 @@
       },
       "block_order": [
         "collection_tab_Xy64jm",
-        "collection_tab_ydE3PR"
+        "collection_tab_ydE3PR",
+        "collection_tab_mybx7N"
       ],
       "name": "多分类产品列表",
       "settings": {
@@ -265,10 +276,10 @@
         "subheading_font_size_mb": 16,
         "subheading_color": "#141414",
         "header_max_width": 720,
-        "tab_text_color": "#141414",
-        "tab_bg_color": "#f1f1f1",
-        "tab_active_text_color": "#ffffff",
-        "tab_active_bg": "#f07374",
+        "tab_text_color": "#000000",
+        "tab_bg_color": "#ffeef8",
+        "tab_active_text_color": "#f07374",
+        "tab_active_bg": "#ffffff",
         "bg_color": "transparent",
         "product_title_color": "#141414",
         "price_color": "#f07374",
