@@ -229,7 +229,7 @@
           "settings": {
             "tab_label": "Jewelry Dish",
             "collection": "jewelry-dish-for-mom",
-            "products_limit": 8,
+            "products_limit": 4,
             "view_all_url": "",
             "view_all_label": "Show More"
           }
@@ -239,7 +239,7 @@
           "settings": {
             "tab_label": "T-shirt",
             "collection": "t-shirt-for-mom",
-            "products_limit": 8,
+            "products_limit": 4,
             "view_all_url": "",
             "view_all_label": "Show More"
           }
