@@ -412,8 +412,8 @@
       "scheme-2f1c34fe-e6a3-4da4-a253-673f5760730e": {
         "settings": {
           "background": "#ffac32",
-          "foreground_heading": "#000000",
-          "foreground": "#000000cf",
+          "foreground_heading": "#ffffff",
+          "foreground": "#ffffff",
           "primary": "#000000cf",
           "primary_hover": "#000000",
           "border": "#0000000f",
