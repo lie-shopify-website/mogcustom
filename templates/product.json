@@ -802,6 +802,7 @@
         "why_item_3",
         "why_item_4"
       ],
+      "disabled": true,
       "settings": {
         "section_width": "global-width",
         "section_width_custom": 1440,
