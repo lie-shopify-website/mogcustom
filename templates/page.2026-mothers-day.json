@@ -294,6 +294,24 @@
         "remove_right_padding": false,
         "custom_class": ""
       }
+    },
+    "cm_one_image_TGr8Hh": {
+      "type": "cm-one-image",
+      "name": "单图",
+      "settings": {
+        "section_width": "global-width",
+        "section_width_custom": 1440,
+        "bg_color": "transparent",
+        "image": "shopify://shop_images/bf75e5dae7965be871d86697b67a4c0f.jpg",
+        "ratio_mobile": "auto",
+        "ratio_desktop": "auto",
+        "image_url": "",
+        "remove_top_padding": true,
+        "remove_bottom_padding": true,
+        "remove_left_padding": true,
+        "remove_right_padding": true,
+        "custom_class": ""
+      }
     }
   },
   "order": [
@@ -302,6 +320,7 @@
     "cm_one_image_6jDnGW",
     "cm_collection_products_EMKGnq",
     "cm_multicolumn_list_9mLanx",
-    "cm_multi_collection_products_3CmVfQ"
+    "cm_multi_collection_products_3CmVfQ",
+    "cm_one_image_TGr8Hh"
   ]
 }
