@@ -483,6 +483,7 @@
         "column_GTnyez",
         "column_CktYyA"
       ],
+      "disabled": true,
       "name": "多列列表",
       "settings": {
         "section_width": "global-width",
