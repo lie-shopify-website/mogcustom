@@ -418,6 +418,7 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/Expecting_Mom.png",
+            "column_image_mb": "shopify://shop_images/Expecting_Mom_52685799-d5b6-4133-b29f-a7394246f401.png",
             "column_title": "Expecting Mom",
             "column_info": "",
             "column_url": ""
@@ -427,45 +428,50 @@
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/New_Mom.png",
+            "column_image_mb": "shopify://shop_images/New_Mom_f947d35f-9cd3-4227-839a-2d1a62a5ea25.png",
             "column_title": "New Mom",
             "column_info": "",
-            "column_url": ""
+            "column_url": "shopify://collections/new-mom"
           }
         },
         "column_EkHByw": {
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/Mom.png",
+            "column_image_mb": "shopify://shop_images/Mom_15bff540-b06d-47db-af6d-ec27425b0f3e.png",
             "column_title": "Mom",
             "column_info": "",
-            "column_url": ""
+            "column_url": "shopify://collections/gift-for-mom"
           }
         },
         "column_capcNE": {
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/Grandma.png",
+            "column_image_mb": "shopify://shop_images/Grandma_026105e0-6c35-423c-a15d-bc25e51d144d.png",
             "column_title": "Grandma",
             "column_info": "",
-            "column_url": ""
+            "column_url": "shopify://collections/gift-for-grandma"
           }
         },
         "column_GTnyez": {
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/Pet_Mom.png",
+            "column_image_mb": "shopify://shop_images/Pet_Mom_75b3f5c4-1080-469b-8fe2-aa7bb240f1d5.png",
             "column_title": "Pet Mom",
             "column_info": "",
-            "column_url": ""
+            "column_url": "shopify://collections/gift-for-pet-lover"
           }
         },
         "column_CktYyA": {
           "type": "column",
           "settings": {
             "column_image": "shopify://shop_images/Wife.png",
+            "column_image_mb": "shopify://shop_images/Wife_a1442f36-1371-4ab2-ae5d-91b2ad25197b.png",
             "column_title": "Wife",
             "column_info": "",
-            "column_url": ""
+            "column_url": "shopify://collections/gift-for-wife"
           }
         }
       },
