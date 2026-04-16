@@ -326,7 +326,7 @@
                 "title": "Arrives by [date] if you order today. Hooray!",
                 "order_shipping_days_min": 1,
                 "order_shipping_days_max": 2,
-                "order_delivery_days_min": 8,
+                "order_delivery_days_min": 7,
                 "order_delivery_days_max": 12,
                 "label_order": "Order placed",
                 "label_ship": "Ships",

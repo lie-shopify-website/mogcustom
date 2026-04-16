@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "main": {
       "type": "product-information",
@@ -326,7 +326,7 @@
                 "title": "Arrives by [date] if you order today. Hooray!",
                 "order_shipping_days_min": 1,
                 "order_shipping_days_max": 2,
-                "order_delivery_days_min": 8,
+                "order_delivery_days_min": 7,
                 "order_delivery_days_max": 12,
                 "label_order": "Order placed",
                 "label_ship": "Ships",
@@ -762,7 +762,6 @@
     },
     "cm_image_with_text_kHMqEA": {
       "type": "cm-image-with-text",
-      "disabled": true,
       "blocks": {
         "heading_PJfMyp": {
           "type": "heading",
@@ -788,8 +787,8 @@
             "button_text": "fsdafasf",
             "button_url": "shopify://products/911-never-forget-garden-flag-patriot-decor-prayer-flags-patriotic-flags-usa-flag",
             "button_text_color": "#ffffff",
-            "button_bg_color": "#F7921F",
-            "button_text_color_hover": "#F7921F",
+            "button_bg_color": "#f7921f",
+            "button_text_color_hover": "#f7921f",
             "button_bg_color_hover": "#ffffff"
           }
         }
@@ -799,14 +798,15 @@
         "text_tjPq9r",
         "button_g3ghFk"
       ],
+      "disabled": true,
       "name": "图文组合",
       "settings": {
         "section_width": "global-width",
         "section_width_custom": 1440,
         "layout_type_pc": "left",
         "layout_type_mb": "top",
-        "bg_color": "transparent",
-        "content_bg_color": "transparent",
+        "bg_color": "rgba(0,0,0,0)",
+        "content_bg_color": "rgba(0,0,0,0)",
         "image": "shopify://shop_images/qfzzMcyTmQ__20260415_102421_1.jpg",
         "image_mb": "shopify://shop_images/BHjwD0apV2__20260415_102421_3.jpg",
         "image_url": "",
